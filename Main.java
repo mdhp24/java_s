@@ -16,9 +16,17 @@ public class Main {
 
         // System.out.printf("baris ke-10: halo ketua %d", 212);
 
-        System.out.println("hallo cuy" + args[0] + "posisi?");
-        System.out.println(args[1]);
+        // System.out.println("hallo cuy" + args[0] + "posisi?");
+        // System.out.println(args[1]);
 
-        // System.out.println("halllooo");
+        // // System.out.println("halllooo");
+
+        //tipe data
+        int x = 10;
+        int y = 20;
+
+        System.out.println("Nilai x: " + x);
+        System.out.println("Nilai y: " + y);
+        System.out.println("Jumlah: " + (x + y));
     }
 }
