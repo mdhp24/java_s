@@ -1,4 +1,5 @@
-import javax.swing.plaf.ToolBarUI;
+// import javax.swing.plaf.ToolBarUI;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,25 +77,59 @@ public class Main {
         // 4. pembagian
         // 5. modulus
 
-        int var1 = 11;
-        int var2 = 5;
+        // int var1 = 11;
+        // int var2 = 5;
 
-        int hasil;
+        // int hasil;
 
-        hasil = var1 + var2;
-        System.out.println("Hasil penjumlahan: " + hasil);
+        // hasil = var1 + var2;
+        // System.out.println("Hasil penjumlahan: " + hasil);
 
-        hasil = var1 - var2;
-        System.out.println("Hasil pengurangan: " + hasil);
+        // hasil = var1 - var2;
+        // System.out.println("Hasil pengurangan: " + hasil);
 
-        hasil = var1 * var2;
-        System.out.println("Hasil perkalian: " + hasil);
+        // hasil = var1 * var2;
+        // System.out.println("Hasil perkalian: " + hasil);
 
-        hasil = var1 / var2;
-        System.out.println("Hasil pembagian: " + hasil);
+        // hasil = var1 / var2;
+        // System.out.println("Hasil pembagian: " + hasil);
 
-        hasil = var1 % var2;
-        System.out.println("Hasil modulus: " + hasil);
+        // hasil = var1 % var2;
+        // System.out.println("Hasil modulus: " + hasil);
+
+        Scanner inputUser;
+        float a,b;
+        char operator;
+
+        inputUser = new Scanner(System.in);
+        System.out.print("Masukkan angka pertama: ");
+        a = inputUser.nextFloat();
+        System.out.print("Masukkan operator (+, -, *, /): ");
+        operator = inputUser.next().charAt(0);
+        System.out.print("Masukkan angka kedua: ");
+        b = inputUser.nextFloat();
+
+        switch (operator) {
+            case '+':
+                System.out.println("Hasil: " + (a + b));
+                break;
+            case '-':
+                System.out.println("Hasil: " + (a - b));
+                break;
+            case '*':
+                System.out.println("Hasil: " + (a * b));
+                break;
+            case '/':
+                if (b != 0) {
+                    System.out.println("Hasil: " + (a / b));
+                } else {
+                    System.out.println("Error: Pembagian dengan nol tidak diperbolehkan.");
+                }
+                break;
+            default:
+                System.out.println("Error: Operator tidak valid.");
+                break;
+        }
 
     }
 }
