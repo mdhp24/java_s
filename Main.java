@@ -33,39 +33,68 @@ public class Main {
 
         // integer, byte, short, int, long, float, char, boolean
         // integer {satuan}
-        int i = 10;
-        System.out.println("========== INTEGER ==========");
-        System.out.println("Nilai i: " + i);
-        System.out.println("Nilai max: " + Integer.MAX_VALUE);
+        // int i = 10;
+        // System.out.println("========== INTEGER ==========");
+        // System.out.println("Nilai i: " + i);
+        // System.out.println("Nilai max: " + Integer.MAX_VALUE);
 
-        System.out.println("========== BYTE ==========");
-        byte b = 10;
-        System.out.println("Nilai b: " + b);
-        System.out.println("Nilai max: " + Byte.MAX_VALUE);
+        // System.out.println("========== BYTE ==========");
+        // byte b = 10;
+        // System.out.println("Nilai b: " + b);
+        // System.out.println("Nilai max: " + Byte.MAX_VALUE);
 
-        System.out.println("========== SHORT ==========");
-        short s = 10;
-        System.out.println("Nilai s: " + s);
-        System.out.println("Nilai max: " + Short.MAX_VALUE);
+        // System.out.println("========== SHORT ==========");
+        // short s = 10;
+        // System.out.println("Nilai s: " + s);
+        // System.out.println("Nilai max: " + Short.MAX_VALUE);
 
-        System.out.println("========== LONG ==========");
-        long l = 10L;
-        System.out.println("Nilai l: " + l);
-        System.out.println("Nilai max: " + Long.MAX_VALUE);
+        // System.out.println("========== LONG ==========");
+        // long l = 10L;
+        // System.out.println("Nilai l: " + l);
+        // System.out.println("Nilai max: " + Long.MAX_VALUE);
 
-        System.out.println("========== FLOAT ==========");
-        float f = 10.5f;
-        System.out.println("Nilai f: " + f);
-        System.out.println("Nilai max: " + Float.MAX_VALUE);
+        // System.out.println("========== FLOAT ==========");
+        // float f = 10.5f;
+        // System.out.println("Nilai f: " + f);
+        // System.out.println("Nilai max: " + Float.MAX_VALUE);
 
-        System.out.println("========== CHAR ==========");
-        char c = 'A';
-        System.out.println("Nilai c: " + c);
-        System.out.println("Nilai max: " + Character.MAX_VALUE);
+        // System.out.println("========== CHAR ==========");
+        // char c = 'A';
+        // System.out.println("Nilai c: " + c);
+        // System.out.println("Nilai max: " + Character.MAX_VALUE);
 
-        System.out.println("========== BOOLEAN ==========");
-        boolean bool = true;
-        System.out.println("Nilai bool: " + bool);
-        System.out.println("Nilai max: " + Boolean.TRUE);
+        // System.out.println("========== BOOLEAN ==========");
+        // boolean bool = true;
+        // System.out.println("Nilai bool: " + bool);
+        // System.out.println("Nilai max: " + Boolean.TRUE);
+
+        // operator aritmatika
+
+        // 1. penjumlahan
+        // 2. pengurangan
+        // 3. perkalian
+        // 4. pembagian
+        // 5. modulus
+
+        int var1 = 11;
+        int var2 = 5;
+
+        int hasil;
+
+        hasil = var1 + var2;
+        System.out.println("Hasil penjumlahan: " + hasil);
+
+        hasil = var1 - var2;
+        System.out.println("Hasil pengurangan: " + hasil);
+
+        hasil = var1 * var2;
+        System.out.println("Hasil perkalian: " + hasil);
+
+        hasil = var1 / var2;
+        System.out.println("Hasil pembagian: " + hasil);
+
+        hasil = var1 % var2;
+        System.out.println("Hasil modulus: " + hasil);
+
     }
 }
