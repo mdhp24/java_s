@@ -151,7 +151,6 @@ public class Main {
 
 
     }
-    // Fungsi konversi mata uang menggunakan Exchange Rate API
     public static double convertCurrency(String from, String to, double amount) throws Exception {
         String urlStr = "https://api.exchangerate-api.com/v4/latest/" + from;
         java.net.URL url = new java.net.URL(urlStr);
@@ -174,7 +173,6 @@ public class Main {
         br.close();
 
         String json = sb.toString();
-        // Parsing JSON manual (sederhana, hanya untuk rates)
         String search = '"' + to + '"' + ":";
         int idx = json.indexOf(search);
         if (idx == -1) throw new Exception("Mata uang tidak ditemukan");
