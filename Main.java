@@ -1,5 +1,5 @@
 // import javax.swing.plaf.ToolBarUI;
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -97,39 +97,92 @@ public class Main {
         // hasil = var1 % var2;
         // System.out.println("Hasil modulus: " + hasil);
 
-        Scanner inputUser;
-        float a,b;
-        char operator;
+        // kalkulator sederhana
+        // Scanner inputUser;
+        // float a,b;
+        // char operator;
 
-        inputUser = new Scanner(System.in);
-        System.out.print("Masukkan angka pertama: ");
-        a = inputUser.nextFloat();
-        System.out.print("Masukkan operator (+, -, *, /): ");
-        operator = inputUser.next().charAt(0);
-        System.out.print("Masukkan angka kedua: ");
-        b = inputUser.nextFloat();
+        // inputUser = new Scanner(System.in);
+        // System.out.print("Masukkan angka pertama: ");
+        // a = inputUser.nextFloat();
+        // System.out.print("Masukkan operator (+, -, *, /): ");
+        // operator = inputUser.next().charAt(0);
+        // System.out.print("Masukkan angka kedua: ");
+        // b = inputUser.nextFloat();
 
-        switch (operator) {
-            case '+':
-                System.out.println("Hasil: " + (a + b));
-                break;
-            case '-':
-                System.out.println("Hasil: " + (a - b));
-                break;
-            case '*':
-                System.out.println("Hasil: " + (a * b));
-                break;
-            case '/':
-                if (b != 0) {
-                    System.out.println("Hasil: " + (a / b));
-                } else {
-                    System.out.println("Error: Pembagian dengan nol tidak diperbolehkan.");
-                }
-                break;
-            default:
-                System.out.println("Error: Operator tidak valid.");
-                break;
+        // switch (operator) {
+        // case '+':
+        // System.out.println("Hasil: " + (a + b));
+        // break;
+        // case '-':
+        // System.out.println("Hasil: " + (a - b));
+        // break;
+        // case '*':
+        // System.out.println("Hasil: " + (a * b));
+        // break;
+        // case '/':
+        // if (b != 0) {
+        // System.out.println("Hasil: " + (a / b));
+        // } else {
+        // System.out.println("Error: Pembagian dengan nol tidak diperbolehkan.");
+        // }
+        // break;
+        // default:
+        // System.out.println("Error: Operator tidak valid.");
+        // break;
+        // }
+
+            // === Konverter Mata Uang ===
+            java.util.Scanner scanner = new java.util.Scanner(System.in);
+            System.out.println("=== Konverter Mata Uang ===");
+            System.out.print("Masukkan kode mata uang asal (misal: USD): ");
+            String fromCurrency = scanner.nextLine().toUpperCase();
+            System.out.print("Masukkan kode mata uang tujuan (misal: IDR): ");
+            String toCurrency = scanner.nextLine().toUpperCase();
+            System.out.print("Masukkan jumlah yang akan dikonversi: ");
+            double amount = scanner.nextDouble();
+
+            try {
+                double result = convertCurrency(fromCurrency, toCurrency, amount);
+                System.out.printf("%.2f %s = %.2f %s\n", amount, fromCurrency, result, toCurrency);
+            } catch (Exception e) {
+                System.out.println("Gagal mengonversi mata uang: " + e.getMessage());
+            }
+
+
+    }
+    // Fungsi konversi mata uang menggunakan Exchange Rate API
+    public static double convertCurrency(String from, String to, double amount) throws Exception {
+        String urlStr = "https://api.exchangerate-api.com/v4/latest/" + from;
+        java.net.URL url = new java.net.URL(urlStr);
+        java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.connect();
+
+        int responseCode = conn.getResponseCode();
+        if (responseCode != 200) {
+            throw new RuntimeException("HTTP Response Code: " + responseCode);
         }
 
+        java.io.InputStreamReader isr = new java.io.InputStreamReader(conn.getInputStream());
+        java.io.BufferedReader br = new java.io.BufferedReader(isr);
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+        }
+        br.close();
+
+        String json = sb.toString();
+        // Parsing JSON manual (sederhana, hanya untuk rates)
+        String search = '"' + to + '"' + ":";
+        int idx = json.indexOf(search);
+        if (idx == -1) throw new Exception("Mata uang tidak ditemukan");
+        int start = idx + search.length();
+        int end = json.indexOf(',', start);
+        if (end == -1) end = json.indexOf('}', start);
+        String rateStr = json.substring(start, end).trim();
+        double rate = Double.parseDouble(rateStr);
+        return amount * rate;
     }
 }
