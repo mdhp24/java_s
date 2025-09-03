@@ -268,25 +268,42 @@ public class Main {
 
         // ternary operator
 
-        int input, x;
+        // int input, x;
 
-        Scanner inputUser = new Scanner(System.in);
+        // Scanner inputUser = new Scanner(System.in);
 
-        System.out.print("masukan nilai: ");
-        input = inputUser.nextInt();
+        // System.out.print("masukan nilai: ");
+        // input = inputUser.nextInt();
 
-        // variable x = ekspresi ? statement_true : statement_false
+        // // variable x = ekspresi ? statement_true : statement_false
 
-        x = (input == 10) ? (input * input) : (input / 2);
+        // x = (input == 10) ? (input * input) : (input / 2);
 
-        // jika memakai if
-        // if (input==10){
-        // x = input*input;
-        // }else{
-        // x = input/2;
-        // }
+        // // jika memakai if
+        // // if (input==10){
+        // // x = input*input;
+        // // }else{
+        // // x = input/2;
+        // // }
 
-        System.out.println("hasilnya " + x);
+        // System.out.println("hasilnya " + x);
+
+        int a = 0;
+        boolean kondisi = true;
+
+        System.out.println("awal program");
+
+        while (kondisi) {
+            System.out.println("while loop ke-" + a);
+
+            if (a == 10) {
+                kondisi = false;
+            }
+
+            a++;
+        }
+
+        System.out.println("akhir program");
 
     }
 
