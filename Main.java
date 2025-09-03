@@ -1,3 +1,4 @@
+
 // import javax.swing.plaf.ToolBarUI;
 import java.util.Scanner;
 
@@ -194,26 +195,26 @@ public class Main {
         // Latihan Logika Operator
         // System.out.println("test");
 
-        Scanner inputUser = new Scanner(System.in);
+        // Scanner inputUser = new Scanner(System.in);
 
-        //program untuk menebak sebuah angka
+        // //program untuk menebak sebuah angka
 
-        int nilaiBenar = 6;
-        int nilaiTebakan;
-        boolean statusTebakan;
+        // int nilaiBenar = 6;
+        // int nilaiTebakan;
+        // boolean statusTebakan;
 
-        System.out.print("Masukkan nilai tebakan anda: ");
-        nilaiTebakan = inputUser.nextInt();
-        System.out.println("Nilai tebakan anda adalah: " + nilaiTebakan);
+        // System.out.print("Masukkan nilai tebakan anda: ");
+        // nilaiTebakan = inputUser.nextInt();
+        // System.out.println("Nilai tebakan anda adalah: " + nilaiTebakan);
         
-        statusTebakan = (nilaiTebakan == nilaiBenar);
-        System.out.println("Tebakan anda: " + statusTebakan);
+        // statusTebakan = (nilaiTebakan == nilaiBenar);
+        // System.out.println("Tebakan anda: " + statusTebakan);
 
-        // operator aljabar boolean (and / or)
-        System.out.println("Masukkan nilai antara 5 dan 10");
-        nilaiTebakan = inputUser.nextInt();
-        boolean statusRange = (nilaiTebakan > 5 && nilaiTebakan < 10);
-        System.out.println("Nilai tebakan anda berada dalam rentang 5-10: " + statusRange);
+        // // operator aljabar boolean (and / or)
+        // System.out.println("Masukkan nilai antara 5 dan 10");
+        // nilaiTebakan = inputUser.nextInt();
+        // boolean statusRange = (nilaiTebakan > 5 && nilaiTebakan < 10);
+        // System.out.println("Nilai tebakan anda berada dalam rentang 5-10: " + statusRange);
 
         /*
          * a | b | c
@@ -223,5 +224,22 @@ public class Main {
          * 1   1   1
          */
 
-    }
+         // nested if atau if bersarang
+
+         int a = 5;
+         int b = 10;
+
+         System.out.println("Ini adalah awal dari program");
+
+         if (a == 5){
+            if (b == 10){
+                System.out.println("Ini adalah aksi, a = 5 dan b = 10");
+            } else {
+                System.out.println("Ini adalah aksi default 1, dimana a = 5 dan b bukan 10");
+            }
+         } else {
+                System.out.println("Ini adalah aksi default 2, dimana a dan b salah");
+            } System.out.println("Ini adalah akhir dari program");
+    }  
+
 }
