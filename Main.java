@@ -132,55 +132,64 @@ public class Main {
         // break;
         // }
 
-            // === Konverter Mata Uang ===
-            java.util.Scanner scanner = new java.util.Scanner(System.in);
-            System.out.println("=== Konverter Mata Uang ===");
-            System.out.print("Masukkan kode mata uang asal (misal: USD): ");
-            String fromCurrency = scanner.nextLine().toUpperCase();
-            System.out.print("Masukkan kode mata uang tujuan (misal: IDR): ");
-            String toCurrency = scanner.nextLine().toUpperCase();
-            System.out.print("Masukkan jumlah yang akan dikonversi: ");
-            double amount = scanner.nextDouble();
+        // === Konverter Mata Uang ===
+        // java.util.Scanner scanner = new java.util.Scanner(System.in);
+        // System.out.println("=== Konverter Mata Uang ===");
+        // System.out.print("Masukkan kode mata uang asal (misal: USD): ");
+        // String fromCurrency = scanner.nextLine().toUpperCase();
+        // System.out.print("Masukkan kode mata uang tujuan (misal: IDR): ");
+        // String toCurrency = scanner.nextLine().toUpperCase();
+        // System.out.print("Masukkan jumlah yang akan dikonversi: ");
+        // double amount = scanner.nextDouble();
 
-            try {
-                double result = convertCurrency(fromCurrency, toCurrency, amount);
-                System.out.printf("%.2f %s = %.2f %s\n", amount, fromCurrency, result, toCurrency);
-            } catch (Exception e) {
-                System.out.println("Gagal mengonversi mata uang: " + e.getMessage());
-            }
+        // try {
+        // double result = convertCurrency(fromCurrency, toCurrency, amount);
+        // System.out.printf("%.2f %s = %.2f %s\n", amount, fromCurrency, result,
+        // toCurrency);
+        // } catch (Exception e) {
+        // System.out.println("Gagal mengonversi mata uang: " + e.getMessage());
+        // }
 
+        // }
+        // public static double convertCurrency(String from, String to, double amount)
+        // throws Exception {
+        // String urlStr = "https://api.exchangerate-api.com/v4/latest/" + from;
+        // java.net.URL url = new java.net.URL(urlStr);
+        // java.net.HttpURLConnection conn = (java.net.HttpURLConnection)
+        // url.openConnection();
+        // conn.setRequestMethod("GET");
+        // conn.connect();
 
-    }
-    public static double convertCurrency(String from, String to, double amount) throws Exception {
-        String urlStr = "https://api.exchangerate-api.com/v4/latest/" + from;
-        java.net.URL url = new java.net.URL(urlStr);
-        java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.connect();
+        // int responseCode = conn.getResponseCode();
+        // if (responseCode != 200) {
+        // throw new RuntimeException("HTTP Response Code: " + responseCode);
+        // }
 
-        int responseCode = conn.getResponseCode();
-        if (responseCode != 200) {
-            throw new RuntimeException("HTTP Response Code: " + responseCode);
-        }
+        // java.io.InputStreamReader isr = new
+        // java.io.InputStreamReader(conn.getInputStream());
+        // java.io.BufferedReader br = new java.io.BufferedReader(isr);
+        // StringBuilder sb = new StringBuilder();
+        // String line;
+        // while ((line = br.readLine()) != null) {
+        // sb.append(line);
+        // }
+        // br.close();
 
-        java.io.InputStreamReader isr = new java.io.InputStreamReader(conn.getInputStream());
-        java.io.BufferedReader br = new java.io.BufferedReader(isr);
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        br.close();
+        // String json = sb.toString();
+        // String search = '"' + to + '"' + ":";
+        // int idx = json.indexOf(search);
+        // if (idx == -1) throw new Exception("Mata uang tidak ditemukan");
+        // int start = idx + search.length();
+        // int end = json.indexOf(',', start);
+        // if (end == -1) end = json.indexOf('}', start);
+        // String rateStr = json.substring(start, end).trim();
+        // double rate = Double.parseDouble(rateStr);
+        // return amount * rate;
 
-        String json = sb.toString();
-        String search = '"' + to + '"' + ":";
-        int idx = json.indexOf(search);
-        if (idx == -1) throw new Exception("Mata uang tidak ditemukan");
-        int start = idx + search.length();
-        int end = json.indexOf(',', start);
-        if (end == -1) end = json.indexOf('}', start);
-        String rateStr = json.substring(start, end).trim();
-        double rate = Double.parseDouble(rateStr);
-        return amount * rate;
+        int hasil = 10 * 2 * 5;
+        System.out.println(hasil);
+        int hasil1 = 5 + 5 / 2;
+        System.out.println(hasil1);
+
     }
 }
