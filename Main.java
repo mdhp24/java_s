@@ -1,5 +1,5 @@
 // import javax.swing.plaf.ToolBarUI;
-// import java.util.Scanner;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -186,10 +186,25 @@ public class Main {
         // double rate = Double.parseDouble(rateStr);
         // return amount * rate;
 
-        int hasil = 10 * 2 * 5;
-        System.out.println(hasil);
-        int hasil1 = 5 + 5 / 2;
-        System.out.println(hasil1);
+        // int hasil = 10 * 2 * 5;
+        // System.out.println(hasil);
+        // int hasil1 = 5 + 5 / 2;
+        // System.out.println(hasil1);
+
+        // Latihan Logika Operator
+        // System.out.println("test");
+
+        Scanner inputUser = new Scanner(System.in);
+
+        //program untuk menebak sebuah angka
+
+        int nilaiBenar = 6;
+        int nilaiTebakan;
+
+        System.out.print("Masukkan nilai tebakan anda: ");
+        nilaiTebakan = inputUser.nextInt();
+        System.out.println("Nilai tebakan anda adalah: " + nilaiTebakan);
+  
 
     }
 }
