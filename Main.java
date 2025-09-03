@@ -206,7 +206,7 @@ public class Main {
         // System.out.print("Masukkan nilai tebakan anda: ");
         // nilaiTebakan = inputUser.nextInt();
         // System.out.println("Nilai tebakan anda adalah: " + nilaiTebakan);
-        
+
         // statusTebakan = (nilaiTebakan == nilaiBenar);
         // System.out.println("Tebakan anda: " + statusTebakan);
 
@@ -214,32 +214,58 @@ public class Main {
         // System.out.println("Masukkan nilai antara 5 dan 10");
         // nilaiTebakan = inputUser.nextInt();
         // boolean statusRange = (nilaiTebakan > 5 && nilaiTebakan < 10);
-        // System.out.println("Nilai tebakan anda berada dalam rentang 5-10: " + statusRange);
+        // System.out.println("Nilai tebakan anda berada dalam rentang 5-10: " +
+        // statusRange);
 
         /*
          * a | b | c
-         * 0   0   0
-         * 0   1   0
-         * 1   0   0
-         * 1   1   1
+         * 0 0 0
+         * 0 1 0
+         * 1 0 0
+         * 1 1 1
          */
 
-         // nested if atau if bersarang
+        // nested if atau if bersarang
 
-         int a = 5;
-         int b = 10;
+        // int a = 5;
+        // int b = 10;
 
-         System.out.println("Ini adalah awal dari program");
+        // System.out.println("Ini adalah awal dari program");
 
-         if (a == 5){
-            if (b == 10){
-                System.out.println("Ini adalah aksi, a = 5 dan b = 10");
-            } else {
-                System.out.println("Ini adalah aksi default 1, dimana a = 5 dan b bukan 10");
-            }
-         } else {
-                System.out.println("Ini adalah aksi default 2, dimana a dan b salah");
-            } System.out.println("Ini adalah akhir dari program");
-    }  
+        // if (a == 5){
+        // if (b == 10){
+        // System.out.println("Ini adalah aksi, a = 5 dan b = 10");
+        // } else {
+        // System.out.println("Ini adalah aksi default 1, dimana a = 5 dan b bukan 10");
+        // }
+        // } else {
+        // System.out.println("Ini adalah aksi default 2, dimana a dan b salah");
+        // } System.out.println("Ini adalah akhir dari program");
+        // }
+
+        String input;
+        Scanner inputUser = new Scanner(System.in);
+
+        System.out.print("panggil nama: ");
+        input = inputUser.next();
+
+        // ekspresinya berupa satuan (int,long,byte,short), String, atau enum
+        switch (input) {
+            case "otong":
+                System.out.println("saya otong dan hadir Bos!!!");
+                break;
+            case "ucup":
+                System.out.println("saya ucup dan hadir Bos!!!!");
+                break;
+            case "mario":
+                System.out.println("saya mario dan hadir Bos!!!!");
+                break;
+            default:
+                System.out.println(input + " tidak hadir Bos!!!");
+        }
+
+        System.out.println("selesai program");
+
+    }
 
 }
