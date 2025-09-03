@@ -243,28 +243,50 @@ public class Main {
         // } System.out.println("Ini adalah akhir dari program");
         // }
 
-        String input;
+        // String input;
+        // Scanner inputUser = new Scanner(System.in);
+
+        // System.out.print("panggil nama: ");
+        // input = inputUser.next();
+
+        // // ekspresinya berupa satuan (int,long,byte,short), String, atau enum
+        // switch (input) {
+        // case "otong":
+        // System.out.println("saya otong dan hadir Bos!!!");
+        // break;
+        // case "ucup":
+        // System.out.println("saya ucup dan hadir Bos!!!!");
+        // break;
+        // case "mario":
+        // System.out.println("saya mario dan hadir Bos!!!!");
+        // break;
+        // default:
+        // System.out.println(input + " tidak hadir Bos!!!");
+        // }
+
+        // System.out.println("selesai program");
+
+        // ternary operator
+
+        int input, x;
+
         Scanner inputUser = new Scanner(System.in);
 
-        System.out.print("panggil nama: ");
-        input = inputUser.next();
+        System.out.print("masukan nilai: ");
+        input = inputUser.nextInt();
 
-        // ekspresinya berupa satuan (int,long,byte,short), String, atau enum
-        switch (input) {
-            case "otong":
-                System.out.println("saya otong dan hadir Bos!!!");
-                break;
-            case "ucup":
-                System.out.println("saya ucup dan hadir Bos!!!!");
-                break;
-            case "mario":
-                System.out.println("saya mario dan hadir Bos!!!!");
-                break;
-            default:
-                System.out.println(input + " tidak hadir Bos!!!");
-        }
+        // variable x = ekspresi ? statement_true : statement_false
 
-        System.out.println("selesai program");
+        x = (input == 10) ? (input * input) : (input / 2);
+
+        // jika memakai if
+        // if (input==10){
+        // x = input*input;
+        // }else{
+        // x = input/2;
+        // }
+
+        System.out.println("hasilnya " + x);
 
     }
 
