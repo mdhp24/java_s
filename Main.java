@@ -296,11 +296,12 @@ public class Main {
         while (kondisi) {
             System.out.println("while loop ke-" + a);
 
-            if (a == 10) {
+            if (a == 20) {
                 kondisi = false;
             }
-
+            
             a++;
+
         }
 
         System.out.println("akhir program");
