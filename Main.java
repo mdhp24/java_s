@@ -200,11 +200,28 @@ public class Main {
 
         int nilaiBenar = 6;
         int nilaiTebakan;
+        boolean statusTebakan;
 
         System.out.print("Masukkan nilai tebakan anda: ");
         nilaiTebakan = inputUser.nextInt();
         System.out.println("Nilai tebakan anda adalah: " + nilaiTebakan);
-  
+        
+        statusTebakan = (nilaiTebakan == nilaiBenar);
+        System.out.println("Tebakan anda: " + statusTebakan);
+
+        // operator aljabar boolean (and / or)
+        System.out.println("Masukkan nilai antara 5 dan 10");
+        nilaiTebakan = inputUser.nextInt();
+        boolean statusRange = (nilaiTebakan > 5 && nilaiTebakan < 10);
+        System.out.println("Nilai tebakan anda berada dalam rentang 5-10: " + statusRange);
+
+        /*
+         * a | b | c
+         * 0   0   0
+         * 0   1   0
+         * 1   0   0
+         * 1   1   1
+         */
 
     }
 }
