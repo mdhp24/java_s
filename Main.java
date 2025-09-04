@@ -333,43 +333,61 @@ public class Main {
         //
         // }
 
-        System.out.println("ini adalah awal program");
+        // System.out.println("ini adalah awal program");
 
-        System.out.println("loop pertama");
+        // System.out.println("loop pertama");
 
-        for (int nilai = 0; nilai <= 10; nilai++) {
+        // for (int nilai = 0; nilai <= 10; nilai++) {
 
-            System.out.println("for loop ke-" + nilai);
+        // System.out.println("for loop ke-" + nilai);
 
+        // }
+
+        // System.out.println("loop kedua");
+
+        // for (int nilai = 0; nilai < 10; nilai++) {
+
+        // System.out.println("for loop ke-" + nilai);
+
+        // }
+
+        // System.out.println("loop ketiga");
+
+        // for (int nilai = 10; nilai >= 5; nilai--) {
+
+        // System.out.println("for loop ke-" + nilai);
+
+        // }
+
+        // System.out.println("loop keempat");
+
+        // int nilai = 0;
+
+        // for (; nilai < 10;) {
+
+        // System.out.println("for loop ke-" + nilai);
+        // nilai++;
+        // }
+
+        // System.out.println("ini adalah akhir program");
+
+        // program untuk menjumlahkan angka dengan rentang
+
+        int nilaiAwal, nilaiAkhir, total;
+
+        Scanner inputUser = new Scanner(System.in);
+        System.out.print("masukan nilai awal = ");
+        nilaiAwal = inputUser.nextInt();
+        System.out.print("masukan nilai akhir = ");
+        nilaiAkhir = inputUser.nextInt();
+
+        total = 0;
+
+        while (nilaiAwal <= nilaiAkhir) {
+            total = total + nilaiAwal;
+            System.out.println("ditambah " + nilaiAwal + " menjadi " + total);
+            nilaiAwal++;
         }
-
-        System.out.println("loop kedua");
-
-        for (int nilai = 0; nilai < 10; nilai++) {
-
-            System.out.println("for loop ke-" + nilai);
-
-        }
-
-        System.out.println("loop ketiga");
-
-        for (int nilai = 10; nilai >= 5; nilai--) {
-
-            System.out.println("for loop ke-" + nilai);
-
-        }
-
-        System.out.println("loop keempat");
-
-        int nilai = 0;
-
-        for (; nilai < 10;) {
-
-            System.out.println("for loop ke-" + nilai);
-            nilai++;
-        }
-
-        System.out.println("ini adalah akhir program");
 
     }
 
