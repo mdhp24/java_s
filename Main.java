@@ -442,27 +442,57 @@ public class Main {
         // int a = 0;
 
         // while (true) {
-        //     a++;
+        // a++;
 
-        //     if (a == 10) {
-        //         break;
-        //         // ini adalah keyword untuk memaksa keluar dari loop
-        //     } else if (a == 5) {
-        //         continue;
-        //         // ini adalah keyword untuk memaksa memulai aksi dari awal
-        //     } else if (a == 7) {
-        //         return;
-        //     }
+        // if (a == 10) {
+        // break;
+        // // ini adalah keyword untuk memaksa keluar dari loop
+        // } else if (a == 5) {
+        // continue;
+        // // ini adalah keyword untuk memaksa memulai aksi dari awal
+        // } else if (a == 7) {
+        // return;
+        // }
 
-        //     System.out.println("looping ke - " + a);
+        // System.out.println("looping ke - " + a);
 
         // }
 
         // System.out.println("akhir dari looping");
 
         // OOP
-        System.out.println("=== OOP ===");
+        // System.out.println("=== OOP ===");
 
+        User user1 = new User();
+        user1.register("otong", "rahasia");
+        user1.notifikasi();
+
+        User user2 = new Admin();
+        user2.register("joko", "joko123");
+        user2.notifikasi();
+    }
+}
+
+class User {
+    protected String username;
+    protected String password;
+
+    void notifikasi() {
+        System.out.println("Notifikasi untuk user: " + this.username);
+    }
+}
+
+class Admin extends User {
+    private final String role = "admin";
+
+    void createUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+        // System.out.println("Admin membuat user dengan username: " + this.username);
     }
 
+    @Override
+    void notifikasi() {
+        System.out.println("User created by admin" + role);
+    }
 }
