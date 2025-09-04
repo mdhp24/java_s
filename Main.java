@@ -439,26 +439,29 @@ public class Main {
         // f_n_1 = f_n;
         // }
 
-        int a = 0;
+        // int a = 0;
 
-        while (true) {
-            a++;
+        // while (true) {
+        //     a++;
 
-            if (a == 10) {
-                break;
-                // ini adalah keyword untuk memaksa keluar dari loop
-            } else if (a == 5) {
-                continue;
-                // ini adalah keyword untuk memaksa memulai aksi dari awal
-            } else if (a == 7) {
-                return;
-            }
+        //     if (a == 10) {
+        //         break;
+        //         // ini adalah keyword untuk memaksa keluar dari loop
+        //     } else if (a == 5) {
+        //         continue;
+        //         // ini adalah keyword untuk memaksa memulai aksi dari awal
+        //     } else if (a == 7) {
+        //         return;
+        //     }
 
-            System.out.println("looping ke - " + a);
+        //     System.out.println("looping ke - " + a);
 
-        }
+        // }
 
-        System.out.println("akhir dari looping");
+        // System.out.println("akhir dari looping");
+
+        // OOP
+        System.out.println("=== OOP ===");
 
     }
 
