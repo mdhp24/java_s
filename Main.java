@@ -464,72 +464,88 @@ public class Main {
         // OOP
         // System.out.println("=== OOP ===");
 
-        Scanner inputUser = new Scanner(System.in);
+        // Scanner inputUser = new Scanner(System.in);
 
-        System.out.println("=== Program Registrasi User ===");
-        System.out.print("masukan username: ");
-        String username = inputUser.nextLine();
+        // System.out.println("=== Program Registrasi User ===");
+        // System.out.print("masukan username: ");
+        // String username = inputUser.nextLine();
 
-        System.out.print("Masukkan password: ");
-        String password = inputUser.nextLine();
+        // System.out.print("Masukkan password: ");
+        // String password = inputUser.nextLine();
 
-        User user1 = new User();
-        user1.register(username, password);
-        user1.notification();
+        // User user1 = new User();
+        // user1.register(username, password);
+        // user1.notification();
 
-        // User user2 = new Admin();
-        // user2.register(username, password);
-        // user2.notification();
+        // // User user2 = new Admin();
+        // // user2.register(username, password);
+        // // user2.notification();
 
-    }
-}
+        // PSEUDOCODE
+        // Program menghitung persegi panjang
 
-abstract class Display {
-    abstract void notification();
+        int panjang, lebar, luas;
 
-    void showToken(UUID token) {
-        System.out.println("token generated: " + token);
-    };
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan panjang: ");
+        panjang = input.nextInt();
 
-}
+        System.out.print("Masukkan lebar: ");
+        lebar = input.nextInt();
 
-class User extends Display {
-    protected String username;
-    protected String password;
-    protected UUID token;
-
-    void tokenCreation() {
-        token = UUID.randomUUID();
-    }
-
-    void register(String username, String password) {
-        this.username = username;
-        this.password = password;
-        tokenCreation();
-        System.out.println("User terdaftar dengan username: " + this.username);
-        System.out.println("Username: " + this.username);
-        System.out.println("Password: " + this.password);
-    }
-
-    @Override
-    void notification() {
-        System.out.println("Notifikasi untuk user");
+        luas = panjang * lebar;
+        System.out.println("Luas persegi panjang: " + luas);
 
     }
 }
 
-class Admin extends User {
-    private final String role = "admin";
+// abstract class Display {
+// abstract void notification();
 
-    void createUser(String username, String password) {
-        this.username = username;
-        this.password = password;
-        // System.out.println("Admin membuat user dengan username: " + this.username);
-    }
+// void showToken(UUID token) {
+// System.out.println("token generated: " + token);
+// };
 
-    @Override
-    void notification() {
-        System.out.println("User created by: " + role);
-        showToken(this.token);
-    }
-}
+// }
+
+// class User extends Display {
+// protected String username;
+// protected String password;
+// protected UUID token;
+
+// void tokenCreation() {
+// token = UUID.randomUUID();
+// }
+
+// void register(String username, String password) {
+// this.username = username;
+// this.password = password;
+// tokenCreation();
+// System.out.println("User terdaftar dengan username: " + this.username);
+// System.out.println("Username: " + this.username);
+// System.out.println("Password: " + this.password);
+// }
+
+// @Override
+// void notification() {
+// System.out.println("Notifikasi untuk user");
+
+// }
+// }
+
+// class Admin extends User {
+// private final String role = "admin";
+
+// void createUser(String username, String password) {
+// this.username = username;
+// this.password = password;
+// // System.out.println("Admin membuat user dengan username: " +
+// this.username);
+// }
+
+// @Override
+// void notification() {
+// System.out.println("User created by: " + role);
+// showToken(this.token);
+// }
+// }
