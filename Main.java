@@ -404,22 +404,40 @@ public class Main {
         // System.out.println("ditambah " + i + " menjadi " + total);
         // }
 
-        int nilaiAwal, nilaiAkhir, total;
+        // int nilaiAwal, nilaiAkhir, total;
+
+        // Scanner inputUser = new Scanner(System.in);
+        // System.out.print("masukan nilai awal = ");
+        // nilaiAwal = inputUser.nextInt();
+        // System.out.print("masukan nilai akhir = ");
+        // nilaiAkhir = inputUser.nextInt();
+
+        // total = 0;
+
+        // int i = nilaiAwal;
+        // do {
+        // total = total + i;
+        // System.out.println("ditambah " + i + " menjadi " + total);
+        // i++;
+        // } while (i <= nilaiAkhir);
+
+        // menghitung nilai deret fibonacci ke-n
+        int f_n, f_n_1, f_n_2, n;
 
         Scanner inputUser = new Scanner(System.in);
-        System.out.print("masukan nilai awal = ");
-        nilaiAwal = inputUser.nextInt();
-        System.out.print("masukan nilai akhir = ");
-        nilaiAkhir = inputUser.nextInt();
+        System.out.print("mengambil nilai fibonacci ke - :");
+        n = inputUser.nextInt();
 
-        total = 0;
+        f_n_2 = 0;
+        f_n_1 = 1;
+        f_n = 1;
 
-        int i = nilaiAwal;
-        do {
-            total = total + i;
-            System.out.println("ditambah " + i + " menjadi " + total);
-            i++;
-        } while (i <= nilaiAkhir);
+        for (int i = 1; i <= n; i++) {
+            System.out.println("nilai ke - " + i + " adalah " + f_n);
+            f_n = f_n_1 + f_n_2;
+            f_n_2 = f_n_1;
+            f_n_1 = f_n;
+        }
 
     }
 
