@@ -433,11 +433,32 @@ public class Main {
         // f_n = 1;
 
         // for (int i = 1; i <= n; i++) {
-        //     System.out.println("nilai ke - " + i + " adalah " + f_n);
-        //     f_n = f_n_1 + f_n_2;
-        //     f_n_2 = f_n_1;
-        //     f_n_1 = f_n;
+        // System.out.println("nilai ke - " + i + " adalah " + f_n);
+        // f_n = f_n_1 + f_n_2;
+        // f_n_2 = f_n_1;
+        // f_n_1 = f_n;
         // }
+
+        int a = 0;
+
+        while (true) {
+            a++;
+
+            if (a == 10) {
+                break;
+                // ini adalah keyword untuk memaksa keluar dari loop
+            } else if (a == 5) {
+                continue;
+                // ini adalah keyword untuk memaksa memulai aksi dari awal
+            } else if (a == 7) {
+                return;
+            }
+
+            System.out.println("looping ke - " + a);
+
+        }
+
+        System.out.println("akhir dari looping");
 
     }
 
