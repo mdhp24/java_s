@@ -288,23 +288,46 @@ public class Main {
 
         // System.out.println("hasilnya " + x);
 
+        // int a = 0;
+        // boolean kondisi = true;
+
+        // System.out.println("awal program");
+
+        // while (kondisi) {
+        //     System.out.println("while loop ke-" + a);
+
+        //     if (a == 20) {
+        //         kondisi = false;
+        //     }
+            
+        //     a++;
+
+        // }
+
+        // System.out.println("akhir program");
+
+        //        do {
+//            aksi
+//        } while (kondisi);
+
+
+        System.out.println("ini adalah awal program");
+
         int a = 0;
         boolean kondisi = true;
 
-        System.out.println("awal program");
 
-        while (kondisi) {
-            System.out.println("while loop ke-" + a);
+        do {
+            a++;
+            System.out.println("do while ke-" + a);
 
-            if (a == 20) {
+            if (a == 1) {
                 kondisi = false;
             }
-            
-            a++;
 
-        }
+        }while(kondisi);
 
-        System.out.println("akhir program");
+        System.out.println("ini adalah akhir program");
 
     }
 
