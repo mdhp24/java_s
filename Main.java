@@ -1,6 +1,7 @@
 
 // import javax.swing.plaf.ToolBarUI;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
@@ -472,31 +473,48 @@ public class Main {
         System.out.print("Masukkan password: ");
         String password = inputUser.nextLine();
 
-        // User user1 = new User();
-        // user1.register(username, password);
-        // user1.notifikasi();
+        User user1 = new User();
+        user1.register(username, password);
+        user1.notification();
 
-        User user2 = new Admin();
-        user2.register(username, password);
-        user2.notifikasi();
+        // User user2 = new Admin();
+        // user2.register(username, password);
+        // user2.notification();
 
     }
 }
 
-class User {
+abstract class Display {
+    abstract void notification();
+
+    void showToken(UUID token) {
+        System.out.println("token generated: " + token);
+    };
+
+}
+
+class User extends Display {
     protected String username;
     protected String password;
+    protected UUID token;
+
+    void tokenCreation() {
+        token = UUID.randomUUID();
+    }
 
     void register(String username, String password) {
         this.username = username;
         this.password = password;
+        tokenCreation();
         System.out.println("User terdaftar dengan username: " + this.username);
         System.out.println("Username: " + this.username);
         System.out.println("Password: " + this.password);
     }
 
-    void notifikasi() {
+    @Override
+    void notification() {
         System.out.println("Notifikasi untuk user");
+
     }
 }
 
@@ -510,7 +528,8 @@ class Admin extends User {
     }
 
     @Override
-    void notifikasi() {
+    void notification() {
         System.out.println("User created by: " + role);
+        showToken(this.token);
     }
 }
