@@ -463,13 +463,23 @@ public class Main {
         // OOP
         // System.out.println("=== OOP ===");
 
-        User user1 = new User();
-        user1.register("otong", "rahasia");
-        user1.notifikasi();
+        Scanner inputUser = new Scanner(System.in);
+
+        System.out.println("=== Program Registrasi User ===");
+        System.out.print("masukan username: ");
+        String username = inputUser.nextLine();
+
+        System.out.print("Masukkan password: ");
+        String password = inputUser.nextLine();
+
+        // User user1 = new User();
+        // user1.register(username, password);
+        // user1.notifikasi();
 
         User user2 = new Admin();
-        user2.register("joko", "joko123");
+        user2.register(username, password);
         user2.notifikasi();
+
     }
 }
 
@@ -477,8 +487,16 @@ class User {
     protected String username;
     protected String password;
 
+    void register(String username, String password) {
+        this.username = username;
+        this.password = password;
+        System.out.println("User terdaftar dengan username: " + this.username);
+        System.out.println("Username: " + this.username);
+        System.out.println("Password: " + this.password);
+    }
+
     void notifikasi() {
-        System.out.println("Notifikasi untuk user: " + this.username);
+        System.out.println("Notifikasi untuk user");
     }
 }
 
@@ -493,6 +511,6 @@ class Admin extends User {
 
     @Override
     void notifikasi() {
-        System.out.println("User created by admin" + role);
+        System.out.println("User created by: " + role);
     }
 }
