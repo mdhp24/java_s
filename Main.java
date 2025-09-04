@@ -400,11 +400,26 @@ public class Main {
         // total = 0;
 
         // for (int i = nilaiAwal; i <= nilaiAkhir; i++) {
-        //     total = total + i;
-        //     System.out.println("ditambah " + i + " menjadi " + total);
+        // total = total + i;
+        // System.out.println("ditambah " + i + " menjadi " + total);
         // }
 
-        
+        int nilaiAwal, nilaiAkhir, total;
+
+        Scanner inputUser = new Scanner(System.in);
+        System.out.print("masukan nilai awal = ");
+        nilaiAwal = inputUser.nextInt();
+        System.out.print("masukan nilai akhir = ");
+        nilaiAkhir = inputUser.nextInt();
+
+        total = 0;
+
+        int i = nilaiAwal;
+        do {
+            total = total + i;
+            System.out.println("ditambah " + i + " menjadi " + total);
+            i++;
+        } while (i <= nilaiAkhir);
 
     }
 
