@@ -373,21 +373,38 @@ public class Main {
 
         // program untuk menjumlahkan angka dengan rentang
 
-        int nilaiAwal, nilaiAkhir, total;
+        // int nilaiAwal, nilaiAkhir, total;
 
-        Scanner inputUser = new Scanner(System.in);
-        System.out.print("masukan nilai awal = ");
-        nilaiAwal = inputUser.nextInt();
-        System.out.print("masukan nilai akhir = ");
-        nilaiAkhir = inputUser.nextInt();
+        // Scanner inputUser = new Scanner(System.in);
+        // System.out.print("masukan nilai awal = ");
+        // nilaiAwal = inputUser.nextInt();
+        // System.out.print("masukan nilai akhir = ");
+        // nilaiAkhir = inputUser.nextInt();
 
-        total = 0;
+        // total = 0;
 
-        while (nilaiAwal <= nilaiAkhir) {
-            total = total + nilaiAwal;
-            System.out.println("ditambah " + nilaiAwal + " menjadi " + total);
-            nilaiAwal++;
-        }
+        // while (nilaiAwal <= nilaiAkhir) {
+        // total = total + nilaiAwal;
+        // System.out.println("ditambah " + nilaiAwal + " menjadi " + total);
+        // nilaiAwal++;
+        // }
+
+        // int nilaiAwal, nilaiAkhir, total;
+
+        // Scanner inputUser = new Scanner(System.in);
+        // System.out.print("masukan nilai awal = ");
+        // nilaiAwal = inputUser.nextInt();
+        // System.out.print("masukan nilai akhir = ");
+        // nilaiAkhir = inputUser.nextInt();
+
+        // total = 0;
+
+        // for (int i = nilaiAwal; i <= nilaiAkhir; i++) {
+        //     total = total + i;
+        //     System.out.println("ditambah " + i + " menjadi " + total);
+        // }
+
+        
 
     }
 
