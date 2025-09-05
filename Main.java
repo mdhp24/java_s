@@ -633,7 +633,7 @@ public class Main {
         System.out.print("lebar = ");
         int inputLebar = userInput.nextInt();
 
-        // gambar(inputPanjang, inputLebar);
+        gambar(inputPanjang, inputLebar);
 
         System.out.println("luas = " + luas(inputPanjang, inputLebar));
         System.out.println("keliling = " + keliling(inputPanjang, inputLebar));
@@ -656,14 +656,14 @@ public class Main {
         return hasil;
     }
 
-    // private static void gambar(int panjang, int lebar) {
-    //     for (int i = 0; i < lebar; i++) {
-    //         for (int j = 0; j < panjang; j++) {
-    //             System.out.print("* ");
-    //         }
-    //         System.out.print("\n");
-    //     }
-    // }
+    private static void gambar(int panjang, int lebar) {
+        for (int i = 0; i < lebar; i++) {
+            for (int j = 0; j < panjang; j++) {
+                System.out.print("* ");
+            }
+            System.out.print("\n");
+        }
+    }
 }
 // }
 
