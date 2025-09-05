@@ -496,6 +496,14 @@ public class Main {
         luas = panjang * lebar;
         System.out.println("Luas persegi panjang: " + luas);
 
+        // Program menghitung luas persegi
+        int sisi, luasPersegi;
+
+        System.out.print("Masukkan sisi: ");
+        sisi = input.nextInt();
+        luasPersegi = sisi * sisi;
+        System.out.println("Luas persegi: " + luasPersegi);
+
     }
 }
 
