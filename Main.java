@@ -1,79 +1,79 @@
 import java.util.*;
 
-class Task {
-    String title;
-    String category;
-    String deadline;
-    boolean done;
+// class Task {
+//     String title;
+//     String category;
+//     String deadline;
+//     boolean done;
 
-    Task(String title, String category, String deadline) {
-        this.title = title;
-        this.category = category;
-        this.deadline = deadline;
-        this.done = false;
-    }
-}
+//     Task(String title, String category, String deadline) {
+//         this.title = title;
+//         this.category = category;
+//         this.deadline = deadline;
+//         this.done = false;
+//     }
+// }
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Task> tasks = new ArrayList<>();
-        while (true) {
-            System.out.println("\n=== Aplikasi Daftar Tugas ===");
-            System.out.println("1. Tambah Tugas");
-            System.out.println("2. Tampilkan Daftar Tugas");
-            System.out.println("3. Tandai Tugas Selesai");
-            System.out.println("4. Keluar");
-            System.out.print("Pilih menu: ");
-            int menu = 0;
-            try {
-                menu = Integer.parseInt(scanner.nextLine());
-            } catch (Exception e) {
-                System.out.println("Input tidak valid!");
-                continue;
-            }
-            if (menu == 1) {
-                System.out.print("Judul tugas: ");
-                String title = scanner.nextLine();
-                System.out.print("Kategori (pekerjaan/pribadi/sekolah): ");
-                String category = scanner.nextLine();
-                System.out.print("Tenggat waktu (YYYY-MM-DD): ");
-                String deadline = scanner.nextLine();
-                tasks.add(new Task(title, category, deadline));
-                System.out.println("Tugas berhasil ditambahkan!");
-            } else if (menu == 2) {
-                if (tasks.isEmpty()) {
-                    System.out.println("Belum ada tugas.");
-                } else {
-                    System.out.println("\nDaftar Tugas:");
-                    for (int i = 0; i < tasks.size(); i++) {
-                        Task t = tasks.get(i);
-                        System.out.printf("%d. [%s] %s | Kategori: %s | Deadline: %s\n", i+1, t.done ? "X" : " ", t.title, t.category, t.deadline);
-                    }
-                }
-            } else if (menu == 3) {
-                System.out.print("Masukkan nomor tugas yang selesai: ");
-                int idx = -1;
-                try {
-                    idx = Integer.parseInt(scanner.nextLine()) - 1;
-                } catch (Exception e) {
-                    System.out.println("Input tidak valid!");
-                    continue;
-                }
-                if (idx >= 0 && idx < tasks.size()) {
-                    tasks.get(idx).done = true;
-                    System.out.println("Tugas ditandai selesai!");
-                } else {
-                    System.out.println("Nomor tugas tidak ditemukan!");
-                }
-            } else if (menu == 4) {
-                System.out.println("Keluar aplikasi. Sampai jumpa!");
-                break;
-            } else {
-                System.out.println("Menu tidak valid!");
-            }
-        }
-    }
+        // Scanner scanner = new Scanner(System.in);
+        // ArrayList<Task> tasks = new ArrayList<>();
+        // while (true) {
+        // System.out.println("\n=== Aplikasi Daftar Tugas ===");
+        // System.out.println("1. Tambah Tugas");
+        // System.out.println("2. Tampilkan Daftar Tugas");
+        // System.out.println("3. Tandai Tugas Selesai");
+        // System.out.println("4. Keluar");
+        // System.out.print("Pilih menu: ");
+        // int menu = 0;
+        // try {
+        // menu = Integer.parseInt(scanner.nextLine());
+        // } catch (Exception e) {
+        // System.out.println("Input tidak valid!");
+        // continue;
+        // }
+        // if (menu == 1) {
+        // System.out.print("Judul tugas: ");
+        // String title = scanner.nextLine();
+        // System.out.print("Kategori (pekerjaan/pribadi/sekolah): ");
+        // String category = scanner.nextLine();
+        // System.out.print("Tenggat waktu (YYYY-MM-DD): ");
+        // String deadline = scanner.nextLine();
+        // tasks.add(new Task(title, category, deadline));
+        // System.out.println("Tugas berhasil ditambahkan!");
+        // } else if (menu == 2) {
+        // if (tasks.isEmpty()) {
+        // System.out.println("Belum ada tugas.");
+        // } else {
+        // System.out.println("\nDaftar Tugas:");
+        // for (int i = 0; i < tasks.size(); i++) {
+        // Task t = tasks.get(i);
+        // System.out.printf("%d. [%s] %s | Kategori: %s | Deadline: %s\n", i+1, t.done
+        // ? "X" : " ", t.title, t.category, t.deadline);
+        // }
+        // }
+        // } else if (menu == 3) {
+        // System.out.print("Masukkan nomor tugas yang selesai: ");
+        // int idx = -1;
+        // try {
+        // idx = Integer.parseInt(scanner.nextLine()) - 1;
+        // } catch (Exception e) {
+        // System.out.println("Input tidak valid!");
+        // continue;
+        // }
+        // if (idx >= 0 && idx < tasks.size()) {
+        // tasks.get(idx).done = true;
+        // System.out.println("Tugas ditandai selesai!");
+        // } else {
+        // System.out.println("Nomor tugas tidak ditemukan!");
+        // }
+        // } else if (menu == 4) {
+        // System.out.println("Keluar aplikasi. Sampai jumpa!");
+        // break;
+        // } else {
+        // System.out.println("Menu tidak valid!");
+        // }
+        // }
         // System.out.println("Nilai l: " + l);
         // System.out.println("Nilai max: " + Long.MAX_VALUE);
 
@@ -524,8 +524,28 @@ public class Main {
         // sisi = input.nextInt();
         // luasPersegi = sisi * sisi;
         // System.out.println("Luas persegi: " + luasPersegi);
-        
+
+        for (int i = 0; i < 5; i++) {
+            // System.out.println("loop ke-" + i);
+            for (int j = 0; j < 5; j++) {
+                System.out.print("* ");
+            }
+            System.out.print("\n");
+        }
+
+        System.out.print("\n");
+
+        for (int i = 0; i < 5; i++) {
+            // System.out.println("loop ke-" + i);
+            for (int j = 0; j < 5; j++) {
+                System.out.print("* ");
+            }
+            System.out.print("\n");
+        }
+
     }
+
+}
 // }
 
 // abstract class Display {
