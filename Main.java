@@ -675,15 +675,21 @@ public class Main {
         // System.out.println("Luas lapangan sepak bola adalah " + luas);
 
         // Program dari PSEUDOCODE menentukan sebuah bilangan adalah ganjil atau genap
+        // int bilangan;
+
+        // bilangan = 99;
+        // if (bilangan % 2 == 0) {
+        // System.out.print(bilangan + " Bilangan genap");
+        // } else {
+        // System.out.print(bilangan + " Bilangan ganjil");
+        // }
+
+        // Program dari PSEUDOCODE menghitung mundur
         int bilangan;
 
-        bilangan = 99;
-        if (bilangan % 2 == 0) {
-            System.out.print(bilangan + " Bilangan genap");
-        } else {
-            System.out.print(bilangan + " Bilangan ganjil");
+        for (bilangan = 9; bilangan > 0; bilangan--) {
+            System.out.println("Bilangan adalah " + bilangan);
         }
-
     }
 }
 // }
