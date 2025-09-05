@@ -525,57 +525,82 @@ public class Main {
         // luasPersegi = sisi * sisi;
         // System.out.println("Luas persegi: " + luasPersegi);
 
-        for (int i = 0; i < 5; i++) {
-            // System.out.println("loop ke-" + i);
-            for (int j = 0; j < 5; j++) {
-                System.out.print("* ");
-            }
-            System.out.print("\n");
-        }
+        // for (int i = 0; i < 5; i++) {
+        // // System.out.println("loop ke-" + i);
+        // for (int j = 0; j < 5; j++) {
+        // System.out.print("* ");
+        // }
+        // System.out.print("\n");
+        // }
 
-        System.out.print("\n");
+        // System.out.print("\n");
 
-        for (int i = 0; i < 5; i++) {
-            // System.out.println("loop ke-" + i);
-            for (int j = 0; j < 5; j++) {
-                System.out.print("* ");
-                if (i == j) {
-                    break;
-                }
-            }
-            System.out.print("\n");
-        }
+        // for (int i = 0; i < 5; i++) {
+        // // System.out.println("loop ke-" + i);
+        // for (int j = 0; j < 5; j++) {
+        // System.out.print("* ");
+        // if (i == j) {
+        // break;
+        // }
+        // }
+        // System.out.print("\n");
+        // }
 
-        System.out.print("\n");
+        // System.out.print("\n");
 
-        for (int i = 0; i < 5; i++) {
-            // System.out.println("loop ke-" + i);
-            for (int j = 0; j < 5; j++) {
-                System.out.print("* ");
-                if ((i + j) == 4) {
-                    break;
-                }
-            }
-            System.out.print("\n");
-        }
+        // for (int i = 0; i < 5; i++) {
+        // // System.out.println("loop ke-" + i);
+        // for (int j = 0; j < 5; j++) {
+        // System.out.print("* ");
+        // if ((i + j) == 4) {
+        // break;
+        // }
+        // }
+        // System.out.print("\n");
+        // }
 
-        System.out.print("\n");
+        // System.out.print("\n");
 
-        for (int i = 0; i < 9; i++) {
-            // System.out.println("loop ke-" + i);
-            for (int j = 0; j < 9; j++) {
-                System.out.print("* ");
-                if (i == j) {
-                    break;
-                } else if ((i + j == 8)){
-                    break;
-                }
-            }
-            System.out.print("\n");
-        }
+        // for (int i = 0; i < 9; i++) {
+        // // System.out.println("loop ke-" + i);
+        // for (int j = 0; j < 9; j++) {
+        // System.out.print("* ");
+        // if (i == j) {
+        // break;
+        // } else if ((i + j == 8)){
+        // break;
+        // }
+        // }
+        // System.out.print("\n");
+        // }
+
+        // y = (x + 2) * x
+
+        int y, x;
+        x = 5;
+        y = hitung(x);
+
+        System.out.println("x = " + x + ", y = " + y);
+
+        x = 20;
+        y = hitung(x);
+        System.out.println("x = " + x + ", y = " + y);
+
+        x = 40;
+        y = hitung(x);
+        System.out.println("x = " + x + ", y = " + y);
 
     }
 
+    public static int hitung(int input) {
+        int hasil;
+
+        // hasil = (input + 2) * input;
+        hasil = input * input;
+
+        return hasil;
+
+    }
 }
 // }
 
