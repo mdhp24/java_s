@@ -550,57 +550,120 @@ public class Main {
 
         // for (int i = 0; i < 5; i++) {
         // // System.out.println("loop ke-" + i);
-        // for (int j = 0; j < 5; j++) {
-        // System.out.print("* ");
-        // if ((i + j) == 4) {
-        // break;
+        // // for (int j = 0; j < 5; j++) {
+        // // System.out.print("* ");
+        // // if ((i + j) == 4) {
+        // // break;
+        // // }
+        // // }
+        // // System.out.print("\n");
+        // // }
+
+        // // System.out.print("\n");
+
+        // // for (int i = 0; i < 9; i++) {
+        // // // System.out.println("loop ke-" + i);
+        // // for (int j = 0; j < 9; j++) {
+        // // System.out.print("* ");
+        // // if (i == j) {
+        // // break;
+        // // } else if ((i + j == 8)){
+        // // break;
+        // // }
+        // // }
+        // // System.out.print("\n");
+        // // }
+
+        // // y = (x + 2) * x
+
+        // int y, x;
+        // x = 5;
+        // y = hitung(x);
+
+        // System.out.println("x = " + x + ", y = " + y);
+
+        // x = 20;
+        // y = hitung(x);
+        // System.out.println("x = " + x + ", y = " + y);
+
+        // x = 40;
+        // y = hitung(x);
+        // System.out.println("x = " + x + ", y = " + y);
+
         // }
+
+        // public static int hitung(int input) {
+        // int hasil;
+
+        // // hasil = (input + 2) * input;
+        // hasil = input * input;
+
+        // return hasil;
+
+        // void itu artinya hampa
+
+        // System.out.println(simpel());
+
+        // fungsiVoid("apa pun");
+        // selamatPagi("emak");
+        // selamatPagi("abah");
+
         // }
-        // System.out.print("\n");
+
+        // private static void selamatPagi(String nama) {
+        // System.out.println("selamat pagi " + nama);
         // }
 
-        // System.out.print("\n");
-
-        // for (int i = 0; i < 9; i++) {
-        // // System.out.println("loop ke-" + i);
-        // for (int j = 0; j < 9; j++) {
-        // System.out.print("* ");
-        // if (i == j) {
-        // break;
-        // } else if ((i + j == 8)){
-        // break;
-        // }
-        // }
-        // System.out.print("\n");
+        // // fungsi atau method tanpa kembalian
+        // private static void fungsiVoid(String input) {
+        // System.out.println(input);
         // }
 
-        // y = (x + 2) * x
+        // // fungsi atau method dengan kembalian
+        // // sehingga menggunakan return untuk
+        // // mengembalikan nilainya (10.0f)
+        // private static float simpel() {
+        // return 10.0f;
+        // }
 
-        int y, x;
-        x = 5;
-        y = hitung(x);
+        Scanner userInput = new Scanner(System.in);
 
-        System.out.println("x = " + x + ", y = " + y);
+        System.out.print("panjang = ");
+        int inputPanjang = userInput.nextInt();
+        System.out.print("lebar = ");
+        int inputLebar = userInput.nextInt();
 
-        x = 20;
-        y = hitung(x);
-        System.out.println("x = " + x + ", y = " + y);
+        // gambar(inputPanjang, inputLebar);
 
-        x = 40;
-        y = hitung(x);
-        System.out.println("x = " + x + ", y = " + y);
+        System.out.println("luas = " + luas(inputPanjang, inputLebar));
+        System.out.println("keliling = " + keliling(inputPanjang, inputLebar));
 
+        tampilkanKelilingDanLuas(inputPanjang, inputLebar);
     }
 
-    public static int hitung(int input) {
-        int hasil;
+    private static void tampilkanKelilingDanLuas(int panjang, int lebar) {
+        System.out.println("luas = " + luas(panjang, lebar));
+        System.out.println("keliling = " + keliling(panjang, lebar));
+    }
 
-        // hasil = (input + 2) * input;
-        hasil = input * input;
-
+    private static int keliling(int panjang, int lebar) {
+        int hasil = (panjang + lebar) * 2;
         return hasil;
-
     }
+
+    private static int luas(int panjang, int lebar) {
+        int hasil = panjang * lebar;
+        return hasil;
+    }
+
+    // private static void gambar(int panjang, int lebar) {
+    //     for (int i = 0; i < lebar; i++) {
+    //         for (int j = 0; j < panjang; j++) {
+    //             System.out.print("* ");
+    //         }
+    //         System.out.print("\n");
+    //     }
+    // }
 }
 // }
 
