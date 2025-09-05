@@ -1,58 +1,79 @@
+import java.util.*;
 
-// import javax.swing.plaf.ToolBarUI;
-import java.util.Scanner;
-import java.util.UUID;
+class Task {
+    String title;
+    String category;
+    String deadline;
+    boolean done;
+
+    Task(String title, String category, String deadline) {
+        this.title = title;
+        this.category = category;
+        this.deadline = deadline;
+        this.done = false;
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-
-        // System.out.println("Hello, Broo!");
-        // System.out.println("baris ke-2: hai juga bro");
-
-        // System.out.print("baris ke-3: ini baris ketiga");
-        // System.out.print("baris ke-4: saya meneruskan baris ketiga");
-
-        // System.out.print("baris ke-5: test baris ke 5");
-        // System.out.println("baris ke-6: baris ke 6");
-
-        // System.out.print("baris ke-7: baris ke 7 \n");
-        // System.out.print("baris ke-8: ini baris kedelapan \n");
-        // System.out.print("baris ke-9: saya meneruskan baris kesembilan \n");
-
-        // System.out.printf("baris ke-10: halo ketua %d", 212);
-
-        // System.out.println("hallo cuy" + args[0] + "posisi?");
-        // System.out.println(args[1]);
-
-        // // System.out.println("halllooo");
-
-        // tipe data
-        // int x = 10;
-        // int y = 20;
-
-        // System.out.println("Nilai x: " + x);
-        // System.out.println("Nilai y: " + y);
-        // System.out.println("Jumlah: " + (x + y));
-
-        // integer, byte, short, int, long, float, char, boolean
-        // integer {satuan}
-        // int i = 10;
-        // System.out.println("========== INTEGER ==========");
-        // System.out.println("Nilai i: " + i);
-        // System.out.println("Nilai max: " + Integer.MAX_VALUE);
-
-        // System.out.println("========== BYTE ==========");
-        // byte b = 10;
-        // System.out.println("Nilai b: " + b);
-        // System.out.println("Nilai max: " + Byte.MAX_VALUE);
-
-        // System.out.println("========== SHORT ==========");
-        // short s = 10;
-        // System.out.println("Nilai s: " + s);
-        // System.out.println("Nilai max: " + Short.MAX_VALUE);
-
-        // System.out.println("========== LONG ==========");
-        // long l = 10L;
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Task> tasks = new ArrayList<>();
+        while (true) {
+            System.out.println("\n=== Aplikasi Daftar Tugas ===");
+            System.out.println("1. Tambah Tugas");
+            System.out.println("2. Tampilkan Daftar Tugas");
+            System.out.println("3. Tandai Tugas Selesai");
+            System.out.println("4. Keluar");
+            System.out.print("Pilih menu: ");
+            int menu = 0;
+            try {
+                menu = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Input tidak valid!");
+                continue;
+            }
+            if (menu == 1) {
+                System.out.print("Judul tugas: ");
+                String title = scanner.nextLine();
+                System.out.print("Kategori (pekerjaan/pribadi/sekolah): ");
+                String category = scanner.nextLine();
+                System.out.print("Tenggat waktu (YYYY-MM-DD): ");
+                String deadline = scanner.nextLine();
+                tasks.add(new Task(title, category, deadline));
+                System.out.println("Tugas berhasil ditambahkan!");
+            } else if (menu == 2) {
+                if (tasks.isEmpty()) {
+                    System.out.println("Belum ada tugas.");
+                } else {
+                    System.out.println("\nDaftar Tugas:");
+                    for (int i = 0; i < tasks.size(); i++) {
+                        Task t = tasks.get(i);
+                        System.out.printf("%d. [%s] %s | Kategori: %s | Deadline: %s\n", i+1, t.done ? "X" : " ", t.title, t.category, t.deadline);
+                    }
+                }
+            } else if (menu == 3) {
+                System.out.print("Masukkan nomor tugas yang selesai: ");
+                int idx = -1;
+                try {
+                    idx = Integer.parseInt(scanner.nextLine()) - 1;
+                } catch (Exception e) {
+                    System.out.println("Input tidak valid!");
+                    continue;
+                }
+                if (idx >= 0 && idx < tasks.size()) {
+                    tasks.get(idx).done = true;
+                    System.out.println("Tugas ditandai selesai!");
+                } else {
+                    System.out.println("Nomor tugas tidak ditemukan!");
+                }
+            } else if (menu == 4) {
+                System.out.println("Keluar aplikasi. Sampai jumpa!");
+                break;
+            } else {
+                System.out.println("Menu tidak valid!");
+            }
+        }
+    }
         // System.out.println("Nilai l: " + l);
         // System.out.println("Nilai max: " + Long.MAX_VALUE);
 
@@ -484,28 +505,28 @@ public class Main {
         // PSEUDOCODE
         // Program menghitung persegi panjang
 
-        int panjang, lebar, luas;
+        // int panjang, lebar, luas;
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("Masukkan panjang: ");
-        panjang = input.nextInt();
+        // Scanner input = new Scanner(System.in);
+        // System.out.print("Masukkan panjang: ");
+        // panjang = input.nextInt();
 
-        System.out.print("Masukkan lebar: ");
-        lebar = input.nextInt();
+        // System.out.print("Masukkan lebar: ");
+        // lebar = input.nextInt();
 
-        luas = panjang * lebar;
-        System.out.println("Luas persegi panjang: " + luas);
+        // luas = panjang * lebar;
+        // System.out.println("Luas persegi panjang: " + luas);
 
-        // Program menghitung luas persegi
-        int sisi, luasPersegi;
+        // // Program menghitung luas persegi
+        // int sisi, luasPersegi;
 
-        System.out.print("Masukkan sisi: ");
-        sisi = input.nextInt();
-        luasPersegi = sisi * sisi;
-        System.out.println("Luas persegi: " + luasPersegi);
-
+        // System.out.print("Masukkan sisi: ");
+        // sisi = input.nextInt();
+        // luasPersegi = sisi * sisi;
+        // System.out.println("Luas persegi: " + luasPersegi);
+        
     }
-}
+// }
 
 // abstract class Display {
 // abstract void notification();
