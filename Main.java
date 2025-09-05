@@ -619,50 +619,61 @@ public class Main {
         // System.out.println(input);
         // }
 
-        // // fungsi atau method dengan kembalian
-        // // sehingga menggunakan return untuk
-        // // mengembalikan nilainya (10.0f)
-        // private static float simpel() {
-        // return 10.0f;
+        // // // fungsi atau method dengan kembalian
+        // // // sehingga menggunakan return untuk
+        // // // mengembalikan nilainya (10.0f)
+        // // private static float simpel() {
+        // // return 10.0f;
+        // // }
+
+        // Scanner userInput = new Scanner(System.in);
+
+        // System.out.print("panjang = ");
+        // int inputPanjang = userInput.nextInt();
+        // System.out.print("lebar = ");
+        // int inputLebar = userInput.nextInt();
+
+        // gambar(inputPanjang, inputLebar);
+
+        // System.out.println("luas = " + luas(inputPanjang, inputLebar));
+        // System.out.println("keliling = " + keliling(inputPanjang, inputLebar));
+
+        // tampilkanKelilingDanLuas(inputPanjang, inputLebar);
         // }
 
-        Scanner userInput = new Scanner(System.in);
+        // private static void tampilkanKelilingDanLuas(int panjang, int lebar) {
+        // System.out.println("luas = " + luas(panjang, lebar));
+        // System.out.println("keliling = " + keliling(panjang, lebar));
+        // }
 
-        System.out.print("panjang = ");
-        int inputPanjang = userInput.nextInt();
-        System.out.print("lebar = ");
-        int inputLebar = userInput.nextInt();
+        // private static int keliling(int panjang, int lebar) {
+        // int hasil = (panjang + lebar) * 2;
+        // return hasil;
+        // }
 
-        gambar(inputPanjang, inputLebar);
+        // private static int luas(int panjang, int lebar) {
+        // int hasil = panjang * lebar;
+        // return hasil;
+        // }
 
-        System.out.println("luas = " + luas(inputPanjang, inputLebar));
-        System.out.println("keliling = " + keliling(inputPanjang, inputLebar));
+        // private static void gambar(int panjang, int lebar) {
+        // for (int i = 0; i < lebar; i++) {
+        // for (int j = 0; j < panjang; j++) {
+        // System.out.print("* ");
+        // }
+        // System.out.print("\n");
+        // }
+        // }
 
-        tampilkanKelilingDanLuas(inputPanjang, inputLebar);
-    }
+        // Program dari PSEUDOCODE mencari luas lapangan sepak bola
+        int panjang, lebar, luas;
 
-    private static void tampilkanKelilingDanLuas(int panjang, int lebar) {
-        System.out.println("luas = " + luas(panjang, lebar));
-        System.out.println("keliling = " + keliling(panjang, lebar));
-    }
+        panjang = 100;
+        lebar = 64;
+        luas = panjang * lebar;
 
-    private static int keliling(int panjang, int lebar) {
-        int hasil = (panjang + lebar) * 2;
-        return hasil;
-    }
+        System.out.println("Luas lapangan sepak bola adalah " + luas);
 
-    private static int luas(int panjang, int lebar) {
-        int hasil = panjang * lebar;
-        return hasil;
-    }
-
-    private static void gambar(int panjang, int lebar) {
-        for (int i = 0; i < lebar; i++) {
-            for (int j = 0; j < panjang; j++) {
-                System.out.print("* ");
-            }
-            System.out.print("\n");
-        }
     }
 }
 // }
