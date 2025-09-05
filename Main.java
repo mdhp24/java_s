@@ -539,6 +539,22 @@ public class Main {
             // System.out.println("loop ke-" + i);
             for (int j = 0; j < 5; j++) {
                 System.out.print("* ");
+                if (i == j) {
+                    break;
+                }
+            }
+            System.out.print("\n");
+        }
+
+        System.out.print("\n");
+
+        for (int i = 0; i < 5; i++) {
+            // System.out.println("loop ke-" + i);
+            for (int j = 0; j < 5; j++) {
+                System.out.print("* ");
+                if ((i + j) == 4) {
+                    break;
+                }
             }
             System.out.print("\n");
         }
