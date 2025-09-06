@@ -738,21 +738,72 @@ public class Main {
         // printNilai(parameter);
         // }
 
-        Scanner userInput = new Scanner(System.in);
-        System.out.print("masukan nilai n = ");
-        int nilai = userInput.nextInt();
-        int nilai_fibonacci = fibonacci(nilai, "atas");
-        System.out.println("nilai fibonacci ke-" + nilai + " adalah " + nilai_fibonacci);
+        // Scanner userInput = new Scanner(System.in);
+        // System.out.print("masukan nilai n = ");
+        // int nilai = userInput.nextInt();
+        // int nilai_fibonacci = fibonacci(nilai, "atas");
+        // System.out.println("nilai fibonacci ke-" + nilai + " adalah " +
+        // nilai_fibonacci);
+        // }
+
+        // private static int fibonacci(int n, String daun) {
+        // System.out.println("daun " + daun);
+        // System.out.println("Fibonacci ke - " + n);
+        // if (n == 1 || n == 0) {
+        // return n;
+        // } else {
+        // return fibonacci(n - 1, "kiri") + fibonacci(n - 2, "kanan");
+        // }
+        // }
+
+        int hasilInteger;
+        hasilInteger = tambah(4, 5);
+        printAngka(hasilInteger);
+
+        float hasilFloat;
+
+        // hasilFloat = tambah(4.5f, 4);
+        // printAngka(hasilFloat);
+
+        // hasilFloat = tambah(4, 4.5f);
+        // printAngka(hasilFloat);
+
+        // hasilInteger = tambah(11, 12, 13);
+        // printAngka(hasilInteger);
+
+        // printAngka(10);
+        // printAngka(10.5f);
+        // printAngka(16.7d);
+        // printAngka(16);
+
     }
 
-    private static int fibonacci(int n, String daun) {
-        System.out.println("daun " + daun);
-        System.out.println("Fibonacci ke - " + n);
-        if (n == 1 || n == 0) {
-            return n;
-        } else {
-            return fibonacci(n - 1, "kiri") + fibonacci(n - 2, "kanan");
-        }
+    private static int tambah(int angkaInt1, int angkaInt2, int angkaInt3) {
+        return angkaInt1 + angkaInt2 + angkaInt3;
+    }
+
+    private static float tambah(int angkaInt2, float angkaFloat1) {
+        return angkaFloat1 + angkaInt2;
+    }
+
+    private static float tambah(float angkaFloat1, int angkaInt2) {
+        return angkaFloat1 + angkaInt2;
+    }
+
+    private static int tambah(int angkaInt1, int angkaInt2) {
+        return angkaInt1 + angkaInt2;
+    }
+
+    private static void printAngka(double angkaDouble) {
+        System.out.println("angka ini adalah double dengan nilai = " + angkaDouble);
+    }
+
+    private static void printAngka(float angkaFloat) {
+        System.out.println("angka ini adalah float dengan nilai = " + angkaFloat);
+    }
+
+    private static void printAngka(int angkaInteger) {
+        System.out.println("angka ini adalah integer dengan nilai = " + angkaInteger);
     }
 }
 // }
