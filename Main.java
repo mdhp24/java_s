@@ -765,11 +765,11 @@ public class Main {
         hasilFloat = tambah(4.5f, 4);
         printAngka(hasilFloat);
 
-        // hasilFloat = tambah(4, 4.5f);
-        // printAngka(hasilFloat);
+        hasilFloat = tambah(4, 4.5f);
+        printAngka(hasilFloat);
 
-        // hasilInteger = tambah(11, 12, 13);
-        // printAngka(hasilInteger);
+        hasilInteger = tambah(11, 12, 13);
+        printAngka(hasilInteger);
 
         // printAngka(10);
         // printAngka(10.5f);
