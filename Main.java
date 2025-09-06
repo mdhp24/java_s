@@ -762,8 +762,8 @@ public class Main {
 
         float hasilFloat;
 
-        // hasilFloat = tambah(4.5f, 4);
-        // printAngka(hasilFloat);
+        hasilFloat = tambah(4.5f, 4);
+        printAngka(hasilFloat);
 
         // hasilFloat = tambah(4, 4.5f);
         // printAngka(hasilFloat);
