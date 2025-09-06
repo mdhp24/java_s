@@ -771,10 +771,10 @@ public class Main {
         hasilInteger = tambah(11, 12, 13);
         printAngka(hasilInteger);
 
-        // printAngka(10);
-        // printAngka(10.5f);
-        // printAngka(16.7d);
-        // printAngka(16);
+        printAngka(10);
+        printAngka(10.5f);
+        printAngka(16.7d);
+        printAngka(16);
 
     }
 
