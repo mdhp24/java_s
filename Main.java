@@ -695,9 +695,9 @@ public class Main {
         int nilai = userInput.nextInt();
         System.out.println("anda memasukan nilai = " + nilai);
 
-        // printNilai(nilai);
-        // int jumlah = jumlahNilai(nilai);
-        // System.out.println("jumlah = " + jumlah);
+        printNilai(nilai);
+        int jumlah = jumlahNilai(nilai);
+        System.out.println("jumlah = " + jumlah);
 
         int faktorial = hitungFaktorial(nilai);
         System.out.println("hasil faktorial = " + faktorial);
@@ -715,16 +715,16 @@ public class Main {
 
     }
 
-    // private static int jumlahNilai(int parameter) {
-    //     System.out.println("parameter = " + parameter);
+    private static int jumlahNilai(int parameter) {
+        System.out.println("parameter = " + parameter);
 
-    //     if (parameter == 0) {
-    //         return parameter;
-    //     }
+        if (parameter == 0) {
+            return parameter;
+        }
 
-    //     return parameter + jumlahNilai(parameter - 1);
+        return parameter + jumlahNilai(parameter - 1);
 
-    // }
+    }
 
     // private static void printNilai(int parameter) {
     //     System.out.println("nilai = " + parameter);
