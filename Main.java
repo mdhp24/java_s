@@ -726,17 +726,17 @@ public class Main {
 
     }
 
-    // private static void printNilai(int parameter) {
-    //     System.out.println("nilai = " + parameter);
+    private static void printNilai(int parameter) {
+        System.out.println("nilai = " + parameter);
 
-    //     if (parameter == 0) {
-    //         return;
-    //     }
+        if (parameter == 0) {
+            return;
+        }
 
-    //     parameter--;
+        parameter--;
 
-    //     printNilai(parameter);
-    // }
+        printNilai(parameter);
+    }
 }
 // }
 
