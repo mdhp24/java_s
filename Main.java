@@ -756,54 +756,84 @@ public class Main {
         // }
         // }
 
-        int hasilInteger;
-        hasilInteger = tambah(4, 5);
-        printAngka(hasilInteger);
+        // int hasilInteger;
+        // hasilInteger = tambah(4, 5);
+        // printAngka(hasilInteger);
 
-        float hasilFloat;
+        // float hasilFloat;
 
-        hasilFloat = tambah(4.5f, 4);
-        printAngka(hasilFloat);
+        // hasilFloat = tambah(4.5f, 4);
+        // printAngka(hasilFloat);
 
-        hasilFloat = tambah(4, 4.5f);
-        printAngka(hasilFloat);
+        // hasilFloat = tambah(4, 4.5f);
+        // printAngka(hasilFloat);
 
-        hasilInteger = tambah(11, 12, 13);
-        printAngka(hasilInteger);
+        // hasilInteger = tambah(11, 12, 13);
+        // printAngka(hasilInteger);
 
-        printAngka(10);
-        printAngka(10.5f);
-        printAngka(16.7d);
-        printAngka(16);
+        // printAngka(10);
+        // printAngka(10.5f);
+        // printAngka(16.7d);
+        // printAngka(16);
 
-    }
+        // }
 
-    private static int tambah(int angkaInt1, int angkaInt2, int angkaInt3) {
-        return angkaInt1 + angkaInt2 + angkaInt3;
-    }
+        // private static int tambah(int angkaInt1, int angkaInt2, int angkaInt3) {
+        // return angkaInt1 + angkaInt2 + angkaInt3;
+        // }
 
-    private static float tambah(int angkaInt2, float angkaFloat1) {
-        return angkaFloat1 + angkaInt2;
-    }
+        // private static float tambah(int angkaInt2, float angkaFloat1) {
+        // return angkaFloat1 + angkaInt2;
+        // }
 
-    private static float tambah(float angkaFloat1, int angkaInt2) {
-        return angkaFloat1 + angkaInt2;
-    }
+        // private static float tambah(float angkaFloat1, int angkaInt2) {
+        // return angkaFloat1 + angkaInt2;
+        // }
 
-    private static int tambah(int angkaInt1, int angkaInt2) {
-        return angkaInt1 + angkaInt2;
-    }
+        // private static int tambah(int angkaInt1, int angkaInt2) {
+        // return angkaInt1 + angkaInt2;
+        // }
 
-    private static void printAngka(double angkaDouble) {
-        System.out.println("angka ini adalah double dengan nilai = " + angkaDouble);
-    }
+        // private static void printAngka(double angkaDouble) {
+        // System.out.println("angka ini adalah double dengan nilai = " + angkaDouble);
+        // }
 
-    private static void printAngka(float angkaFloat) {
-        System.out.println("angka ini adalah float dengan nilai = " + angkaFloat);
-    }
+        // private static void printAngka(float angkaFloat) {
+        // System.out.println("angka ini adalah float dengan nilai = " + angkaFloat);
+        // }
 
-    private static void printAngka(int angkaInteger) {
-        System.out.println("angka ini adalah integer dengan nilai = " + angkaInteger);
+        // private static void printAngka(int angkaInteger) {
+        // System.out.println("angka ini adalah integer dengan nilai = " +
+        // angkaInteger);
+        // }
+
+        System.out.println("assignment Array");
+
+        // index = 0 1 2 3
+        int[] arrayInteger = { 1, 2, 3, 4 };
+
+        arrayInteger[0] = 11;
+
+        System.out.println(arrayInteger[0]);
+        System.out.println(arrayInteger[1]);
+        System.out.println(arrayInteger[2]);
+        System.out.println(arrayInteger[3]);
+
+
+        System.out.println("Deklarasi Array");
+        float[] arrayFloat = new float[5];
+
+        arrayFloat[3] = 11.5f;
+
+        System.out.println(arrayFloat[0]);
+        System.out.println(arrayFloat[1]);
+        System.out.println(arrayFloat[2]);
+        System.out.println(arrayFloat[3]);
+        System.out.println(arrayFloat[4]);
+
+        System.out.println(Arrays.toString(arrayInteger));
+        System.out.println(Arrays.toString(arrayFloat));
+
     }
 }
 // }
