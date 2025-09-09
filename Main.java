@@ -807,32 +807,51 @@ public class Main {
         // angkaInteger);
         // }
 
-        System.out.println("assignment Array");
+        // System.out.println("assignment Array");
 
-        // index = 0 1 2 3
-        int[] arrayInteger = { 1, 2, 3, 4 };
+        // // index = 0 1 2 3
+        // int[] arrayInteger = { 1, 2, 3, 4 };
 
-        arrayInteger[0] = 11;
+        // arrayInteger[0] = 11;
 
-        System.out.println(arrayInteger[0]);
-        System.out.println(arrayInteger[1]);
-        System.out.println(arrayInteger[2]);
-        System.out.println(arrayInteger[3]);
+        // System.out.println(arrayInteger[0]);
+        // System.out.println(arrayInteger[1]);
+        // System.out.println(arrayInteger[2]);
+        // System.out.println(arrayInteger[3]);
 
+        // System.out.println("Deklarasi Array");
+        // float[] arrayFloat = new float[5];
 
-        System.out.println("Deklarasi Array");
-        float[] arrayFloat = new float[5];
+        // arrayFloat[3] = 11.5f;
 
-        arrayFloat[3] = 11.5f;
+        // System.out.println(arrayFloat[0]);
+        // System.out.println(arrayFloat[1]);
+        // System.out.println(arrayFloat[2]);
+        // System.out.println(arrayFloat[3]);
+        // System.out.println(arrayFloat[4]);
 
-        System.out.println(arrayFloat[0]);
-        System.out.println(arrayFloat[1]);
-        System.out.println(arrayFloat[2]);
-        System.out.println(arrayFloat[3]);
-        System.out.println(arrayFloat[4]);
+        // System.out.println(Arrays.toString(arrayInteger));
+        // System.out.println(Arrays.toString(arrayFloat));
 
-        System.out.println(Arrays.toString(arrayInteger));
-        System.out.println(Arrays.toString(arrayFloat));
+        int[] arrayAngka = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+        // looping standard
+        System.out.println("looping standard");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
+        }
+
+        // looping dengan properti array
+        System.out.println("looping dengan properti length");
+        for (int i = 0; i < arrayAngka.length; i++) {
+            System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
+        }
+
+        // looping untuk collection <- array
+        System.out.println("looping for each");
+        for (int angka : arrayAngka) {
+            System.out.println("angka pada looping ini = " + angka);
+        }
 
     }
 }
