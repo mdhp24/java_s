@@ -833,25 +833,53 @@ public class Main {
         // System.out.println(Arrays.toString(arrayInteger));
         // System.out.println(Arrays.toString(arrayFloat));
 
-        int[] arrayAngka = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+        // int[] arrayAngka = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
-        // looping standard
-        System.out.println("looping standard");
-        for (int i = 0; i < 10; i++) {
-            System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
-        }
+        // // looping standard
+        // System.out.println("looping standard");
+        // for (int i = 0; i < 10; i++) {
+        // System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
+        // }
 
-        // looping dengan properti array
-        System.out.println("looping dengan properti length");
-        for (int i = 0; i < arrayAngka.length; i++) {
-            System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
-        }
+        // // looping dengan properti array
+        // System.out.println("looping dengan properti length");
+        // for (int i = 0; i < arrayAngka.length; i++) {
+        // System.out.println("index ke-" + i + " adalah = " + arrayAngka[i]);
+        // }
 
-        // looping untuk collection <- array
-        System.out.println("looping for each");
-        for (int angka : arrayAngka) {
-            System.out.println("angka pada looping ini = " + angka);
-        }
+        // // looping untuk collection <- array
+        // System.out.println("looping for each");
+        // for (int angka : arrayAngka) {
+        // System.out.println("angka pada looping ini = " + angka);
+        // }
+
+        int[] arrayAngka1 = { 1, 2, 3, 4, 5 };
+        int[] arrayAngka2 = new int[5];
+
+        System.out.println(arrayAngka1);
+        System.out.println(arrayAngka2);
+
+        arrayAngka2 = arrayAngka1;
+
+        System.out.println(arrayAngka1);
+        System.out.println(arrayAngka2);
+
+        System.out.println("array 1 -> " + Arrays.toString(arrayAngka1));
+        System.out.println("array 2 -> " + Arrays.toString(arrayAngka2));
+
+        arrayAngka1[0] = 100;
+        arrayAngka2[4] = 400;
+        System.out.println("array 1 -> " + Arrays.toString(arrayAngka1));
+        System.out.println("array 2 -> " + Arrays.toString(arrayAngka2));
+
+        ubahArray(arrayAngka1);
+        System.out.println("array 1 -> " + Arrays.toString(arrayAngka1));
+        System.out.println("array 2 -> " + Arrays.toString(arrayAngka2));
+    }
+
+    private static void ubahArray(int[] arrayAngka) {
+        arrayAngka[0] = 999;
+        System.out.println("array di dalam fungsi -> " + Arrays.toString(arrayAngka));
 
     }
 }
