@@ -919,6 +919,15 @@ public class Main {
     private static void printArray(int[] dataArray, String message) {
         System.out.println("Array " + message + " = " + Arrays.toString(dataArray));
     }
+
+    private static int[] tambahArray(int[] arrayAwal, String message){
+        int[] arrayHasil = new int[arrayAwal.length];
+        for (int i = 0; i < arrayAwal.length; i++) {
+            arrayHasil[i] = arrayAwal[i] + 2;
+        }
+        printArray(arrayHasil, message);
+        return arrayHasil;
+    }
 }
 
 // }
