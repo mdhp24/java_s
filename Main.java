@@ -903,30 +903,77 @@ public class Main {
         // private static void printArray(int[] dataArray) {
         // System.out.println("array = " + Arrays.toString(dataArray));
         // }
-        int[] arrayAngka = { 1, 6, 4, 5, 3, 5, 2, 6 };
-        printArray(arrayAngka, "array angka sebelum diurutkan");
+        // int[] arrayAngka = { 1, 6, 4, 5, 3, 5, 2, 6 };
+        // printArray(arrayAngka, "array angka sebelum diurutkan");
 
-        // penjumlahan antara dua array
-        int[] arrayAngka2 = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        printArray(arrayAngka2, "array angka 2 sebelum diurutkan");
-        int[] arrayHasil = new int[arrayAngka.length];
-        for (int i = 0; i < arrayAngka.length; i++) {
-            arrayHasil[i] = arrayAngka[i] + arrayAngka2[i];
+        // // penjumlahan antara dua array
+        // int[] arrayAngka2 = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        // printArray(arrayAngka2, "array angka 2 sebelum diurutkan");
+        // int[] arrayHasil = new int[arrayAngka.length];
+        // for (int i = 0; i < arrayAngka.length; i++) {
+        // arrayHasil[i] = arrayAngka[i] + arrayAngka2[i];
+        // }
+        // printArray(arrayHasil, "array hasil penjumlahan");
+        // }
+
+        // private static void printArray(int[] dataArray, String message) {
+        // System.out.println("Array " + message + " = " + Arrays.toString(dataArray));
+        // }
+
+        // private static int[] tambahArray(int[] arrayAwal, String message){
+        // int[] arrayHasil = new int[arrayAwal.length];
+        // for (int i = 0; i < arrayAwal.length; i++) {
+        // arrayHasil[i] = arrayAwal[i] + 2;
+        // }
+        // printArray(arrayHasil, message);
+        // return arrayHasil;
+        // }
+
+        // System.out.println("UUID Example:");
+        // java.util.UUID uuid = java.util.UUID.randomUUID();
+        // System.out.println("Generated UUID: " + uuid.toString());
+
+        // array dua dimensi
+        int[][] array2D = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        for (int i = 0; i < array2D.length; i++) {
+            for (int j = 0; j < array2D[i].length; j++) {
+                System.out.print(array2D[i][j] + " ");
+            }
+            System.out.print("\n");
         }
-        printArray(arrayHasil, "array hasil penjumlahan");
-    }
 
-    private static void printArray(int[] dataArray, String message) {
-        System.out.println("Array " + message + " = " + Arrays.toString(dataArray));
-    }
-
-    private static int[] tambahArray(int[] arrayAwal, String message){
-        int[] arrayHasil = new int[arrayAwal.length];
-        for (int i = 0; i < arrayAwal.length; i++) {
-            arrayHasil[i] = arrayAwal[i] + 2;
+        // array tiga dimensi
+        int[][][] array3D = { { { 1, 2 }, { 3, 4 } }, { { 5, 6 }, { 7, 8 } }, { { 9, 10 }, { 11, 12 } } };
+        for (int i = 0; i < array3D.length; i++) {
+            for (int j = 0; j < array3D[i].length; j++) {
+                for (int k = 0; k < array3D[i][j].length; k++) {
+                    System.out.print(array3D[i][j][k] + " ");
+                }
+                System.out.print("\n");
+            }
+            System.out.print("\n");
         }
-        printArray(arrayHasil, message);
-        return arrayHasil;
+
+        // // array menyimpan variabel reference
+        // String[] arrayString = new String[3];
+        // arrayString[0] = "satu";
+        // arrayString[1] = "dua";
+        // arrayString[2] = "tiga";
+        // for (String s : arrayString) {
+        //     System.out.println(s);
+        // }
+
+        int[] array1 = { 1, 2, 3 };
+        int[] array2 = { 4, 5, 6 };
+        int[] array3 = { 7, 8, 9 };
+
+        int[][] array2DI = { array1, array2, array3 };
+        for (int[] arr : array2DI) {
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.print("\n");
+        }
     }
 }
 
