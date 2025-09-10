@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 
 // class Task {
 //     String title;
@@ -884,25 +884,43 @@ public class Main {
 
         // }
 
-        int[] arrayAngka8 = { 1, 6, 4, 5, 3, 5, 2, 6 };
+        // int[] arrayAngka8 = { 1, 6, 4, 5, 3, 5, 2, 6 };
 
-        // konversi int[] ke Integer[]
-        Integer[] arrayWrapper = Arrays.stream(arrayAngka8).boxed().toArray(Integer[]::new);
+        // // konversi int[] ke Integer[]
+        // Integer[] arrayWrapper =
+        // Arrays.stream(arrayAngka8).boxed().toArray(Integer[]::new);
 
-        System.out.println("Sebelum sort descending:");
-        printArray(arrayAngka8);
+        // System.out.println("Sebelum sort descending:");
+        // printArray(arrayAngka8);
 
-        // sort descending
-        Arrays.sort(arrayWrapper, Collections.reverseOrder());
+        // // sort descending
+        // Arrays.sort(arrayWrapper, Collections.reverseOrder());
 
-        System.out.println("Setelah sort descending:");
-        System.out.println("array = " + Arrays.toString(arrayWrapper));
+        // System.out.println("Setelah sort descending:");
+        // System.out.println("array = " + Arrays.toString(arrayWrapper));
+        // }
+
+        // private static void printArray(int[] dataArray) {
+        // System.out.println("array = " + Arrays.toString(dataArray));
+        // }
+        int[] arrayAngka = { 1, 6, 4, 5, 3, 5, 2, 6 };
+        printArray(arrayAngka, "array angka sebelum diurutkan");
+
+        // penjumlahan antara dua array
+        int[] arrayAngka2 = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        printArray(arrayAngka2, "array angka 2 sebelum diurutkan");
+        int[] arrayHasil = new int[arrayAngka.length];
+        for (int i = 0; i < arrayAngka.length; i++) {
+            arrayHasil[i] = arrayAngka[i] + arrayAngka2[i];
+        }
+        printArray(arrayHasil, "array hasil penjumlahan");
     }
 
-    private static void printArray(int[] dataArray) {
-        System.out.println("array = " + Arrays.toString(dataArray));
+    private static void printArray(int[] dataArray, String message) {
+        System.out.println("Array " + message + " = " + Arrays.toString(dataArray));
     }
 }
+
 // }
 
 // abstract class Display {
