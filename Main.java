@@ -934,25 +934,26 @@ public class Main {
         // System.out.println("Generated UUID: " + uuid.toString());
 
         // array dua dimensi
-        int[][] array2D = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-        for (int i = 0; i < array2D.length; i++) {
-            for (int j = 0; j < array2D[i].length; j++) {
-                System.out.print(array2D[i][j] + " ");
-            }
-            System.out.print("\n");
-        }
+        // int[][] array2D = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        // for (int i = 0; i < array2D.length; i++) {
+        // for (int j = 0; j < array2D[i].length; j++) {
+        // System.out.print(array2D[i][j] + " ");
+        // }
+        // System.out.print("\n");
+        // }
 
-        // array tiga dimensi
-        int[][][] array3D = { { { 1, 2 }, { 3, 4 } }, { { 5, 6 }, { 7, 8 } }, { { 9, 10 }, { 11, 12 } } };
-        for (int i = 0; i < array3D.length; i++) {
-            for (int j = 0; j < array3D[i].length; j++) {
-                for (int k = 0; k < array3D[i][j].length; k++) {
-                    System.out.print(array3D[i][j][k] + " ");
-                }
-                System.out.print("\n");
-            }
-            System.out.print("\n");
-        }
+        // // array tiga dimensi
+        // int[][][] array3D = { { { 1, 2 }, { 3, 4 } }, { { 5, 6 }, { 7, 8 } }, { { 9,
+        // 10 }, { 11, 12 } } };
+        // for (int i = 0; i < array3D.length; i++) {
+        // for (int j = 0; j < array3D[i].length; j++) {
+        // for (int k = 0; k < array3D[i][j].length; k++) {
+        // System.out.print(array3D[i][j][k] + " ");
+        // }
+        // System.out.print("\n");
+        // }
+        // System.out.print("\n");
+        // }
 
         // // array menyimpan variabel reference
         // String[] arrayString = new String[3];
@@ -960,20 +961,47 @@ public class Main {
         // arrayString[1] = "dua";
         // arrayString[2] = "tiga";
         // for (String s : arrayString) {
-        //     System.out.println(s);
+        // System.out.println(s);
         // }
 
-        int[] array1 = { 1, 2, 3 };
-        int[] array2 = { 4, 5, 6 };
-        int[] array3 = { 7, 8, 9 };
+        // int[] array1 = { 1, 2, 3 };
+        // int[] array2 = { 4, 5, 6 };
+        // int[] array3 = { 7, 8, 9 };
 
-        int[][] array2DI = { array1, array2, array3 };
-        for (int[] arr : array2DI) {
-            for (int num : arr) {
-                System.out.print(num + " ");
-            }
-            System.out.print("\n");
-        }
+        // int[][] array2DI = { array1, array2, array3 };
+        // for (int[] arr : array2DI) {
+        // for (int num : arr) {
+        // System.out.print(num + " ");
+        // }
+        // System.out.print("\n");
+        // }
+
+        int[][] array_2D = {
+                { 1, 2, 3 },
+                { 4, 5 },
+        };
+
+        System.out.println(array_2D);
+        System.out.println(Arrays.toString(array_2D));
+        System.out.println(array_2D[0]);
+        System.out.println(array_2D[1]);
+
+        System.out.println(Arrays.deepToString(array_2D));
+        System.out.print("\n");
+
+        char[] array_char1 = { 'a', 'b', 'c' };
+        char[] array_char2 = { 'd', 'e' };
+
+        char[][] arrayChar_2D = {
+                array_char1,
+                array_char2,
+        };
+
+        System.out.println(arrayChar_2D);
+        System.out.println(Integer.toHexString(System.identityHashCode(array_char1)));
+        System.out.println(Integer.toHexString(System.identityHashCode(array_char2)));
+        System.out.println(Arrays.toString(arrayChar_2D));
+        System.out.println(Arrays.deepToString(arrayChar_2D));
     }
 }
 
