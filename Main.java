@@ -1005,109 +1005,171 @@ public class Main {
 
         // pertambahan matrix
 
-        int[][] matrix_a = {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 },
-        };
+        // int[][] matrix_a = {
+        // { 1, 2, 3 },
+        // { 4, 5, 6 },
+        // { 7, 8, 9 },
+        // };
 
-        int[][] matrix_b = {
-                { 11, 12, 13 },
-                { 14, 15, 16 },
-                { 17, 18, 19 },
-        };
+        // int[][] matrix_b = {
+        // { 11, 12, 13 },
+        // { 14, 15, 16 },
+        // { 17, 18, 19 },
+        // };
 
-        printArray(matrix_a);
-        printArray(matrix_b);
+        // printArray(matrix_a);
+        // printArray(matrix_b);
 
-        int[][] hasilTambah = tambah(matrix_a, matrix_b);
+        // int[][] hasilTambah = tambah(matrix_a, matrix_b);
 
-        printArray(hasilTambah);
+        // printArray(hasilTambah);
 
-        // perkalian matrix
+        // // perkalian matrix
 
-        int[][] matrix_c = {
-                { 1, 2 },
-                { 3, 4 },
-                { 5, 6 },
+        // int[][] matrix_c = {
+        // { 1, 2 },
+        // { 3, 4 },
+        // { 5, 6 },
 
-        };
+        // };
 
-        int[][] matrix_d = {
-                { 11, 12 },
-                { 13, 14 },
-        };
+        // int[][] matrix_d = {
+        // { 11, 12 },
+        // { 13, 14 },
+        // };
 
-        int[][] hasilKali = kali(matrix_c, matrix_d);
+        // int[][] hasilKali = kali(matrix_c, matrix_d);
 
-        printArray(hasilKali);
+        // printArray(hasilKali);
 
+        // }
+
+        // private static int[][] kali(int[][] matrix_1, int[][] matrix_2) {
+        // int baris_1 = matrix_1.length;
+        // int kolom_1 = matrix_1[0].length;
+
+        // int baris_2 = matrix_2.length;
+        // int kolom_2 = matrix_2[0].length;
+
+        // int[][] hasil = new int[baris_1][kolom_2];
+
+        // int buffer;
+        // for (int i = 0; i < baris_1; i++) {
+        // for (int j = 0; j < kolom_2; j++) {
+        // buffer = 0;
+        // for (int k = 0; k < kolom_1; k++) {
+        // buffer += matrix_1[i][k] * matrix_2[k][j];
+        // }
+        // hasil[i][j] = buffer;
+        // }
+        // }
+
+        // return hasil;
+        // }
+
+        // private static int[][] tambah(int[][] matrix_1, int[][] matrix_2) {
+        // int baris_1 = matrix_1.length;
+        // int kolom_1 = matrix_1[0].length;
+
+        // int baris_2 = matrix_2.length;
+        // int kolom_2 = matrix_2[0].length;
+
+        // int[][] hasil = new int[baris_1][kolom_1];
+
+        // if (baris_1 == baris_2 && kolom_1 == kolom_2) {
+
+        // for (int i = 0; i < baris_1; i++) {
+        // for (int j = 0; j < kolom_1; j++) {
+        // hasil[i][j] = matrix_1[i][j] + matrix_2[i][j];
+        // }
+        // }
+        // } else {
+        // System.out.println("jumlah baris atau kolom tidak sama");
+        // }
+        // return hasil;
+        // }
+
+        // private static void printArray(int[][] dataArray) {
+        // int baris = dataArray.length;
+        // int kolom = dataArray[0].length;
+
+        // for (int i = 0; i < baris; i++) {
+        // System.out.print("[");
+        // for (int j = 0; j < kolom; j++) {
+        // System.out.print(dataArray[i][j]);
+
+        // if (j < (kolom - 1)) {
+        // System.out.print(",");
+        // } else {
+        // System.out.print("]");
+        // }
+
+        // }
+        // System.out.print("\n");
+        // }
+        // System.out.print("\n");
+
+        String kata = "Hello World";
+        System.out.println(kata);
+
+        String kataString = "hallo";
+
+        char[] kataChar = { 'h', 'a', 'l', 'l', 'o' };
+
+        // menampilkan String
+
+        System.out.println(kataString);
+        System.out.println(Arrays.toString(kataChar));
+
+        // mengakses komponen dari String
+
+        System.out.println("komponen pertama dari char[] = " + kataChar[3]);
+        System.out.println("komponen pertama dari String = " + kataString.charAt(3));
+
+        // merubah komponen dari String
+        // itu tidak bisa...kenapa?, karena string di java itu immutable
+        kataChar[0] = 'c';
+        System.out.println(Arrays.toString(kataChar));
+
+        // kataString[0] = "c"; <---- tidak bisa
+        // kataString.charAt(0) = "c"; <---- tidak bisa
+
+        // kita bisa merubah komponen secara tidak langsung
+
+        printAddress("kataString", kataString);
+
+        kataString = "c" + kataString.substring(1, 5);
+
+        System.out.println(kataString);
+
+        printAddress("kataString", kataString);
+
+        // memory dari string (String Pool)
+
+        String str_1 = "hallo";
+        String str_2 = "test";
+        String str_3 = "testing";
+
+        printAddress("str_1", str_1);
+        printAddress("str_2", str_2);
+        printAddress("str_3", str_3);
+
+        str_3 = str_3.substring(0, 4);
+        printAddress("str_3", str_3);
+
+        String str_4 = "callo";
+        printAddress("str_4", str_4);
+
+        kataString = "callo";
+        printAddress("kataString", kataString);
+
+        String a = new String("hallo");
+        printAddress("a", a);
     }
 
-    private static int[][] kali(int[][] matrix_1, int[][] matrix_2) {
-        int baris_1 = matrix_1.length;
-        int kolom_1 = matrix_1[0].length;
-
-        int baris_2 = matrix_2.length;
-        int kolom_2 = matrix_2[0].length;
-
-        int[][] hasil = new int[baris_1][kolom_2];
-
-        int buffer;
-        for (int i = 0; i < baris_1; i++) {
-            for (int j = 0; j < kolom_2; j++) {
-                buffer = 0;
-                for (int k = 0; k < kolom_1; k++) {
-                    buffer += matrix_1[i][k] * matrix_2[k][j];
-                }
-                hasil[i][j] = buffer;
-            }
-        }
-
-        return hasil;
-    }
-
-    private static int[][] tambah(int[][] matrix_1, int[][] matrix_2) {
-        int baris_1 = matrix_1.length;
-        int kolom_1 = matrix_1[0].length;
-
-        int baris_2 = matrix_2.length;
-        int kolom_2 = matrix_2[0].length;
-
-        int[][] hasil = new int[baris_1][kolom_1];
-
-        if (baris_1 == baris_2 && kolom_1 == kolom_2) {
-
-            for (int i = 0; i < baris_1; i++) {
-                for (int j = 0; j < kolom_1; j++) {
-                    hasil[i][j] = matrix_1[i][j] + matrix_2[i][j];
-                }
-            }
-        } else {
-            System.out.println("jumlah baris atau kolom tidak sama");
-        }
-        return hasil;
-    }
-
-    private static void printArray(int[][] dataArray) {
-        int baris = dataArray.length;
-        int kolom = dataArray[0].length;
-
-        for (int i = 0; i < baris; i++) {
-            System.out.print("[");
-            for (int j = 0; j < kolom; j++) {
-                System.out.print(dataArray[i][j]);
-
-                if (j < (kolom - 1)) {
-                    System.out.print(",");
-                } else {
-                    System.out.print("]");
-                }
-
-            }
-            System.out.print("\n");
-        }
-        System.out.print("\n");
+    private static void printAddress(String nama, String data) {
+        int address = System.identityHashCode(data);
+        System.out.println(nama + " = " + data + "\t|| address = " + Integer.toHexString(address));
     }
 }
 
