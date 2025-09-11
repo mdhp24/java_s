@@ -1174,73 +1174,114 @@ public class Main {
         // Integer.toHexString(address));
         // }
 
-        String kalimat = "pisang goreng enak sekali";
+        // String kalimat = "pisang goreng enak sekali";
 
-        // Mengambil komponen dari string
-        System.out.println(kalimat.charAt(5));
+        // // Mengambil komponen dari string
+        // System.out.println(kalimat.charAt(5));
 
-        // Substring
-        String kata = kalimat.substring(10, 15);
-        System.out.println(kata);
+        // // Substring
+        // String kata = kalimat.substring(10, 15);
+        // System.out.println(kata);
 
-        // concatenation (concat)
-        String kalimat2 = kata + " bakwan";
-        System.out.println(kalimat2);
+        // // concatenation (concat)
+        // String kalimat2 = kata + " bakwan";
+        // System.out.println(kalimat2);
 
-        kata = kata + " cireng";
-        System.out.println(kata);
+        // kata = kata + " cireng";
+        // System.out.println(kata);
 
-        // concat dengan non string
-        int jumlah = 20;
-        String kalimat3 = kata + " " + jumlah; // casting
-        System.out.println(kalimat3);
-        System.out.println(kata + " " + jumlah);
+        // // concat dengan non string
+        // int jumlah = 20;
+        // String kalimat3 = kata + " " + jumlah; // casting
+        // System.out.println(kalimat3);
+        // System.out.println(kata + " " + jumlah);
 
-        // lowercase dan uppercase
-        System.out.println(kalimat.toUpperCase());
-        System.out.println(kalimat.toLowerCase());
+        // // lowercase dan uppercase
+        // System.out.println(kalimat.toUpperCase());
+        // System.out.println(kalimat.toLowerCase());
+
+        // // replace
+        // String kalimat4 = kalimat.replace("pisang", "combro");
+        // System.out.println(kalimat);
+        // System.out.println(kalimat4);
+
+        // // Compare
+        // String motor1 = "royal enfield himalayan";
+        // String motor2 = "kawasaki w175";
+        // System.out.println(motor1.compareTo(motor2)); // klmnopqr
+        // System.out.println(motor2.compareTo(motor1));
+
+        // String gorengan1 = "bakwan";
+        // String gorengan2 = "bala-bala";
+        // System.out.println(gorengan1.compareTo(gorengan2));
+        // System.out.println(gorengan2.compareTo(gorengan1));
+
+        // // equality ( persamaan )
+
+        // String kataInput = "test"; // ini ada di string pool
+        // // String kataInput = new String("test"); // ini bukan string literal, dan
+        // tidak
+        // // berada di string pool
+        // String kataTest = "test"; // ini juga ada di string pool
+
+        // System.out.println("\npersamaan pada lokasi string pool");
+        // if (kataInput == kataTest) {
+        // System.out.println("sama");
+        // } else {
+        // System.out.println("tidak sama");
+        // }
+
+        // Scanner userInput = new Scanner(System.in);
+        // System.out.print("\nmengambil input string dari user: ");
+        // kataInput = userInput.next(); // tidak di string pool
+        // System.out.println("ini adalah input user: " + kataInput);
+
+        // if (kataInput.equals(kataTest)) {
+        // System.out.println("sama");
+        // } else {
+        // System.out.println("tidak sama");
+        // }
+        StringBuilder builder = new StringBuilder("halo");
+        printData(builder);
+
+        // append
+        builder.append(" semuanya");
+        printData(builder);
+
+        builder.append(" warga Surabaya");
+        printData(builder);
+
+        // insert
+        builder.insert(19, " Kota");
+        printData(builder);
+
+        // delete
+        builder.delete(19, 24);
+        printData(builder);
+
+        // rubah character pada index tertentu
+        builder.setCharAt(14, 'W');
+        printData(builder);
 
         // replace
-        String kalimat4 = kalimat.replace("pisang", "combro");
+        builder.replace(20, 28, "Bandung");
+        printData(builder);
+
+        // casting menjadi string
+        String kalimat = builder.toString();
         System.out.println(kalimat);
-        System.out.println(kalimat4);
+        int addressString = System.identityHashCode(kalimat);
+        System.out.println("address = " + Integer.toHexString(addressString));
 
-        // Compare
-        String motor1 = "royal enfield himalayan";
-        String motor2 = "kawasaki w175";
-        System.out.println(motor1.compareTo(motor2)); // klmnopqr
-        System.out.println(motor2.compareTo(motor1));
+    }
 
-        String gorengan1 = "bakwan";
-        String gorengan2 = "bala-bala";
-        System.out.println(gorengan1.compareTo(gorengan2));
-        System.out.println(gorengan2.compareTo(gorengan1));
+    private static void printData(StringBuilder dataBuilder) {
+        System.out.println("data = " + dataBuilder);
+        System.out.println("panjang = " + dataBuilder.length());
+        System.out.println("kapasitas = " + dataBuilder.capacity());
 
-        // equality ( persamaan )
-
-        String kataInput = "test"; // ini ada di string pool
-        // String kataInput = new String("test"); // ini bukan string literal, dan tidak
-        // berada di string pool
-        String kataTest = "test"; // ini juga ada di string pool
-
-        System.out.println("\npersamaan pada lokasi string pool");
-        if (kataInput == kataTest) {
-            System.out.println("sama");
-        } else {
-            System.out.println("tidak sama");
-        }
-
-        Scanner userInput = new Scanner(System.in);
-        System.out.print("\nmengambil input string dari user: ");
-        kataInput = userInput.next(); // tidak di string pool
-        System.out.println("ini adalah input user: " + kataInput);
-
-        if (kataInput.equals(kataTest)) {
-            System.out.println("sama");
-        } else {
-            System.out.println("tidak sama");
-        }
-
+        int addressBuilder = System.identityHashCode(dataBuilder);
+        System.out.println("address = " + Integer.toHexString(addressBuilder));
     }
 }
 
