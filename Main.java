@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 // class Task {
 //     String title;
@@ -1109,67 +1110,137 @@ public class Main {
         // }
         // System.out.print("\n");
 
-        String kata = "Hello World";
+        // String kata = "Hello World";
+        // System.out.println(kata);
+
+        // String kataString = "hallo";
+
+        // char[] kataChar = { 'm', 'd', 'h', 'p', 'k' };
+
+        // // menampilkan String
+
+        // System.out.println(kataString);
+        // System.out.println(Arrays.toString(kataChar));
+
+        // // mengakses komponen dari String
+
+        // System.out.println("komponen pertama dari char[] = " + kataChar[3]);
+        // System.out.println("komponen pertama dari String = " + kataString.charAt(3));
+
+        // // merubah komponen dari String
+        // // itu tidak bisa...kenapa?, karena string di java itu immutable
+        // kataChar[0] = 'c';
+        // System.out.println(Arrays.toString(kataChar));
+
+        // // kataString[0] = "c"; <---- tidak bisa
+        // // kataString.charAt(0) = "c"; <---- tidak bisa
+
+        // // kita bisa merubah komponen secara tidak langsung
+
+        // printAddress("kataString", kataString);
+
+        // kataString = "c" + kataString.substring(1, 5);
+
+        // System.out.println(kataString);
+
+        // printAddress("kataString", kataString);
+
+        // // memory dari string (String Pool)
+
+        // String str_1 = "hallo";
+        // String str_2 = "test";
+        // String str_3 = "testing";
+
+        // printAddress("str_1", str_1);
+        // printAddress("str_2", str_2);
+        // printAddress("str_3", str_3);
+
+        // str_3 = str_3.substring(0, 4);
+        // printAddress("str_3", str_3);
+
+        // String str_4 = "callo";
+        // printAddress("str_4", str_4);
+
+        // kataString = "callo";
+        // printAddress("kataString", kataString);
+
+        // String a = new String("hallo");
+        // printAddress("a", a);
+        // }
+
+        // private static void printAddress(String nama, String data) {
+        // int address = System.identityHashCode(data);
+        // System.out.println(nama + " = " + data + "\t|| address = " +
+        // Integer.toHexString(address));
+        // }
+
+        String kalimat = "pisang goreng enak sekali";
+
+        // Mengambil komponen dari string
+        System.out.println(kalimat.charAt(5));
+
+        // Substring
+        String kata = kalimat.substring(10, 15);
         System.out.println(kata);
 
-        String kataString = "hallo";
+        // concatenation (concat)
+        String kalimat2 = kata + " bakwan";
+        System.out.println(kalimat2);
 
-        char[] kataChar = { 'h', 'a', 'l', 'l', 'o' };
+        kata = kata + " cireng";
+        System.out.println(kata);
 
-        // menampilkan String
+        // concat dengan non string
+        int jumlah = 20;
+        String kalimat3 = kata + " " + jumlah; // casting
+        System.out.println(kalimat3);
+        System.out.println(kata + " " + jumlah);
 
-        System.out.println(kataString);
-        System.out.println(Arrays.toString(kataChar));
+        // lowercase dan uppercase
+        System.out.println(kalimat.toUpperCase());
+        System.out.println(kalimat.toLowerCase());
 
-        // mengakses komponen dari String
+        // replace
+        String kalimat4 = kalimat.replace("pisang", "combro");
+        System.out.println(kalimat);
+        System.out.println(kalimat4);
 
-        System.out.println("komponen pertama dari char[] = " + kataChar[3]);
-        System.out.println("komponen pertama dari String = " + kataString.charAt(3));
+        // Compare
+        String motor1 = "royal enfield himalayan";
+        String motor2 = "kawasaki w175";
+        System.out.println(motor1.compareTo(motor2)); // klmnopqr
+        System.out.println(motor2.compareTo(motor1));
 
-        // merubah komponen dari String
-        // itu tidak bisa...kenapa?, karena string di java itu immutable
-        kataChar[0] = 'c';
-        System.out.println(Arrays.toString(kataChar));
+        String gorengan1 = "bakwan";
+        String gorengan2 = "bala-bala";
+        System.out.println(gorengan1.compareTo(gorengan2));
+        System.out.println(gorengan2.compareTo(gorengan1));
 
-        // kataString[0] = "c"; <---- tidak bisa
-        // kataString.charAt(0) = "c"; <---- tidak bisa
+        // equality ( persamaan )
 
-        // kita bisa merubah komponen secara tidak langsung
+        String kataInput = "test"; // ini ada di string pool
+        // String kataInput = new String("test"); // ini bukan string literal, dan tidak
+        // berada di string pool
+        String kataTest = "test"; // ini juga ada di string pool
 
-        printAddress("kataString", kataString);
+        System.out.println("\npersamaan pada lokasi string pool");
+        if (kataInput == kataTest) {
+            System.out.println("sama");
+        } else {
+            System.out.println("tidak sama");
+        }
 
-        kataString = "c" + kataString.substring(1, 5);
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("\nmengambil input string dari user: ");
+        kataInput = userInput.next(); // tidak di string pool
+        System.out.println("ini adalah input user: " + kataInput);
 
-        System.out.println(kataString);
+        if (kataInput.equals(kataTest)) {
+            System.out.println("sama");
+        } else {
+            System.out.println("tidak sama");
+        }
 
-        printAddress("kataString", kataString);
-
-        // memory dari string (String Pool)
-
-        String str_1 = "hallo";
-        String str_2 = "test";
-        String str_3 = "testing";
-
-        printAddress("str_1", str_1);
-        printAddress("str_2", str_2);
-        printAddress("str_3", str_3);
-
-        str_3 = str_3.substring(0, 4);
-        printAddress("str_3", str_3);
-
-        String str_4 = "callo";
-        printAddress("str_4", str_4);
-
-        kataString = "callo";
-        printAddress("kataString", kataString);
-
-        String a = new String("hallo");
-        printAddress("a", a);
-    }
-
-    private static void printAddress(String nama, String data) {
-        int address = System.identityHashCode(data);
-        System.out.println(nama + " = " + data + "\t|| address = " + Integer.toHexString(address));
     }
 }
 
