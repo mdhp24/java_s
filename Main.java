@@ -1425,18 +1425,33 @@ public class Main {
 
         // return hasil;\
 
-        try {
-        FileInputStream fileInput = new FileInputStream("input.txt");
-        } catch (Exception e){
-        System.err.println(e);
-        }
+        // try {
+        // FileInputStream fileInput = new FileInputStream("input.txt");
+        // } catch (Exception e){
+        // System.err.println(e);
+        // }
 
-        FileInputStream fileInput = new FileInputStream("input.txt");
+        // FileInputStream fileInput = new FileInputStream("input.txt");
 
-        System.out.println((char) fileInput.read());
-        System.out.println((char) fileInput.read());
-        System.out.println((char) fileInput.read());
-        System.out.println((char) fileInput.read());
+        // System.out.println((char) fileInput.read());
+        // System.out.println((char) fileInput.read());
+        // System.out.println((char) fileInput.read());
+        // System.out.println((char) fileInput.read());
+
+        // MASUK KE OOP
+        Mahasiswa mhs = new Mahasiswa();
+        mhs.nama = "Dicky";
+        mhs.umur = 21;
+        mhs.belajar();
+    }
+}
+
+class Mahasiswa {
+    String nama;
+    int umur;
+
+    void belajar() {
+        System.out.println(nama + " sedang belajar.");
     }
 }
 
