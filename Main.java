@@ -1,5 +1,6 @@
-import java.util.Arrays;
-import java.util.Formatter;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 // class Task {
@@ -1374,54 +1375,68 @@ public class Main {
         // formatBuilder.format("nama: %s, IPK = %2$+5.2f",nama2,IPK);
         // System.out.println("string builder format -> " + builder_info);
 
-        int[] arrayData = { 0, 1, 2, 3 };
+        // int[] arrayData = { 0, 1, 2, 3 };
 
-        Scanner userInput = new Scanner(System.in);
-        System.out.print("data ke-:");
-        int indexInput = userInput.nextInt();
+        // Scanner userInput = new Scanner(System.in);
+        // System.out.print("data ke-:");
+        // int indexInput = userInput.nextInt();
 
-        // Exception biasa
-        System.out.println("Exception biasa");
+        // // Exception biasa
+        // System.out.println("Exception biasa");
+        // try {
+        // System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput,
+        // arrayData[indexInput]);
+        // } catch (Exception e) {
+        // System.err.println(e);
+        // }
+
+        // // Exception didalam fungsi
+        // System.out.println("\nException dalam fungsi");
+        // int data = ambilDataDariArray(arrayData, indexInput);
+        // System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput, data);
+
+        // // Exception throws by method
+        // System.out.println("Exception throws by method");
+        // int data2 = 0;
+
+        // try {
+        // data2 = ambilData(arrayData, indexInput);
+        // } catch (Exception e) {
+        // System.err.println(e);
+        // }
+
+        // System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput, data2);
+        // System.out.println("\n\nakhir dari program");
+        // }
+
+        // private static int ambilData(int[] array, int index) throws Exception {
+        // int hasil = array[index];
+        // return hasil;
+        // }
+
+        // private static int ambilDataDariArray(int[] array, int index) {
+        // int hasil = 0;
+
+        // try {
+        // hasil = array[index];
+        // } catch (Exception e) {
+        // System.err.println(e);
+        // }
+
+        // return hasil;\
+
         try {
-            System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput, arrayData[indexInput]);
-        } catch (Exception e) {
-            System.err.println(e);
+        FileInputStream fileInput = new FileInputStream("input.txt");
+        } catch (Exception e){
+        System.err.println(e);
         }
 
-        // Exception didalam fungsi
-        System.out.println("\nException dalam fungsi");
-        int data = ambilDataDariArray(arrayData, indexInput);
-        System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput, data);
+        FileInputStream fileInput = new FileInputStream("input.txt");
 
-        // Exception throws by method
-        System.out.println("Exception throws by method");
-        int data2 = 0;
-
-        try {
-            data2 = ambilData(arrayData, indexInput);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-
-        System.out.printf("data dari array ke-%d adalah %d\n\n", indexInput, data2);
-        System.out.println("\n\nakhir dari program");
-    }
-
-    private static int ambilData(int[] array, int index) throws Exception {
-        int hasil = array[index];
-        return hasil;
-    }
-
-    private static int ambilDataDariArray(int[] array, int index) {
-        int hasil = 0;
-
-        try {
-            hasil = array[index];
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-
-        return hasil;
+        System.out.println((char) fileInput.read());
+        System.out.println((char) fileInput.read());
+        System.out.println((char) fileInput.read());
+        System.out.println((char) fileInput.read());
     }
 }
 
