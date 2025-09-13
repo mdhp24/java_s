@@ -1444,26 +1444,48 @@ public class Main {
         // mhs.umur = 21;
         // mhs.belajar();
 
-        Mobil m1 = new Mobil();
-        m1.merk = "Toyota";
-        m1.warna = "Hitam";
-        m1.infoMobil();
+        // Mobil m1 = new Mobil();
+        // m1.merk = "Toyota";
+        // m1.warna = "Hitam";
+        // m1.infoMobil();
 
-        Mobil m2 = new Mobil();
-        m2.merk = "Honda";
-        m2.warna = "Merah";
-        m2.infoMobil();
+        // Mobil m2 = new Mobil();
+        // m2.merk = "Honda";
+        // m2.warna = "Merah";
+        // m2.infoMobil();
+
+        Mahasiswa mhs1 = new Mahasiswa("Cuku", 20);
+        Mahasiswa mhs2 = new Mahasiswa("Rukuk", 22);
+
+        mhs1.info();
+        mhs2.info();
+
     }
 }
 
-class Mobil {
-    String merk;
-    String warna;
+class Mahasiswa {
+    String nama;
+    int umur;
 
-    void infoMobil() {
-        System.out.println("Merk: " + merk + ", Warna: " + warna);
+    // Constructor
+    Mahasiswa(String n, int u) {
+        nama = n;
+        umur = u;
+    }
+
+    void info() {
+        System.out.println("Nama: " + nama + ", Umur: " + umur);
     }
 }
+
+// class Mobil {
+// String merk;
+// String warna;
+
+// void infoMobil() {
+// System.out.println("Merk: " + merk + ", Warna: " + warna);
+// }
+// }
 
 // class Mahasiswa {
 // String nama;
