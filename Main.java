@@ -1439,21 +1439,40 @@ public class Main {
         // System.out.println((char) fileInput.read());
 
         // MASUK KE OOP
-        Mahasiswa mhs = new Mahasiswa();
-        mhs.nama = "Dicky";
-        mhs.umur = 21;
-        mhs.belajar();
+        // Mahasiswa mhs = new Mahasiswa();
+        // mhs.nama = "Dicky";
+        // mhs.umur = 21;
+        // mhs.belajar();
+
+        Mobil m1 = new Mobil();
+        m1.merk = "Toyota";
+        m1.warna = "Hitam";
+        m1.infoMobil();
+
+        Mobil m2 = new Mobil();
+        m2.merk = "Honda";
+        m2.warna = "Merah";
+        m2.infoMobil();
     }
 }
 
-class Mahasiswa {
-    String nama;
-    int umur;
+class Mobil {
+    String merk;
+    String warna;
 
-    void belajar() {
-        System.out.println(nama + " sedang belajar.");
+    void infoMobil() {
+        System.out.println("Merk: " + merk + ", Warna: " + warna);
     }
 }
+
+// class Mahasiswa {
+// String nama;
+// int umur;
+
+// void belajar() {
+// System.out.println(nama + " sedang belajar.");
+// }
+// }
 
 // }
 
