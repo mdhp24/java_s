@@ -1467,32 +1467,66 @@ public class Main {
         // akun.setSaldo(20000);
         // System.out.println("Saldo saat ini: " + akun.getSaldo());
 
-        Hewan h1 = new Kucing();
-        Hewan h2 = new Anjing();
+        // Hewan h1 = new Kucing();
+        // Hewan h2 = new Anjing();
 
-        h1.suara();
-        h2.suara();
+        // h1.suara();
+        // h2.suara();
+        BangunDatar b1 = new Persegi(5);
+        BangunDatar b2 = new Lingkaran(7);
 
+        System.out.println("Luas Persegi: " + b1.luas());
+        System.out.println("Luas Lingkaran: " + b2.luas());
     }
 }
 
-class Hewan {
-    void suara() {
-        System.out.println("Hewan mengeluarkan suara");
+class BangunDatar {
+    double luas() {
+        return 0;
     }
 }
 
-class Kucing extends Hewan {
-    void suara() {
-        System.out.println("Pushhh....");
+class Persegi extends BangunDatar {
+    double sisi;
+
+    Persegi(double s) {
+        sisi = s;
+    }
+
+    double luas() {
+        return sisi * sisi;
     }
 }
 
-class Anjing extends Hewan {
-    void suara() {
-        System.out.println("Cukurukuk....");
+class Lingkaran extends BangunDatar {
+    double jari;
+
+    Lingkaran(double r) {
+        jari = r;
+    }
+
+    double luas() {
+        return 3.14 * jari * jari;
     }
 }
+
+// class Hewan {
+// void suara() {
+// System.out.println("Hewan mengeluarkan suara");
+// }
+// }
+
+// class Kucing extends Hewan {
+// void suara() {
+// System.out.println("Pushhh....");
+// }
+// }
+
+// class Anjing extends Hewan {
+// void suara() {
+// System.out.println("Cukurukuk....");
+// }
+// }
 
 // class AkunBank {
 // private double saldo;
