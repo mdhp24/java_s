@@ -1460,33 +1460,57 @@ public class Main {
         // mhs1.info();
         // mhs2.info();
 
-        AkunBank akun = new AkunBank();
-        akun.setSaldo(100000);
-        akun.setSaldo(-5000);
-        System.out.println("Saldo saat ini: " + akun.getSaldo());
-        akun.setSaldo(20000);
-        System.out.println("Saldo saat ini: " + akun.getSaldo());
+        // AkunBank akun = new AkunBank();
+        // akun.setSaldo(100000);
+        // akun.setSaldo(-5000);
+        // System.out.println("Saldo saat ini: " + akun.getSaldo());
+        // akun.setSaldo(20000);
+        // System.out.println("Saldo saat ini: " + akun.getSaldo());
+
+        Hewan h1 = new Kucing();
+        Hewan h2 = new Anjing();
+
+        h1.suara();
+        h2.suara();
 
     }
 }
 
-class AkunBank {
-    private double saldo;
-
-    // Setter
-    public void setSaldo(double saldo) {
-        if (saldo < 0) {
-            this.saldo = 0;
-        } else {
-            this.saldo = saldo;
-        }
-    }
-
-    // Getter
-    public double getSaldo() {
-        return saldo;
+class Hewan {
+    void suara() {
+        System.out.println("Hewan mengeluarkan suara");
     }
 }
+
+class Kucing extends Hewan {
+    void suara() {
+        System.out.println("Pushhh....");
+    }
+}
+
+class Anjing extends Hewan {
+    void suara() {
+        System.out.println("Cukurukuk....");
+    }
+}
+
+// class AkunBank {
+// private double saldo;
+
+// // Setter
+// public void setSaldo(double saldo) {
+// if (saldo < 0) {
+// this.saldo = 0;
+// } else {
+// this.saldo = saldo;
+// }
+// }
+
+// // Getter
+// public double getSaldo() {
+// return saldo;
+// }
+// }
 
 // class Mahasiswa {
 // String nama;
