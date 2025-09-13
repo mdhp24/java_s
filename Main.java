@@ -1454,29 +1454,54 @@ public class Main {
         // m2.warna = "Merah";
         // m2.infoMobil();
 
-        Mahasiswa mhs1 = new Mahasiswa("Cuku", 20);
-        Mahasiswa mhs2 = new Mahasiswa("Rukuk", 22);
+        // Mahasiswa mhs1 = new Mahasiswa("Cuku", 20);
+        // Mahasiswa mhs2 = new Mahasiswa("Rukuk", 22);
 
-        mhs1.info();
-        mhs2.info();
+        // mhs1.info();
+        // mhs2.info();
+
+        AkunBank akun = new AkunBank();
+        akun.setSaldo(100000);
+        akun.setSaldo(-5000);
+        System.out.println("Saldo saat ini: " + akun.getSaldo());
+        akun.setSaldo(20000);
+        System.out.println("Saldo saat ini: " + akun.getSaldo());
 
     }
 }
 
-class Mahasiswa {
-    String nama;
-    int umur;
+class AkunBank {
+    private double saldo;
 
-    // Constructor
-    Mahasiswa(String n, int u) {
-        nama = n;
-        umur = u;
+    // Setter
+    public void setSaldo(double saldo) {
+        if (saldo < 0) {
+            this.saldo = 0;
+        } else {
+            this.saldo = saldo;
+        }
     }
 
-    void info() {
-        System.out.println("Nama: " + nama + ", Umur: " + umur);
+    // Getter
+    public double getSaldo() {
+        return saldo;
     }
 }
+
+// class Mahasiswa {
+// String nama;
+// int umur;
+
+// // Constructor
+// Mahasiswa(String n, int u) {
+// nama = n;
+// umur = u;
+// }
+
+// void info() {
+// System.out.println("Nama: " + nama + ", Umur: " + umur);
+// }
+// }
 
 // class Mobil {
 // String merk;
