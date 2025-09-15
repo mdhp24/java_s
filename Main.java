@@ -1484,55 +1484,81 @@ public class Main {
         // System.out.println(p1.getNama() + " harga: Rp" + p1.getHarga());
         // System.out.println(p2.getNama() + " harga: Rp" + p2.getHarga());
 
-        Mahasiswa[] daftar = new Mahasiswa[3];
-        daftar[0] = new Mahasiswa("Oke", 20);
-        daftar[1] = new Mahasiswa("Soa", 21);
-        daftar[2] = new Mahasiswa("Kia", 19);
+        Pegawai p1 = new Manager("Andi", 8000000);
+        Pegawai p2 = new Staff("Budi", 4000000);
 
-        for (Mahasiswa m : daftar) {
-            m.info();
-        }
+        p1.info();
+        System.out.println("Bonus: " + p1.hitungBonus());
+
+        p2.info();
+        System.out.println("Bonus: " + p2.hitungBonus());
     }
 }
 
-class Mahasiswa {
-    private String nama;
-    private int umur;
+class Pegawai {
+    protected String nama;
+    protected double gaji;
 
-    public Mahasiswa(String nama, int umur) {
+    public Pegawai(String nama, double gaji) {
         this.nama = nama;
-        this.umur = umur;
+        this.gaji = gaji;
+    }
+
+    public double hitungBonus() {
+        return 0;
     }
 
     public void info() {
-        System.out.println("Nama: " + nama + ", Umur: " + umur);
+        System.out.println("Nama: " + nama + ", Gaji: " + gaji);
+    }
+}
+
+class Manager extends Pegawai {
+    public Manager(String nama, double gaji) {
+        super(nama, gaji);
+    }
+
+    @Override
+    public double hitungBonus() {
+        return gaji * 0.2;
+    }
+}
+
+class Staff extends Pegawai {
+    public Staff(String nama, double gaji) {
+        super(nama, gaji);
+    }
+
+    @Override
+    public double hitungBonus() {
+        return gaji * 0.1;
     }
 }
 
 // class Produk {
-//     private String nama;
-//     private double harga;
+// private String nama;
+// private double harga;
 
-//     public Produk(String nama, double harga) {
-//         this.nama = nama;
-//         setHarga(harga);
-//     }
+// public Produk(String nama, double harga) {
+// this.nama = nama;
+// setHarga(harga);
+// }
 
-//     public void setHarga(double harga) {
-//         if (harga > 0) {
-//             this.harga = harga;
-//         } else {
-//             this.harga = 0;
-//         }
-//     }
+// public void setHarga(double harga) {
+// if (harga > 0) {
+// this.harga = harga;
+// } else {
+// this.harga = 0;
+// }
+// }
 
-//     public double getHarga() {
-//         return harga;
-//     }
+// public double getHarga() {
+// return harga;
+// }
 
-//     public String getNama() {
-//         return nama;
-//     }
+// public String getNama() {
+// return nama;
+// }
 // }
 
 // class BangunDatar {
