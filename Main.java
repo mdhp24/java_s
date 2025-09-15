@@ -1472,43 +1472,75 @@ public class Main {
 
         // h1.suara();
         // h2.suara();
-        BangunDatar b1 = new Persegi(5);
-        BangunDatar b2 = new Lingkaran(7);
+        // BangunDatar b1 = new Persegi(5);
+        // BangunDatar b2 = new Lingkaran(7);
 
-        System.out.println("Luas Persegi: " + b1.luas());
-        System.out.println("Luas Lingkaran: " + b2.luas());
+        // System.out.println("Luas Persegi: " + b1.luas());
+        // System.out.println("Luas Lingkaran: " + b2.luas());
+
+        Produk p1 = new Produk("Laptop", 10000000);
+        Produk p2 = new Produk("Mouse", -20000); // invalid, diset 0
+
+        System.out.println(p1.getNama() + " harga: Rp" + p1.getHarga());
+        System.out.println(p2.getNama() + " harga: Rp" + p2.getHarga());
     }
 }
 
-class BangunDatar {
-    double luas() {
-        return 0;
+class Produk {
+    private String nama;
+    private double harga;
+
+    public Produk(String nama, double harga) {
+        this.nama = nama;
+        setHarga(harga);
+    }
+
+    public void setHarga(double harga) {
+        if (harga > 0) {
+            this.harga = harga;
+        } else {
+            this.harga = 0;
+        }
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public String getNama() {
+        return nama;
     }
 }
 
-class Persegi extends BangunDatar {
-    double sisi;
+// class BangunDatar {
+// double luas() {
+// return 0;
+// }
+// }
 
-    Persegi(double s) {
-        sisi = s;
-    }
+// class Persegi extends BangunDatar {
+// double sisi;
 
-    double luas() {
-        return sisi * sisi;
-    }
-}
+// Persegi(double s) {
+// sisi = s;
+// }
 
-class Lingkaran extends BangunDatar {
-    double jari;
+// double luas() {
+// return sisi * sisi;
+// }
+// }
 
-    Lingkaran(double r) {
-        jari = r;
-    }
+// class Lingkaran extends BangunDatar {
+// double jari;
 
-    double luas() {
-        return 3.14 * jari * jari;
-    }
-}
+// Lingkaran(double r) {
+// jari = r;
+// }
+
+// double luas() {
+// return 3.14 * jari * jari;
+// }
+// }
 
 // class Hewan {
 // void suara() {
