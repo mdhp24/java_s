@@ -1478,39 +1478,62 @@ public class Main {
         // System.out.println("Luas Persegi: " + b1.luas());
         // System.out.println("Luas Lingkaran: " + b2.luas());
 
-        Produk p1 = new Produk("Laptop", 10000000);
-        Produk p2 = new Produk("Mouse", -20000); // invalid, diset 0
+        // Produk p1 = new Produk("Laptop", 10000000);
+        // Produk p2 = new Produk("Mouse", -20000); // invalid, diset 0
 
-        System.out.println(p1.getNama() + " harga: Rp" + p1.getHarga());
-        System.out.println(p2.getNama() + " harga: Rp" + p2.getHarga());
-    }
-}
+        // System.out.println(p1.getNama() + " harga: Rp" + p1.getHarga());
+        // System.out.println(p2.getNama() + " harga: Rp" + p2.getHarga());
 
-class Produk {
-    private String nama;
-    private double harga;
+        Mahasiswa[] daftar = new Mahasiswa[3];
+        daftar[0] = new Mahasiswa("Oke", 20);
+        daftar[1] = new Mahasiswa("Soa", 21);
+        daftar[2] = new Mahasiswa("Kia", 19);
 
-    public Produk(String nama, double harga) {
-        this.nama = nama;
-        setHarga(harga);
-    }
-
-    public void setHarga(double harga) {
-        if (harga > 0) {
-            this.harga = harga;
-        } else {
-            this.harga = 0;
+        for (Mahasiswa m : daftar) {
+            m.info();
         }
     }
+}
 
-    public double getHarga() {
-        return harga;
+class Mahasiswa {
+    private String nama;
+    private int umur;
+
+    public Mahasiswa(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
     }
 
-    public String getNama() {
-        return nama;
+    public void info() {
+        System.out.println("Nama: " + nama + ", Umur: " + umur);
     }
 }
+
+// class Produk {
+//     private String nama;
+//     private double harga;
+
+//     public Produk(String nama, double harga) {
+//         this.nama = nama;
+//         setHarga(harga);
+//     }
+
+//     public void setHarga(double harga) {
+//         if (harga > 0) {
+//             this.harga = harga;
+//         } else {
+//             this.harga = 0;
+//         }
+//     }
+
+//     public double getHarga() {
+//         return harga;
+//     }
+
+//     public String getNama() {
+//         return nama;
+//     }
+// }
 
 // class BangunDatar {
 // double luas() {
