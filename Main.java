@@ -1499,40 +1499,91 @@ public class Main {
         // buku1.info();
         // buku2.info();
 
-        Kasir kasir = new Kasir("Dicky");
-        kasir.prosesPembayaran(150000);
-        kasir.cetak("Buku Pemrograman Java", 150000);
+        // Kasir kasir = new Kasir("Dicky");
+        // kasir.prosesPembayaran(150000);
+        // kasir.cetak("Buku Pemrograman Java", 150000);
+
+        Bentuk b1 = new Persegi(5);
+        Bentuk b2 = new Lingkaran(7);
+
+        System.out.println("Luas Persegi: " + b1.luas());
+        System.out.println("Keliling Persegi: " + b1.keliling());
+        System.out.println("Luas Lingkaran: " + b2.luas());
+        System.out.println("Keliling Lingkaran: " + b2.keliling());
     }
 }
 
-interface Bayar {
-    void prosesPembayaran(double jumlah);
+abstract class Bentuk {
+    abstract double luas();
+
+    abstract double keliling();
 }
 
-interface CetakStruk {
-    void cetak(String item, double jumlah);
-}
+class Persegi extends Bentuk {
+    private double sisi;
 
-class Kasir implements Bayar, CetakStruk {
-    private String namaKasir;
-
-    public Kasir(String namaKasir) {
-        this.namaKasir = namaKasir;
+    public Persegi(double sisi) {
+        this.sisi = sisi;
     }
 
     @Override
-    public void prosesPembayaran(double jumlah) {
-        System.out.println("Kasir " + namaKasir + " memproses pembayaran sebesar: Rp" + jumlah);
+    double luas() {
+        return sisi * sisi;
     }
 
     @Override
-    public void cetak(String item, double jumlah) {
-        System.out.println("Struk Pembayaran");
-        System.out.println("Item: " + item);
-        System.out.println("Jumlah: Rp" + jumlah);
-        System.out.println("Terima kasih telah berbelanja!");
+    double keliling() {
+        return 4 * sisi;
     }
 }
+
+class Lingkaran extends Bentuk {
+    private double jari;
+
+    public Lingkaran(double jari) {
+        this.jari = jari;
+    }
+
+    @Override
+    double luas() {
+        return 3.14 * jari * jari;
+    }
+
+    @Override
+    double keliling() {
+        return 2 * 3.14 * jari;
+    }
+}
+
+// interface Bayar {
+// void prosesPembayaran(double jumlah);
+// }
+
+// interface CetakStruk {
+// void cetak(String item, double jumlah);
+// }
+
+// class Kasir implements Bayar, CetakStruk {
+// private String namaKasir;
+
+// public Kasir(String namaKasir) {
+// this.namaKasir = namaKasir;
+// }
+
+// @Override
+// public void prosesPembayaran(double jumlah) {
+// System.out.println("Kasir " + namaKasir + " memproses pembayaran sebesar: Rp"
+// + jumlah);
+// }
+
+// @Override
+// public void cetak(String item, double jumlah) {
+// System.out.println("Struk Pembayaran");
+// System.out.println("Item: " + item);
+// System.out.println("Jumlah: Rp" + jumlah);
+// System.out.println("Terima kasih telah berbelanja!");
+// }
+// }
 
 // class Buku {
 // private String judul;
