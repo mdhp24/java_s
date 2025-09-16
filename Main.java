@@ -1493,43 +1493,76 @@ public class Main {
         // p2.info();
         // System.out.println("Bonus: " + p2.hitungBonus());
 
-        Buku buku1 = new Buku("Pemrograman Java", 10);
-        Buku buku2 = new Buku("Struktur Data", -5); // stok invalid,
+        // Buku buku1 = new Buku("Pemrograman Java", 10);
+        // Buku buku2 = new Buku("Struktur Data", -5); // stok invalid,
 
-        buku1.info();
-        buku2.info();
+        // buku1.info();
+        // buku2.info();
+
+        Kasir kasir = new Kasir("Dicky");
+        kasir.prosesPembayaran(150000);
+        kasir.cetak("Buku Pemrograman Java", 150000);
     }
 }
 
-class Buku {
-    private String judul;
-    private int stok;
+interface Bayar {
+    void prosesPembayaran(double jumlah);
+}
 
-    public Buku(String judul, int stok) {
-        this.judul = judul;
-        setStok(stok);
+interface CetakStruk {
+    void cetak(String item, double jumlah);
+}
+
+class Kasir implements Bayar, CetakStruk {
+    private String namaKasir;
+
+    public Kasir(String namaKasir) {
+        this.namaKasir = namaKasir;
     }
 
-    public String getJudul() {
-        return judul;
+    @Override
+    public void prosesPembayaran(double jumlah) {
+        System.out.println("Kasir " + namaKasir + " memproses pembayaran sebesar: Rp" + jumlah);
     }
 
-    public int getStok() {
-        return stok;
-    }
-
-    public void setStok(int stok) {
-        if (stok < 0) {
-            this.stok = 0;
-        } else {
-            this.stok = stok;
-        }
-    }
-
-    public void info() {
-        System.out.println("Judul: " + judul + ", Stok: " + stok);
+    @Override
+    public void cetak(String item, double jumlah) {
+        System.out.println("Struk Pembayaran");
+        System.out.println("Item: " + item);
+        System.out.println("Jumlah: Rp" + jumlah);
+        System.out.println("Terima kasih telah berbelanja!");
     }
 }
+
+// class Buku {
+// private String judul;
+// private int stok;
+
+// public Buku(String judul, int stok) {
+// this.judul = judul;
+// setStok(stok);
+// }
+
+// public String getJudul() {
+// return judul;
+// }
+
+// public int getStok() {
+// return stok;
+// }
+
+// public void setStok(int stok) {
+// if (stok < 0) {
+// this.stok = 0;
+// } else {
+// this.stok = stok;
+// }
+// }
+
+// public void info() {
+// System.out.println("Judul: " + judul + ", Stok: " + stok);
+// }
+// }
 
 // class Pegawai {
 // protected String nama;
