@@ -1484,56 +1484,92 @@ public class Main {
         // System.out.println(p1.getNama() + " harga: Rp" + p1.getHarga());
         // System.out.println(p2.getNama() + " harga: Rp" + p2.getHarga());
 
-        Pegawai p1 = new Manager("Andi", 8000000);
-        Pegawai p2 = new Staff("Budi", 4000000);
+        // Pegawai p1 = new Manager("Andi", 8000000);
+        // Pegawai p2 = new Staff("Budi", 4000000);
 
-        p1.info();
-        System.out.println("Bonus: " + p1.hitungBonus());
+        // p1.info();
+        // System.out.println("Bonus: " + p1.hitungBonus());
 
-        p2.info();
-        System.out.println("Bonus: " + p2.hitungBonus());
+        // p2.info();
+        // System.out.println("Bonus: " + p2.hitungBonus());
+
+        Buku buku1 = new Buku("Pemrograman Java", 10);
+        Buku buku2 = new Buku("Struktur Data", -5); // stok invalid,
+
+        buku1.info();
+        buku2.info();
     }
 }
 
-class Pegawai {
-    protected String nama;
-    protected double gaji;
+class Buku {
+    private String judul;
+    private int stok;
 
-    public Pegawai(String nama, double gaji) {
-        this.nama = nama;
-        this.gaji = gaji;
+    public Buku(String judul, int stok) {
+        this.judul = judul;
+        setStok(stok);
     }
 
-    public double hitungBonus() {
-        return 0;
+    public String getJudul() {
+        return judul;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        if (stok < 0) {
+            this.stok = 0;
+        } else {
+            this.stok = stok;
+        }
     }
 
     public void info() {
-        System.out.println("Nama: " + nama + ", Gaji: " + gaji);
+        System.out.println("Judul: " + judul + ", Stok: " + stok);
     }
 }
 
-class Manager extends Pegawai {
-    public Manager(String nama, double gaji) {
-        super(nama, gaji);
-    }
+// class Pegawai {
+// protected String nama;
+// protected double gaji;
 
-    @Override
-    public double hitungBonus() {
-        return gaji * 0.2;
-    }
-}
+// public Pegawai(String nama, double gaji) {
+// this.nama = nama;
+// this.gaji = gaji;
+// }
 
-class Staff extends Pegawai {
-    public Staff(String nama, double gaji) {
-        super(nama, gaji);
-    }
+// public double hitungBonus() {
+// return 0;
+// }
 
-    @Override
-    public double hitungBonus() {
-        return gaji * 0.1;
-    }
-}
+// public void info() {
+// System.out.println("Nama: " + nama + ", Gaji: " + gaji);
+// }
+// }
+
+// class Manager extends Pegawai {
+// public Manager(String nama, double gaji) {
+// super(nama, gaji);
+// }
+
+// @Override
+// public double hitungBonus() {
+// return gaji * 0.2;
+// }
+// }
+
+// class Staff extends Pegawai {
+// public Staff(String nama, double gaji) {
+// super(nama, gaji);
+// }
+
+// @Override
+// public double hitungBonus() {
+// return gaji * 0.1;
+// }
+// }
 
 // class Produk {
 // private String nama;
