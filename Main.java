@@ -1512,59 +1512,85 @@ public class Main {
         // System.out.println("Luas Lingkaran: " + b2.luas());
         // System.out.println("Keliling Lingkaran: " + b2.keliling());
 
-        System.out.println("Hello Java");
+        // System.out.println("Hello Java");
 
-        Pegawai p1 = new PegawaiTetap("Dicky", 5000000);
-        Pegawai p2 = new PegawaiKontrak("Andi", 120, 50000);
+        // Pegawai p1 = new PegawaiTetap("Dicky", 5000000);
+        // Pegawai p2 = new PegawaiKontrak("Andi", 120, 50000);
 
-        p1.info();
-        p2.info();
+        // p1.info();
+        // p2.info();
+        Pembayaran[] metode = { new Dana(), new Ovo(), new Gopay() };
+
+        for (Pembayaran p : metode) {
+            p.proses(100000);
+        }
     }
 }
 
-abstract class Pegawai {
-    protected String nama;
+interface Pembayaran {
+    void proses(int jumlah);
+}
 
-    public Pegawai(String nama) {
-        this.nama = nama;
-    }
-
-    public abstract double hitungGaji();
-
-    public void info() {
-        System.out.println("Nama: " + nama + ", Gaji: " + hitungGaji());
+class Dana implements Pembayaran {
+    public void proses(int jumlah) {
+        System.out.println("Pembayaran via Dana: Rp " + jumlah);
     }
 }
 
-class PegawaiTetap extends Pegawai {
-    private double gajiPokok;
-
-    public PegawaiTetap(String nama, double gajiPokok) {
-        super(nama);
-        this.gajiPokok = gajiPokok;
-    }
-
-    @Override
-    public double hitungGaji() {
-        return gajiPokok;
+class Ovo implements Pembayaran {
+    public void proses(int jumlah) {
+        System.out.println("Pembayaran via OVO: Rp " + jumlah);
     }
 }
 
-class PegawaiKontrak extends Pegawai {
-    private int jamKerja;
-    private double tarifPerJam;
-
-    public PegawaiKontrak(String nama, int jamKerja, double tarifPerJam) {
-        super(nama);
-        this.jamKerja = jamKerja;
-        this.tarifPerJam = tarifPerJam;
-    }
-
-    @Override
-    public double hitungGaji() {
-        return jamKerja * tarifPerJam;
+class Gopay implements Pembayaran {
+    public void proses(int jumlah) {
+        System.out.println("Pembayaran via GoPay: Rp " + jumlah);
     }
 }
+// abstract class Pegawai {
+// protected String nama;
+
+// public Pegawai(String nama) {
+// this.nama = nama;
+// }
+
+// public abstract double hitungGaji();
+
+// public void info() {
+// System.out.println("Nama: " + nama + ", Gaji: " + hitungGaji());
+// }
+// }
+
+// class PegawaiTetap extends Pegawai {
+// private double gajiPokok;
+
+// public PegawaiTetap(String nama, double gajiPokok) {
+// super(nama);
+// this.gajiPokok = gajiPokok;
+// }
+
+// @Override
+// public double hitungGaji() {
+// return gajiPokok;
+// }
+// }
+
+// class PegawaiKontrak extends Pegawai {
+// private int jamKerja;
+// private double tarifPerJam;
+
+// public PegawaiKontrak(String nama, int jamKerja, double tarifPerJam) {
+// super(nama);
+// this.jamKerja = jamKerja;
+// this.tarifPerJam = tarifPerJam;
+// }
+
+// @Override
+// public double hitungGaji() {
+// return jamKerja * tarifPerJam;
+// }
+// }
 
 // class Buku {
 // private String judul;
