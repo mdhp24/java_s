@@ -1514,43 +1514,86 @@ public class Main {
 
         System.out.println("Hello Java");
 
-        Perpustakaan p = new Perpustakaan();
-        p.tambahBuku(new Buku("Laskar Pelangi", "Andrea Hirata"));
-        p.tambahBuku(new Buku("Bumi Manusia", "Pramoedya A. Toer"));
-        p.tambahBuku(new Buku("Negeri 5 Menara", "Ahmad Fuadi"));
+        Pegawai p1 = new PegawaiTetap("Dicky", 5000000);
+        Pegawai p2 = new PegawaiKontrak("Andi", 120, 50000);
 
-        p.tampilkanBuku();
+        p1.info();
+        p2.info();
     }
 }
 
-class Buku {
-    private String judul;
-    private String penulis;
+abstract class Pegawai {
+    protected String nama;
 
-    public Buku(String judul, String penulis) {
-        this.judul = judul;
-        this.penulis = penulis;
+    public Pegawai(String nama) {
+        this.nama = nama;
     }
+
+    public abstract double hitungGaji();
 
     public void info() {
-        System.out.println(judul + " oleh " + penulis);
+        System.out.println("Nama: " + nama + ", Gaji: " + hitungGaji());
     }
 }
 
-class Perpustakaan {
-    private ArrayList<Buku> koleksi = new ArrayList<>();
+class PegawaiTetap extends Pegawai {
+    private double gajiPokok;
 
-    public void tambahBuku(Buku b) {
-        koleksi.add(b);
+    public PegawaiTetap(String nama, double gajiPokok) {
+        super(nama);
+        this.gajiPokok = gajiPokok;
     }
 
-    public void tampilkanBuku() {
-        System.out.println("Daftar Buku:");
-        for (Buku b : koleksi) {
-            b.info();
-        }
+    @Override
+    public double hitungGaji() {
+        return gajiPokok;
     }
 }
+
+class PegawaiKontrak extends Pegawai {
+    private int jamKerja;
+    private double tarifPerJam;
+
+    public PegawaiKontrak(String nama, int jamKerja, double tarifPerJam) {
+        super(nama);
+        this.jamKerja = jamKerja;
+        this.tarifPerJam = tarifPerJam;
+    }
+
+    @Override
+    public double hitungGaji() {
+        return jamKerja * tarifPerJam;
+    }
+}
+
+// class Buku {
+// private String judul;
+// private String penulis;
+
+// public Buku(String judul, String penulis) {
+// this.judul = judul;
+// this.penulis = penulis;
+// }
+
+// public void info() {
+// System.out.println(judul + " oleh " + penulis);
+// }
+// }
+
+// class Perpustakaan {
+// private ArrayList<Buku> koleksi = new ArrayList<>();
+
+// public void tambahBuku(Buku b) {
+// koleksi.add(b);
+// }
+
+// public void tampilkanBuku() {
+// System.out.println("Daftar Buku:");
+// for (Buku b : koleksi) {
+// b.info();
+// }
+// }
+// }
 
 // abstract class Bentuk {
 // abstract double luas();
