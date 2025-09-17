@@ -2,6 +2,7 @@
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 // class Task {
 //     String title;
@@ -1503,57 +1504,95 @@ public class Main {
         // kasir.prosesPembayaran(150000);
         // kasir.cetak("Buku Pemrograman Java", 150000);
 
-        Bentuk b1 = new Persegi(5);
-        Bentuk b2 = new Lingkaran(7);
+        // Bentuk b1 = new Persegi(5);
+        // Bentuk b2 = new Lingkaran(7);
 
-        System.out.println("Luas Persegi: " + b1.luas());
-        System.out.println("Keliling Persegi: " + b1.keliling());
-        System.out.println("Luas Lingkaran: " + b2.luas());
-        System.out.println("Keliling Lingkaran: " + b2.keliling());
+        // System.out.println("Luas Persegi: " + b1.luas());
+        // System.out.println("Keliling Persegi: " + b1.keliling());
+        // System.out.println("Luas Lingkaran: " + b2.luas());
+        // System.out.println("Keliling Lingkaran: " + b2.keliling());
+
+        System.out.println("Hello Java");
+
+        Perpustakaan p = new Perpustakaan();
+        p.tambahBuku(new Buku("Laskar Pelangi", "Andrea Hirata"));
+        p.tambahBuku(new Buku("Bumi Manusia", "Pramoedya A. Toer"));
+        p.tambahBuku(new Buku("Negeri 5 Menara", "Ahmad Fuadi"));
+
+        p.tampilkanBuku();
     }
 }
 
-abstract class Bentuk {
-    abstract double luas();
+class Buku {
+    private String judul;
+    private String penulis;
 
-    abstract double keliling();
-}
-
-class Persegi extends Bentuk {
-    private double sisi;
-
-    public Persegi(double sisi) {
-        this.sisi = sisi;
+    public Buku(String judul, String penulis) {
+        this.judul = judul;
+        this.penulis = penulis;
     }
 
-    @Override
-    double luas() {
-        return sisi * sisi;
-    }
-
-    @Override
-    double keliling() {
-        return 4 * sisi;
+    public void info() {
+        System.out.println(judul + " oleh " + penulis);
     }
 }
 
-class Lingkaran extends Bentuk {
-    private double jari;
+class Perpustakaan {
+    private ArrayList<Buku> koleksi = new ArrayList<>();
 
-    public Lingkaran(double jari) {
-        this.jari = jari;
+    public void tambahBuku(Buku b) {
+        koleksi.add(b);
     }
 
-    @Override
-    double luas() {
-        return 3.14 * jari * jari;
-    }
-
-    @Override
-    double keliling() {
-        return 2 * 3.14 * jari;
+    public void tampilkanBuku() {
+        System.out.println("Daftar Buku:");
+        for (Buku b : koleksi) {
+            b.info();
+        }
     }
 }
+
+// abstract class Bentuk {
+// abstract double luas();
+
+// abstract double keliling();
+// }
+
+// class Persegi extends Bentuk {
+// private double sisi;
+
+// public Persegi(double sisi) {
+// this.sisi = sisi;
+// }
+
+// @Override
+// double luas() {
+// return sisi * sisi;
+// }
+
+// @Override
+// double keliling() {
+// return 4 * sisi;
+// }
+// }
+
+// class Lingkaran extends Bentuk {
+// private double jari;
+
+// public Lingkaran(double jari) {
+// this.jari = jari;
+// }
+
+// @Override
+// double luas() {
+// return 3.14 * jari * jari;
+// }
+
+// @Override
+// double keliling() {
+// return 2 * 3.14 * jari;
+// }
+// }
 
 // interface Bayar {
 // void prosesPembayaran(double jumlah);
