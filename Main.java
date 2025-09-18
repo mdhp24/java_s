@@ -1526,151 +1526,207 @@ public class Main {
         // for (Pembayaran p : metode) {
         // p.proses(100000);
 
-        Library library = new Library();
+        // Library library = new Library();
 
-        // Tambah buku
-        Book b1 = new Book("Laskar Pelangi", "Andrea Hirata");
-        Book b2 = new Book("Bumi Manusia", "Pramoedya Ananta Toer");
-        Book b3 = new Book("Harry Potter", "J.K. Rowling");
+        // // Tambah buku
+        // Book b1 = new Book("Laskar Pelangi", "Andrea Hirata");
+        // Book b2 = new Book("Bumi Manusia", "Pramoedya Ananta Toer");
+        // Book b3 = new Book("Harry Potter", "J.K. Rowling");
 
-        library.addBook(b1);
-        library.addBook(b2);
-        library.addBook(b3);
+        // library.addBook(b1);
+        // library.addBook(b2);
+        // library.addBook(b3);
 
-        // Daftar member
-        Member m1 = new Member("Dicky");
-        Member m2 = new Member("Andi");
+        // // Daftar member
+        // Member m1 = new Member("Dicky");
+        // Member m2 = new Member("Andi");
 
-        // Menampilkan semua buku
-        library.showAllBooks();
-        System.out.println();
+        // // Menampilkan semua buku
+        // library.showAllBooks();
+        // System.out.println();
 
-        // Peminjaman dan pengembalian
-        m1.borrowBook(b1);
-        m2.borrowBook(b1); // Gagal karena sudah dipinjam
-        m2.borrowBook(b3);
+        // // Peminjaman dan pengembalian
+        // m1.borrowBook(b1);
+        // m2.borrowBook(b1); // Gagal karena sudah dipinjam
+        // m2.borrowBook(b3);
 
-        System.out.println();
-        m1.showBorrowedBooks();
-        m2.showBorrowedBooks();
+        // System.out.println();
+        // m1.showBorrowedBooks();
+        // m2.showBorrowedBooks();
 
-        System.out.println();
-        m1.returnBook(b1);
-        m2.borrowBook(b1); // Berhasil setelah dikembalikan
+        // System.out.println();
+        // m1.returnBook(b1);
+        // m2.borrowBook(b1); // Berhasil setelah dikembalikan
 
-        System.out.println();
-        library.showAllBooks();
+        // System.out.println();
+        // library.showAllBooks();
+
+        Hewan hewan1 = new Sapi();
+        Hewan hewan2 = new Kucing();
+        Hewan hewan3 = new Anjing();
+        hewan1.suara();
+        hewan2.suara();
+        hewan3.suara();
+
+        System.out.println("Hewan 1: " + hewan1.nama);
+        System.out.println("Hewan 2: " + hewan2.nama);
+        System.out.println("Hewan 3: " + hewan3.nama);
+    }
+}
+
+abstract class Hewan {
+    protected String nama;
+
+    public Hewan(String nama) {
+        this.nama = nama;
+    }
+
+    public abstract void suara();
+}
+
+class Sapi extends Hewan {
+    public Sapi() {
+        super("Sapi");
+    }
+
+    @Override
+    public void suara() {
+        System.out.println("Moo Moo");
+    }
+}
+
+class Kucing extends Hewan {
+    public Kucing() {
+        super("Kucing");
+    }
+
+    @Override
+    public void suara() {
+        System.out.println("Meow Meow");
+    }
+}
+
+class Anjing extends Hewan {
+    public Anjing() {
+        super("Anjing");
+    }
+
+    @Override
+    public void suara() {
+        System.out.println("Guk Guk");
     }
 }
 
 // Class Book
-class Book {
-    private String title;
-    private String author;
-    private boolean isBorrowed;
+// class Book {
+// private String title;
+// private String author;
+// private boolean isBorrowed;
 
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-        this.isBorrowed = false;
-    }
+// public Book(String title, String author) {
+// this.title = title;
+// this.author = author;
+// this.isBorrowed = false;
+// }
 
-    public String getTitle() {
-        return title;
-    }
+// public String getTitle() {
+// return title;
+// }
 
-    public String getAuthor() {
-        return author;
-    }
+// public String getAuthor() {
+// return author;
+// }
 
-    public boolean isBorrowed() {
-        return isBorrowed;
-    }
+// public boolean isBorrowed() {
+// return isBorrowed;
+// }
 
-    public void borrowBook() {
-        if (!isBorrowed) {
-            isBorrowed = true;
-            System.out.println(title + " berhasil dipinjam.");
-        } else {
-            System.out.println(title + " sudah dipinjam orang lain.");
-        }
-    }
+// public void borrowBook() {
+// if (!isBorrowed) {
+// isBorrowed = true;
+// System.out.println(title + " berhasil dipinjam.");
+// } else {
+// System.out.println(title + " sudah dipinjam orang lain.");
+// }
+// }
 
-    public void returnBook() {
-        if (isBorrowed) {
-            isBorrowed = false;
-            System.out.println(title + " berhasil dikembalikan.");
-        } else {
-            System.out.println(title + " belum pernah dipinjam.");
-        }
-    }
+// public void returnBook() {
+// if (isBorrowed) {
+// isBorrowed = false;
+// System.out.println(title + " berhasil dikembalikan.");
+// } else {
+// System.out.println(title + " belum pernah dipinjam.");
+// }
+// }
 
-    @Override
-    public String toString() {
-        return title + " - " + author + (isBorrowed ? " [Dipinjam]" : " [Tersedia]");
-    }
-}
+// @Override
+// public String toString() {
+// return title + " - " + author + (isBorrowed ? " [Dipinjam]" : " [Tersedia]");
+// }
+// }
 
-// Class Member
-class Member {
-    private String name;
-    private List<Book> borrowedBooks;
+// // Class Member
+// class Member {
+// private String name;
+// private List<Book> borrowedBooks;
 
-    public Member(String name) {
-        this.name = name;
-        this.borrowedBooks = new ArrayList<>();
-    }
+// public Member(String name) {
+// this.name = name;
+// this.borrowedBooks = new ArrayList<>();
+// }
 
-    public void borrowBook(Book book) {
-        if (!book.isBorrowed()) {
-            book.borrowBook();
-            borrowedBooks.add(book);
-        } else {
-            System.out.println("Maaf " + name + ", buku " + book.getTitle() + " sudah dipinjam.");
-        }
-    }
+// public void borrowBook(Book book) {
+// if (!book.isBorrowed()) {
+// book.borrowBook();
+// borrowedBooks.add(book);
+// } else {
+// System.out.println("Maaf " + name + ", buku " + book.getTitle() + " sudah
+// dipinjam.");
+// }
+// }
 
-    public void returnBook(Book book) {
-        if (borrowedBooks.contains(book)) {
-            book.returnBook();
-            borrowedBooks.remove(book);
-        } else {
-            System.out.println(name + " tidak meminjam buku ini.");
-        }
-    }
+// public void returnBook(Book book) {
+// if (borrowedBooks.contains(book)) {
+// book.returnBook();
+// borrowedBooks.remove(book);
+// } else {
+// System.out.println(name + " tidak meminjam buku ini.");
+// }
+// }
 
-    public void showBorrowedBooks() {
-        System.out.println("Daftar buku yang dipinjam oleh " + name + ":");
-        if (borrowedBooks.isEmpty()) {
-            System.out.println("- Tidak ada buku yang dipinjam.");
-        } else {
-            for (Book b : borrowedBooks) {
-                System.out.println("- " + b.getTitle());
-            }
-        }
-    }
-}
+// public void showBorrowedBooks() {
+// System.out.println("Daftar buku yang dipinjam oleh " + name + ":");
+// if (borrowedBooks.isEmpty()) {
+// System.out.println("- Tidak ada buku yang dipinjam.");
+// } else {
+// for (Book b : borrowedBooks) {
+// System.out.println("- " + b.getTitle());
+// }
+// }
+// }
+// }
 
-// Class Library
-class Library {
-    private List<Book> books;
+// // Class Library
+// class Library {
+// private List<Book> books;
 
-    public Library() {
-        this.books = new ArrayList<>();
-    }
+// public Library() {
+// this.books = new ArrayList<>();
+// }
 
-    public void addBook(Book book) {
-        books.add(book);
-        System.out.println(book.getTitle() + " berhasil ditambahkan ke perpustakaan.");
-    }
+// public void addBook(Book book) {
+// books.add(book);
+// System.out.println(book.getTitle() + " berhasil ditambahkan ke
+// perpustakaan.");
+// }
 
-    public void showAllBooks() {
-        System.out.println("Daftar buku di perpustakaan:");
-        for (Book b : books) {
-            System.out.println(b);
-        }
-    }
-}
+// public void showAllBooks() {
+// System.out.println("Daftar buku di perpustakaan:");
+// for (Book b : books) {
+// System.out.println(b);
+// }
+// }
+// }
 
 // interface Pembayaran {
 // void proses(int jumlah);
