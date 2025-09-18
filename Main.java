@@ -1561,61 +1561,113 @@ public class Main {
         // System.out.println();
         // library.showAllBooks();
 
-        Hewan hewan1 = new Sapi();
-        Hewan hewan2 = new Kucing();
-        Hewan hewan3 = new Anjing();
-        hewan1.suara();
-        hewan2.suara();
-        hewan3.suara();
+        // Hewan hewan1 = new Sapi();
+        // Hewan hewan2 = new Kucing();
+        // Hewan hewan3 = new Anjing();
+        // hewan1.suara();
+        // hewan2.suara();
+        // hewan3.suara();
 
-        System.out.println("Hewan 1: " + hewan1.nama);
-        System.out.println("Hewan 2: " + hewan2.nama);
-        System.out.println("Hewan 3: " + hewan3.nama);
+        // System.out.println("Hewan 1: " + hewan1.nama);
+        // System.out.println("Hewan 2: " + hewan2.nama);
+        // System.out.println("Hewan 3: " + hewan3.nama);
+
+        Gaji gaji1 = new PegawaiTetap("Dicky", 5000000);
+        Gaji gaji2 = new PegawaiHarian("Andi", 120, 50000);
+        System.out.println("Gaji " + ((PegawaiTetap) gaji1).getNama() + ": " + gaji1.hitungGaji());
+        System.out.println("Gaji " + ((PegawaiHarian) gaji2).getNama() + ": " + gaji2.hitungGaji());
+
     }
 }
 
-abstract class Hewan {
-    protected String nama;
+// Interface
+interface Gaji {
+    double hitungGaji();
+}
 
-    public Hewan(String nama) {
+// Pegawai Tetap
+class PegawaiTetap implements Gaji {
+    private String nama;
+    private double gajiPokok;
+
+    public PegawaiTetap(String nama, double gajiPokok) {
         this.nama = nama;
-    }
-
-    public abstract void suara();
-}
-
-class Sapi extends Hewan {
-    public Sapi() {
-        super("Sapi");
+        this.gajiPokok = gajiPokok;
     }
 
     @Override
-    public void suara() {
-        System.out.println("Moo Moo");
+    public double hitungGaji() {
+        return gajiPokok;
+    }
+
+    public String getNama() {
+        return nama;
     }
 }
 
-class Kucing extends Hewan {
-    public Kucing() {
-        super("Kucing");
+// Pegawai Harian
+class PegawaiHarian implements Gaji {
+    private String nama;
+    private int jamKerja;
+    private double upahPerJam;
+
+    public PegawaiHarian(String nama, int jamKerja, double upahPerJam) {
+        this.nama = nama;
+        this.jamKerja = jamKerja;
+        this.upahPerJam = upahPerJam;
     }
 
     @Override
-    public void suara() {
-        System.out.println("Meow Meow");
-    }
-}
-
-class Anjing extends Hewan {
-    public Anjing() {
-        super("Anjing");
+    public double hitungGaji() {
+        return jamKerja * upahPerJam;
     }
 
-    @Override
-    public void suara() {
-        System.out.println("Guk Guk");
+    public String getNama() {
+        return nama;
     }
 }
+// abstract class Hewan {
+// protected String nama;
+
+// public Hewan(String nama) {
+// this.nama = nama;
+// }
+
+// public abstract void suara();
+// }
+
+// class Sapi extends Hewan {
+// public Sapi() {
+// super("Sapi");
+// }
+
+// @Override
+// public void suara() {
+// System.out.println("Moo Moo");
+// }
+// }
+
+// class Kucing extends Hewan {
+// public Kucing() {
+// super("Kucing");
+// }
+
+// @Override
+// public void suara() {
+// System.out.println("Meow Meow");
+// }
+// }
+
+// class Anjing extends Hewan {
+// public Anjing() {
+// super("Anjing");
+// }
+
+// @Override
+// public void suara() {
+// System.out.println("Guk Guk");
+// }
+// }
 
 // Class Book
 // class Book {
