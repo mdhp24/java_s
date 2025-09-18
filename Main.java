@@ -1572,60 +1572,105 @@ public class Main {
         // System.out.println("Hewan 2: " + hewan2.nama);
         // System.out.println("Hewan 3: " + hewan3.nama);
 
-        Gaji gaji1 = new PegawaiTetap("Dicky", 5000000);
-        Gaji gaji2 = new PegawaiHarian("Andi", 120, 50000);
-        System.out.println("Gaji " + ((PegawaiTetap) gaji1).getNama() + ": " + gaji1.hitungGaji());
-        System.out.println("Gaji " + ((PegawaiHarian) gaji2).getNama() + ": " + gaji2.hitungGaji());
+        // Gaji gaji1 = new PegawaiTetap("Dicky", 5000000);
+        // Gaji gaji2 = new PegawaiHarian("Andi", 120, 50000);
+        // System.out.println("Gaji " + ((PegawaiTetap) gaji1).getNama() + ": " +
+        // gaji1.hitungGaji());
+        // System.out.println("Gaji " + ((PegawaiHarian) gaji2).getNama() + ": " +
+        // gaji2.hitungGaji());
+        System.out.println("\n=== 4. Sistem Rental Kendaraan ===");
+        ArrayList<Kendaraan> kendaraanList = new ArrayList<>();
+        kendaraanList.add(new Motor("Koenigsegg"));
+        kendaraanList.add(new Mobil("Porche Carerra"));
 
+        int hari = 100;
+        for (Kendaraan k : kendaraanList) {
+            System.out.println(k.nama + " biaya sewa " + hari + " hari: Rp" + k.hitungBiaya(hari));
+        }
     }
 }
 
-// Interface
-interface Gaji {
-    double hitungGaji();
+// Abstract Class
+abstract class Kendaraan {
+    protected String nama;
+
+    public Kendaraan(String nama) {
+        this.nama = nama;
+    }
+
+    public abstract int hitungBiaya(int hari);
 }
 
-// Pegawai Tetap
-class PegawaiTetap implements Gaji {
-    private String nama;
-    private double gajiPokok;
-
-    public PegawaiTetap(String nama, double gajiPokok) {
-        this.nama = nama;
-        this.gajiPokok = gajiPokok;
+// Subclass Motor
+class Motor extends Kendaraan {
+    public Motor(String nama) {
+        super(nama);
     }
 
     @Override
-    public double hitungGaji() {
-        return gajiPokok;
-    }
-
-    public String getNama() {
-        return nama;
+    public int hitungBiaya(int hari) {
+        return hari * 50000;
     }
 }
 
-// Pegawai Harian
-class PegawaiHarian implements Gaji {
-    private String nama;
-    private int jamKerja;
-    private double upahPerJam;
-
-    public PegawaiHarian(String nama, int jamKerja, double upahPerJam) {
-        this.nama = nama;
-        this.jamKerja = jamKerja;
-        this.upahPerJam = upahPerJam;
+// Subclass Mobil
+class Mobil extends Kendaraan {
+    public Mobil(String nama) {
+        super(nama);
     }
 
     @Override
-    public double hitungGaji() {
-        return jamKerja * upahPerJam;
-    }
-
-    public String getNama() {
-        return nama;
+    public int hitungBiaya(int hari) {
+        return hari * 300000;
     }
 }
+
+// // Interface
+// interface Gaji {
+// double hitungGaji();
+// }
+
+// // Pegawai Tetap
+// class PegawaiTetap implements Gaji {
+// private String nama;
+// private double gajiPokok;
+
+// public PegawaiTetap(String nama, double gajiPokok) {
+// this.nama = nama;
+// this.gajiPokok = gajiPokok;
+// }
+
+// @Override
+// public double hitungGaji() {
+// return gajiPokok;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
+
+// // Pegawai Harian
+// class PegawaiHarian implements Gaji {
+// private String nama;
+// private int jamKerja;
+// private double upahPerJam;
+
+// public PegawaiHarian(String nama, int jamKerja, double upahPerJam) {
+// this.nama = nama;
+// this.jamKerja = jamKerja;
+// this.upahPerJam = upahPerJam;
+// }
+
+// @Override
+// public double hitungGaji() {
+// return jamKerja * upahPerJam;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
 // abstract class Hewan {
 // protected String nama;
 
