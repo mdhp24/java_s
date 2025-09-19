@@ -1597,12 +1597,66 @@ public class Main {
         // System.out.println("Saldo akhir Tabungan: Rp" + r1.getSaldo());
         // r2.tampilkanInfo();
         // System.out.println("Saldo akhir Giro: Rp" + r2.getSaldo());
-        System.out.println("\n=== 2. Sistem Sekolah ===");
-        ArrayList<Orang> orangList = new ArrayList<>();
-        orangList.add(new Guru("Pras_phone.id", "Malang Kota", "Matematika"));
-        orangList.add(new Siswa("Pras", "Surabaya", "SIB 1A"));
-        for (Orang o : orangList) {
-            o.tampilkanData();
+
+        // System.out.println("\n=== 2. Sistem Sekolah ===");
+        // ArrayList<Orang> orangList = new ArrayList<>();
+        // orangList.add(new Guru("Pras_phone.id", "Malang Kota", "Matematika"));
+        // orangList.add(new Siswa("Pras", "Surabaya", "SIB 1A"));
+        // for (Orang o : orangList) {
+        // o.tampilkanData();
+        // }
+
+        System.out.println("\n=== 3. Sistem Marketplace ===");
+        Keranjang keranjang = new Keranjang();
+        keranjang.tambahProduk(new Produk("iPhone 17 Pro", 30000000));
+        keranjang.tambahProduk(new Produk("iPhone 16 Pro", 25000000));
+        keranjang.tampilkanProduk();
+        System.out.println("Total belanja: Rp" + keranjang.hitungTotal());
+
+    }
+}
+
+// =========================
+// 3. Sistem Marketplace
+// =========================
+class Produk {
+    private String nama;
+    private double harga;
+
+    public Produk(String nama, double harga) {
+        this.nama = nama;
+        this.harga = harga;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+}
+
+class Keranjang {
+    private List<Produk> daftarProduk = new ArrayList<>();
+
+    public void tambahProduk(Produk produk) {
+        daftarProduk.add(produk);
+        System.out.println("Produk " + produk.getNama() + " ditambahkan ke keranjang.");
+    }
+
+    public double hitungTotal() {
+        double total = 0;
+        for (Produk p : daftarProduk) {
+            total += p.getHarga();
+        }
+        return total;
+    }
+
+    public void tampilkanProduk() {
+        System.out.println("Isi Keranjang:");
+        for (Produk p : daftarProduk) {
+            System.out.println("- " + p.getNama() + " Rp" + p.getHarga());
         }
     }
 }
