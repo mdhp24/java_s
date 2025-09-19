@@ -1613,45 +1613,106 @@ public class Main {
         // keranjang.tampilkanProduk();
         // System.out.println("Total belanja: Rp" + keranjang.hitungTotal());
 
-        System.out.println("\n=== 4. Sistem Transportasi ===");
-        ArrayList<Transportasi> transportList = new ArrayList<>();
-        transportList.add(new Bus());
-        transportList.add(new Kereta());
-        for (Transportasi t : transportList) {
-            t.jalan();
-            t.berhenti();
-        }
+        // System.out.println("\n=== 4. Sistem Transportasi ===");
+        // ArrayList<Transportasi> transportList = new ArrayList<>();
+        // transportList.add(new Bus());
+        // transportList.add(new Kereta());
+        // for (Transportasi t : transportList) {
+        // t.jalan();
+        // t.berhenti();
+        // }
+
+        System.out.println("\n=== 5. Sistem Rumah Sakit ===");
+        Pasien pasien = new Pasien("Unknown", 30);
+        Dokter dokter = new Dokter("Dr. Unknown", "Jantung");
+        RekamMedis rekam = new RekamMedis(pasien, dokter);
+        rekam.tampilkanDetail();
+    }
+}
+
+// =========================
+// 5. Sistem Rumah Sakit
+// =========================
+class Dokter {
+    private String nama;
+    private String spesialis;
+
+    public Dokter(String nama, String spesialis) {
+        this.nama = nama;
+        this.spesialis = spesialis;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getSpesialis() {
+        return spesialis;
+    }
+}
+
+class Pasien {
+    private String nama;
+    private int umur;
+
+    public Pasien(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public int getUmur() {
+        return umur;
+    }
+}
+
+class RekamMedis {
+    private Pasien pasien;
+    private Dokter dokter;
+
+    public RekamMedis(Pasien pasien, Dokter dokter) {
+        this.pasien = pasien;
+        this.dokter = dokter;
+    }
+
+    public void tampilkanDetail() {
+        System.out.println("=== Rekam Medis ===");
+        System.out.println("Pasien: " + pasien.getNama() + " (Umur " + pasien.getUmur() + ")");
+        System.out.println("Dokter: " + dokter.getNama() + " - Spesialis " + dokter.getSpesialis());
     }
 }
 
 // =========================
 // 4. Sistem Transportasi
 // =========================
-interface Transportasi {
-    void jalan();
+// interface Transportasi {
+// void jalan();
 
-    void berhenti();
-}
+// void berhenti();
+// }
 
-class Bus implements Transportasi {
-    public void jalan() {
-        System.out.println("Bus berjalan di jalan raya 90 km/jam");
-    }
+// class Bus implements Transportasi {
+// public void jalan() {
+// System.out.println("Bus berjalan di jalan raya 90 km/jam");
+// }
 
-    public void berhenti() {
-        System.out.println("Bus berhenti di terminal Yogyakarta.");
-    }
-}
+// public void berhenti() {
+// System.out.println("Bus berhenti di terminal Yogyakarta.");
+// }
+// }
 
-class Kereta implements Transportasi {
-    public void jalan() {
-        System.out.println("Kereta melaju di rel 120 km/jam...");
-    }
+// class Kereta implements Transportasi {
+// public void jalan() {
+// System.out.println("Kereta melaju di rel 120 km/jam...");
+// }
 
-    public void berhenti() {
-        System.out.println("Kereta berhenti di stasiun.");
-    }
-}
+// public void berhenti() {
+// System.out.println("Kereta berhenti di stasiun.");
+// }
+// }
 
 // // =========================
 // // 3. Sistem Marketplace
