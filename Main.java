@@ -1590,75 +1590,126 @@ public class Main {
         // =========================
         // 1. Sistem Bank
         // =========================
-        System.out.println("=== 1. Sistem Bank ===");
-        Rekening r1 = new RekeningTabungan("001", 1000000);
-        Rekening r2 = new RekeningGiro("002", 2000000);
-        r1.tampilkanInfo();
-        System.out.println("Saldo akhir Tabungan: Rp" + r1.getSaldo());
-        r2.tampilkanInfo();
-        System.out.println("Saldo akhir Giro: Rp" + r2.getSaldo());
+        // System.out.println("=== 1. Sistem Bank ===");
+        // Rekening r1 = new RekeningTabungan("001", 1000000);
+        // Rekening r2 = new RekeningGiro("002", 2000000);
+        // r1.tampilkanInfo();
+        // System.out.println("Saldo akhir Tabungan: Rp" + r1.getSaldo());
+        // r2.tampilkanInfo();
+        // System.out.println("Saldo akhir Giro: Rp" + r2.getSaldo());
+        System.out.println("\n=== 2. Sistem Sekolah ===");
+        ArrayList<Orang> orangList = new ArrayList<>();
+        orangList.add(new Guru("Pras_phone.id", "Malang Kota", "Matematika"));
+        orangList.add(new Siswa("Pras", "Surabaya", "SIB 1A"));
+        for (Orang o : orangList) {
+            o.tampilkanData();
+        }
+    }
+}
 
+// =========================
+// 2. Sistem Sekolah
+// =========================
+class Orang {
+    protected String nama;
+    protected String alamat;
+
+    public Orang(String nama, String alamat) {
+        this.nama = nama;
+        this.alamat = alamat;
+    }
+
+    public void tampilkanData() {
+        System.out.println("Nama: " + nama + ", Alamat: " + alamat);
+    }
+}
+
+class Guru extends Orang {
+    private String mataPelajaran;
+
+    public Guru(String nama, String alamat, String mataPelajaran) {
+        super(nama, alamat);
+        this.mataPelajaran = mataPelajaran;
+    }
+
+    @Override
+    public void tampilkanData() {
+        System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran + ", Alamat: " + alamat);
+    }
+}
+
+class Siswa extends Orang {
+    private String kelas;
+
+    public Siswa(String nama, String alamat, String kelas) {
+        super(nama, alamat);
+        this.kelas = kelas;
+    }
+
+    @Override
+    public void tampilkanData() {
+        System.out.println("Siswa: " + nama + ", Kelas: " + kelas + ", Alamat: " + alamat);
     }
 }
 
 // =========================
 // 1. Sistem Bank
 // =========================
-class Rekening {
-    protected String noRekening;
-    protected double saldo;
+// class Rekening {
+// protected String noRekening;
+// protected double saldo;
 
-    public Rekening(String noRekening, double saldo) {
-        this.noRekening = noRekening;
-        this.saldo = saldo;
-    }
+// public Rekening(String noRekening, double saldo) {
+// this.noRekening = noRekening;
+// this.saldo = saldo;
+// }
 
-    public void setor(double jumlah) {
-        saldo += jumlah;
-    }
+// public void setor(double jumlah) {
+// saldo += jumlah;
+// }
 
-    public void tarik(double jumlah) {
-        if (jumlah <= saldo) {
-            saldo -= jumlah;
-        } else {
-            System.out.println("Saldo tidak cukup.");
-        }
-    }
+// public void tarik(double jumlah) {
+// if (jumlah <= saldo) {
+// saldo -= jumlah;
+// } else {
+// System.out.println("Saldo tidak cukup.");
+// }
+// }
 
-    public double getSaldo() {
-        return saldo;
-    }
+// public double getSaldo() {
+// return saldo;
+// }
 
-    public void tampilkanInfo() {
-        System.out.println("No Rekening: " + noRekening + ", Saldo: Rp" + saldo);
-    }
-}
+// public void tampilkanInfo() {
+// System.out.println("No Rekening: " + noRekening + ", Saldo: Rp" + saldo);
+// }
+// }
 
-class RekeningTabungan extends Rekening {
-    private double bunga = 0.02; // 2%
+// class RekeningTabungan extends Rekening {
+// private double bunga = 0.02; // 2%
 
-    public RekeningTabungan(String noRekening, double saldo) {
-        super(noRekening, saldo);
-    }
+// public RekeningTabungan(String noRekening, double saldo) {
+// super(noRekening, saldo);
+// }
 
-    @Override
-    public double getSaldo() {
-        return saldo + (saldo * bunga);
-    }
-}
+// @Override
+// public double getSaldo() {
+// return saldo + (saldo * bunga);
+// }
+// }
 
-class RekeningGiro extends Rekening {
-    private double biayaAdmin = 5000;
+// class RekeningGiro extends Rekening {
+// private double biayaAdmin = 5000;
 
-    public RekeningGiro(String noRekening, double saldo) {
-        super(noRekening, saldo);
-    }
+// public RekeningGiro(String noRekening, double saldo) {
+// super(noRekening, saldo);
+// }
 
-    @Override
-    public double getSaldo() {
-        return saldo - biayaAdmin;
-    }
-}
+// @Override
+// public double getSaldo() {
+// return saldo - biayaAdmin;
+// }
+// }
 
 // Abstract Class
 // abstract class Kendaraan {
