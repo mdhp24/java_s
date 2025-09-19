@@ -1606,105 +1606,145 @@ public class Main {
         // o.tampilkanData();
         // }
 
-        System.out.println("\n=== 3. Sistem Marketplace ===");
-        Keranjang keranjang = new Keranjang();
-        keranjang.tambahProduk(new Produk("iPhone 17 Pro", 30000000));
-        keranjang.tambahProduk(new Produk("iPhone 16 Pro", 25000000));
-        keranjang.tampilkanProduk();
-        System.out.println("Total belanja: Rp" + keranjang.hitungTotal());
+        // System.out.println("\n=== 3. Sistem Marketplace ===");
+        // Keranjang keranjang = new Keranjang();
+        // keranjang.tambahProduk(new Produk("iPhone 17 Pro", 30000000));
+        // keranjang.tambahProduk(new Produk("iPhone 16 Pro", 25000000));
+        // keranjang.tampilkanProduk();
+        // System.out.println("Total belanja: Rp" + keranjang.hitungTotal());
 
-    }
-}
-
-// =========================
-// 3. Sistem Marketplace
-// =========================
-class Produk {
-    private String nama;
-    private double harga;
-
-    public Produk(String nama, double harga) {
-        this.nama = nama;
-        this.harga = harga;
-    }
-
-    public double getHarga() {
-        return harga;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-}
-
-class Keranjang {
-    private List<Produk> daftarProduk = new ArrayList<>();
-
-    public void tambahProduk(Produk produk) {
-        daftarProduk.add(produk);
-        System.out.println("Produk " + produk.getNama() + " ditambahkan ke keranjang.");
-    }
-
-    public double hitungTotal() {
-        double total = 0;
-        for (Produk p : daftarProduk) {
-            total += p.getHarga();
-        }
-        return total;
-    }
-
-    public void tampilkanProduk() {
-        System.out.println("Isi Keranjang:");
-        for (Produk p : daftarProduk) {
-            System.out.println("- " + p.getNama() + " Rp" + p.getHarga());
+        System.out.println("\n=== 4. Sistem Transportasi ===");
+        ArrayList<Transportasi> transportList = new ArrayList<>();
+        transportList.add(new Bus());
+        transportList.add(new Kereta());
+        for (Transportasi t : transportList) {
+            t.jalan();
+            t.berhenti();
         }
     }
 }
 
 // =========================
-// 2. Sistem Sekolah
+// 4. Sistem Transportasi
 // =========================
-class Orang {
-    protected String nama;
-    protected String alamat;
+interface Transportasi {
+    void jalan();
 
-    public Orang(String nama, String alamat) {
-        this.nama = nama;
-        this.alamat = alamat;
+    void berhenti();
+}
+
+class Bus implements Transportasi {
+    public void jalan() {
+        System.out.println("Bus berjalan di jalan raya 90 km/jam");
     }
 
-    public void tampilkanData() {
-        System.out.println("Nama: " + nama + ", Alamat: " + alamat);
+    public void berhenti() {
+        System.out.println("Bus berhenti di terminal Yogyakarta.");
     }
 }
 
-class Guru extends Orang {
-    private String mataPelajaran;
-
-    public Guru(String nama, String alamat, String mataPelajaran) {
-        super(nama, alamat);
-        this.mataPelajaran = mataPelajaran;
+class Kereta implements Transportasi {
+    public void jalan() {
+        System.out.println("Kereta melaju di rel 120 km/jam...");
     }
 
-    @Override
-    public void tampilkanData() {
-        System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran + ", Alamat: " + alamat);
+    public void berhenti() {
+        System.out.println("Kereta berhenti di stasiun.");
     }
 }
 
-class Siswa extends Orang {
-    private String kelas;
+// // =========================
+// // 3. Sistem Marketplace
+// // =========================
+// class Produk {
+// private String nama;
+// private double harga;
 
-    public Siswa(String nama, String alamat, String kelas) {
-        super(nama, alamat);
-        this.kelas = kelas;
-    }
+// public Produk(String nama, double harga) {
+// this.nama = nama;
+// this.harga = harga;
+// }
 
-    @Override
-    public void tampilkanData() {
-        System.out.println("Siswa: " + nama + ", Kelas: " + kelas + ", Alamat: " + alamat);
-    }
-}
+// public double getHarga() {
+// return harga;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
+
+// class Keranjang {
+// private List<Produk> daftarProduk = new ArrayList<>();
+
+// public void tambahProduk(Produk produk) {
+// daftarProduk.add(produk);
+// System.out.println("Produk " + produk.getNama() + " ditambahkan ke
+// keranjang.");
+// }
+
+// public double hitungTotal() {
+// double total = 0;
+// for (Produk p : daftarProduk) {
+// total += p.getHarga();
+// }
+// return total;
+// }
+
+// public void tampilkanProduk() {
+// System.out.println("Isi Keranjang:");
+// for (Produk p : daftarProduk) {
+// System.out.println("- " + p.getNama() + " Rp" + p.getHarga());
+// }
+// }
+// }
+
+// // =========================
+// // 2. Sistem Sekolah
+// // =========================
+// class Orang {
+// protected String nama;
+// protected String alamat;
+
+// public Orang(String nama, String alamat) {
+// this.nama = nama;
+// this.alamat = alamat;
+// }
+
+// public void tampilkanData() {
+// System.out.println("Nama: " + nama + ", Alamat: " + alamat);
+// }
+// }
+
+// class Guru extends Orang {
+// private String mataPelajaran;
+
+// public Guru(String nama, String alamat, String mataPelajaran) {
+// super(nama, alamat);
+// this.mataPelajaran = mataPelajaran;
+// }
+
+// @Override
+// public void tampilkanData() {
+// System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran + ", Alamat:
+// " + alamat);
+// }
+// }
+
+// class Siswa extends Orang {
+// private String kelas;
+
+// public Siswa(String nama, String alamat, String kelas) {
+// super(nama, alamat);
+// this.kelas = kelas;
+// }
+
+// @Override
+// public void tampilkanData() {
+// System.out.println("Siswa: " + nama + ", Kelas: " + kelas + ", Alamat: " +
+// alamat);
+// }
+// }
 
 // =========================
 // 1. Sistem Bank
