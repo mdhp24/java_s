@@ -1578,52 +1578,122 @@ public class Main {
         // gaji1.hitungGaji());
         // System.out.println("Gaji " + ((PegawaiHarian) gaji2).getNama() + ": " +
         // gaji2.hitungGaji());
-        System.out.println("\n=== 4. Sistem Rental Kendaraan ===");
-        ArrayList<Kendaraan> kendaraanList = new ArrayList<>();
-        kendaraanList.add(new Motor("Koenigsegg"));
-        kendaraanList.add(new Mobil("Porche Carerra"));
+        // System.out.println("\n=== 4. Sistem Rental Kendaraan ===");
+        // ArrayList<Kendaraan> kendaraanList = new ArrayList<>();
+        // kendaraanList.add(new Motor("Koenigsegg"));
+        // kendaraanList.add(new Mobil("Porche Carerra"));
 
-        int hari = 100;
-        for (Kendaraan k : kendaraanList) {
-            System.out.println(k.nama + " biaya sewa " + hari + " hari: Rp" + k.hitungBiaya(hari));
+        // int hari = 100;
+        // for (Kendaraan k : kendaraanList) {
+        // System.out.println(k.nama + " biaya sewa " + hari + " hari: Rp" +
+        // k.hitungBiaya(hari));
+        // =========================
+        // 1. Sistem Bank
+        // =========================
+        System.out.println("=== 1. Sistem Bank ===");
+        Rekening r1 = new RekeningTabungan("001", 1000000);
+        Rekening r2 = new RekeningGiro("002", 2000000);
+        r1.tampilkanInfo();
+        System.out.println("Saldo akhir Tabungan: Rp" + r1.getSaldo());
+        r2.tampilkanInfo();
+        System.out.println("Saldo akhir Giro: Rp" + r2.getSaldo());
+
+    }
+}
+
+// =========================
+// 1. Sistem Bank
+// =========================
+class Rekening {
+    protected String noRekening;
+    protected double saldo;
+
+    public Rekening(String noRekening, double saldo) {
+        this.noRekening = noRekening;
+        this.saldo = saldo;
+    }
+
+    public void setor(double jumlah) {
+        saldo += jumlah;
+    }
+
+    public void tarik(double jumlah) {
+        if (jumlah <= saldo) {
+            saldo -= jumlah;
+        } else {
+            System.out.println("Saldo tidak cukup.");
         }
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void tampilkanInfo() {
+        System.out.println("No Rekening: " + noRekening + ", Saldo: Rp" + saldo);
+    }
+}
+
+class RekeningTabungan extends Rekening {
+    private double bunga = 0.02; // 2%
+
+    public RekeningTabungan(String noRekening, double saldo) {
+        super(noRekening, saldo);
+    }
+
+    @Override
+    public double getSaldo() {
+        return saldo + (saldo * bunga);
+    }
+}
+
+class RekeningGiro extends Rekening {
+    private double biayaAdmin = 5000;
+
+    public RekeningGiro(String noRekening, double saldo) {
+        super(noRekening, saldo);
+    }
+
+    @Override
+    public double getSaldo() {
+        return saldo - biayaAdmin;
     }
 }
 
 // Abstract Class
-abstract class Kendaraan {
-    protected String nama;
+// abstract class Kendaraan {
+// protected String nama;
 
-    public Kendaraan(String nama) {
-        this.nama = nama;
-    }
+// public Kendaraan(String nama) {
+// this.nama = nama;
+// }
 
-    public abstract int hitungBiaya(int hari);
-}
+// public abstract int hitungBiaya(int hari);
+// }
 
-// Subclass Motor
-class Motor extends Kendaraan {
-    public Motor(String nama) {
-        super(nama);
-    }
+// // Subclass Motor
+// class Motor extends Kendaraan {
+// public Motor(String nama) {
+// super(nama);
+// }
 
-    @Override
-    public int hitungBiaya(int hari) {
-        return hari * 50000;
-    }
-}
+// @Override
+// public int hitungBiaya(int hari) {
+// return hari * 50000;
+// }
+// }
 
-// Subclass Mobil
-class Mobil extends Kendaraan {
-    public Mobil(String nama) {
-        super(nama);
-    }
+// // Subclass Mobil
+// class Mobil extends Kendaraan {
+// public Mobil(String nama) {
+// super(nama);
+// }
 
-    @Override
-    public int hitungBiaya(int hari) {
-        return hari * 300000;
-    }
-}
+// @Override
+// public int hitungBiaya(int hari) {
+// return hari * 300000;
+// }
+// }
 
 // // Interface
 // interface Gaji {
