@@ -1622,68 +1622,107 @@ public class Main {
         // t.berhenti();
         // }
 
-        System.out.println("\n=== 5. Sistem Rumah Sakit ===");
-        Pasien pasien = new Pasien("Unknown", 30);
-        Dokter dokter = new Dokter("Dr. Unknown", "Jantung");
-        RekamMedis rekam = new RekamMedis(pasien, dokter);
-        rekam.tampilkanDetail();
+        // System.out.println("\n=== 5. Sistem Rumah Sakit ===");
+        // Pasien pasien = new Pasien("Unknown", 30);
+        // Dokter dokter = new Dokter("Dr. Unknown", "Jantung");
+        // RekamMedis rekam = new RekamMedis(pasien, dokter);
+        // rekam.tampilkanDetail();
+
+        BangunDatar b1 = new Persegi(100);
+        BangunDatar b2 = new Lingkaran(90);
+        System.out.println("Luas persegi: " + b1.luas());
+        System.out.println("Luas lingkaran: " + b2.luas());
+    }
+}
+
+class BangunDatar {
+    public double luas() {
+        return 0;
+    }
+}
+
+class Persegi extends BangunDatar {
+    private int sisi;
+
+    public Persegi(int sisi) {
+        this.sisi = sisi;
+    }
+
+    @Override
+    public double luas() {
+        return sisi * sisi;
+    }
+}
+
+class Lingkaran extends BangunDatar {
+    private double r;
+
+    public Lingkaran(double r) {
+        this.r = r;
+    }
+
+    @Override
+    public double luas() {
+        return 3.14 * r * r;
     }
 }
 
 // =========================
 // 5. Sistem Rumah Sakit
 // =========================
-class Dokter {
-    private String nama;
-    private String spesialis;
+// class Dokter {
+// private String nama;
+// private String spesialis;
 
-    public Dokter(String nama, String spesialis) {
-        this.nama = nama;
-        this.spesialis = spesialis;
-    }
+// public Dokter(String nama, String spesialis) {
+// this.nama = nama;
+// this.spesialis = spesialis;
+// }
 
-    public String getNama() {
-        return nama;
-    }
+// public String getNama() {
+// return nama;
+// }
 
-    public String getSpesialis() {
-        return spesialis;
-    }
-}
+// public String getSpesialis() {
+// return spesialis;
+// }
+// }
 
-class Pasien {
-    private String nama;
-    private int umur;
+// class Pasien {
+// private String nama;
+// private int umur;
 
-    public Pasien(String nama, int umur) {
-        this.nama = nama;
-        this.umur = umur;
-    }
+// public Pasien(String nama, int umur) {
+// this.nama = nama;
+// this.umur = umur;
+// }
 
-    public String getNama() {
-        return nama;
-    }
+// public String getNama() {
+// return nama;
+// }
 
-    public int getUmur() {
-        return umur;
-    }
-}
+// public int getUmur() {
+// return umur;
+// }
+// }
 
-class RekamMedis {
-    private Pasien pasien;
-    private Dokter dokter;
+// class RekamMedis {
+// private Pasien pasien;
+// private Dokter dokter;
 
-    public RekamMedis(Pasien pasien, Dokter dokter) {
-        this.pasien = pasien;
-        this.dokter = dokter;
-    }
+// public RekamMedis(Pasien pasien, Dokter dokter) {
+// this.pasien = pasien;
+// this.dokter = dokter;
+// }
 
-    public void tampilkanDetail() {
-        System.out.println("=== Rekam Medis ===");
-        System.out.println("Pasien: " + pasien.getNama() + " (Umur " + pasien.getUmur() + ")");
-        System.out.println("Dokter: " + dokter.getNama() + " - Spesialis " + dokter.getSpesialis());
-    }
-}
+// public void tampilkanDetail() {
+// System.out.println("=== Rekam Medis ===");
+// System.out.println("Pasien: " + pasien.getNama() + " (Umur " +
+// pasien.getUmur() + ")");
+// System.out.println("Dokter: " + dokter.getNama() + " - Spesialis " +
+// dokter.getSpesialis());
+// }
+// }
 
 // =========================
 // 4. Sistem Transportasi
