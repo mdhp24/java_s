@@ -1633,38 +1633,67 @@ public class Main {
         // System.out.println("Luas persegi: " + b1.luas());
         // System.out.println("Luas lingkaran: " + b2.luas());
 
-        Mobil m1 = new Mobil("Toyota");
-        m1.gas();
-        m1.gas();
-        System.out.println("Kecepatan: " + m1.getKecepatan());
-        m1.rem();
-        System.out.println("Kecepatan setelah rem: " + m1.getKecepatan());
+        // Mobil m1 = new Mobil("Toyota");
+        // m1.gas();
+        // m1.gas();
+        // System.out.println("Kecepatan: " + m1.getKecepatan());
+        // m1.rem();
+        // System.out.println("Kecepatan setelah rem: " + m1.getKecepatan());
+
+        Produk p1 = new Produk("Laptop", 7000000, 10);
+        p1.beli(3);
+        System.out.println("Sisa stok: " + p1.getStok());
     }
 }
 
-class Mobil {
-    private String merk;
-    private int kecepatan;
+class Produk {
+    String nama;
+    private double harga;
+    private int stok;
 
-    public Mobil(String merk) {
-        this.merk = merk;
-        this.kecepatan = 0;
+    public Produk(String nama, double harga, int stok) {
+        this.nama = nama;
+        this.harga = harga;
+        this.stok = stok;
     }
 
-    public void gas() {
-        kecepatan += 10;
+    public void beli(int jumlah) {
+        if (jumlah <= stok) {
+            stok -= jumlah;
+            System.out.println("Total harga: " + (harga * jumlah));
+        } else {
+            System.out.println("Stok tidak cukup");
+        }
     }
 
-    public void rem() {
-        kecepatan -= 5;
-        if (kecepatan < 0)
-            kecepatan = 0;
-    }
-
-    public int getKecepatan() {
-        return kecepatan;
+    public int getStok() {
+        return stok;
     }
 }
+
+// class Mobil {
+// private String merk;
+// private int kecepatan;
+
+// public Mobil(String merk) {
+// this.merk = merk;
+// this.kecepatan = 0;
+// }
+
+// public void gas() {
+// kecepatan += 10;
+// }
+
+// public void rem() {
+// kecepatan -= 5;
+// if (kecepatan < 0)
+// kecepatan = 0;
+// }
+
+// public int getKecepatan() {
+// return kecepatan;
+// }
+// }
 
 // class BangunDatar {
 // public double luas() {
