@@ -1628,44 +1628,75 @@ public class Main {
         // RekamMedis rekam = new RekamMedis(pasien, dokter);
         // rekam.tampilkanDetail();
 
-        BangunDatar b1 = new Persegi(100);
-        BangunDatar b2 = new Lingkaran(90);
-        System.out.println("Luas persegi: " + b1.luas());
-        System.out.println("Luas lingkaran: " + b2.luas());
+        // BangunDatar b1 = new Persegi(100);
+        // BangunDatar b2 = new Lingkaran(90);
+        // System.out.println("Luas persegi: " + b1.luas());
+        // System.out.println("Luas lingkaran: " + b2.luas());
+
+        Mobil m1 = new Mobil("Toyota");
+        m1.gas();
+        m1.gas();
+        System.out.println("Kecepatan: " + m1.getKecepatan());
+        m1.rem();
+        System.out.println("Kecepatan setelah rem: " + m1.getKecepatan());
     }
 }
 
-class BangunDatar {
-    public double luas() {
-        return 0;
+class Mobil {
+    private String merk;
+    private int kecepatan;
+
+    public Mobil(String merk) {
+        this.merk = merk;
+        this.kecepatan = 0;
+    }
+
+    public void gas() {
+        kecepatan += 10;
+    }
+
+    public void rem() {
+        kecepatan -= 5;
+        if (kecepatan < 0)
+            kecepatan = 0;
+    }
+
+    public int getKecepatan() {
+        return kecepatan;
     }
 }
 
-class Persegi extends BangunDatar {
-    private int sisi;
+// class BangunDatar {
+// public double luas() {
+// return 0;
+// }
+// }
 
-    public Persegi(int sisi) {
-        this.sisi = sisi;
-    }
+// class Persegi extends BangunDatar {
+// private int sisi;
 
-    @Override
-    public double luas() {
-        return sisi * sisi;
-    }
-}
+// public Persegi(int sisi) {
+// this.sisi = sisi;
+// }
 
-class Lingkaran extends BangunDatar {
-    private double r;
+// @Override
+// public double luas() {
+// return sisi * sisi;
+// }
+// }
 
-    public Lingkaran(double r) {
-        this.r = r;
-    }
+// class Lingkaran extends BangunDatar {
+// private double r;
 
-    @Override
-    public double luas() {
-        return 3.14 * r * r;
-    }
-}
+// public Lingkaran(double r) {
+// this.r = r;
+// }
+
+// @Override
+// public double luas() {
+// return 3.14 * r * r;
+// }
+// }
 
 // =========================
 // 5. Sistem Rumah Sakit
