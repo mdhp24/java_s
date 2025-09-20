@@ -1640,36 +1640,66 @@ public class Main {
         // m1.rem();
         // System.out.println("Kecepatan setelah rem: " + m1.getKecepatan());
 
-        Produk p1 = new Produk("Laptop", 7000000, 10);
-        p1.beli(3);
-        System.out.println("Sisa stok: " + p1.getStok());
+        // Produk p1 = new Produk("Laptop", 7000000, 10);
+        // p1.beli(3);
+        // System.out.println("Sisa stok: " + p1.getStok());
+
+        BankAccount akun1 = new BankAccount("pras", 1000000);
+        akun1.setor(500000);
+        akun1.tarik(300000);
+        System.out.println("Saldo akhir: " + akun1.getSaldo());
     }
 }
 
-class Produk {
+class BankAccount {
     String nama;
-    private double harga;
-    private int stok;
+    private double saldo;
 
-    public Produk(String nama, double harga, int stok) {
+    public BankAccount(String nama, double saldo) {
         this.nama = nama;
-        this.harga = harga;
-        this.stok = stok;
+        this.saldo = saldo;
     }
 
-    public void beli(int jumlah) {
-        if (jumlah <= stok) {
-            stok -= jumlah;
-            System.out.println("Total harga: " + (harga * jumlah));
+    public void setor(double jumlah) {
+        saldo += jumlah;
+    }
+
+    public void tarik(double jumlah) {
+        if (jumlah <= saldo) {
+            saldo -= jumlah;
         } else {
-            System.out.println("Stok tidak cukup");
+            System.out.println("Saldo tidak cukup");
         }
     }
 
-    public int getStok() {
-        return stok;
+    public double getSaldo() {
+        return saldo;
     }
 }
+// class Produk {
+// String nama;
+// private double harga;
+// private int stok;
+
+// public Produk(String nama, double harga, int stok) {
+// this.nama = nama;
+// this.harga = harga;
+// this.stok = stok;
+// }
+
+// public void beli(int jumlah) {
+// if (jumlah <= stok) {
+// stok -= jumlah;
+// System.out.println("Total harga: " + (harga * jumlah));
+// } else {
+// System.out.println("Stok tidak cukup");
+// }
+// }
+
+// public int getStok() {
+// return stok;
+// }
+// }
 
 // class Mobil {
 // private String merk;
