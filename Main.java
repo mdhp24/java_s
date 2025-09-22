@@ -1644,38 +1644,88 @@ public class Main {
         // p1.beli(3);
         // System.out.println("Sisa stok: " + p1.getStok());
 
-        BankAccount akun1 = new BankAccount("pras", 1000000);
-        akun1.setor(500000);
-        akun1.tarik(300000);
-        System.out.println("Saldo akhir: " + akun1.getSaldo());
-    }
-}
+        // BankAccount akun1 = new BankAccount("pras", 1000000);
+        // akun1.setor(500000);
+        // akun1.tarik(300000);
+        // System.out.println("Saldo akhir: " + akun1.getSaldo());
 
-class BankAccount {
-    String nama;
-    private double saldo;
+        ArrayList<Person> list = new ArrayList<>();
+        list.add(new Mahasiswa("Dicky", 21, "12345", "Informatika"));
+        list.add(new Dosen("Andi", 40, "67890", "Algoritma"));
 
-    public BankAccount(String nama, double saldo) {
-        this.nama = nama;
-        this.saldo = saldo;
-    }
-
-    public void setor(double jumlah) {
-        saldo += jumlah;
-    }
-
-    public void tarik(double jumlah) {
-        if (jumlah <= saldo) {
-            saldo -= jumlah;
-        } else {
-            System.out.println("Saldo tidak cukup");
+        for (Person p : list){
+            p.displayInfo();
         }
     }
+}
 
-    public double getSaldo() {
-        return saldo;
+abstract class Person {
+    protected String nama;
+    protected int umur;
+
+    public Person(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
+    }
+
+    public abstract void displayInfo();
+}
+
+class Mahasiswa extends Person {
+    private String nim, jurusan;
+
+    public Mahasiswa(String nama, int umur, String nim, String jurusan) {
+        super(nama, umur);
+        this.nim = nim;
+        this.jurusan = jurusan;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Mahasiswa: " + nama + ", Umur: " + umur + ", NIM: " + nim + ", Jurusan: " + jurusan);
     }
 }
+
+class Dosen extends Person {
+    private String nip, mataKuliah;
+
+    public Dosen(String nama, int umur, String nip, String mataKuliah) {
+        super(nama, umur);
+        this.nip = nip;
+        this.mataKuliah = mataKuliah;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Dosen: " + nama + ", Umur: " + umur + ", NIP: " + nip + ", Mata Kuliah: " + mataKuliah);
+    }
+}
+
+// class BankAccount {
+// String nama;
+// private double saldo;
+
+// public BankAccount(String nama, double saldo) {
+// this.nama = nama;
+// this.saldo = saldo;
+// }
+
+// public void setor(double jumlah) {
+// saldo += jumlah;
+// }
+
+// public void tarik(double jumlah) {
+// if (jumlah <= saldo) {
+// saldo -= jumlah;
+// } else {
+// System.out.println("Saldo tidak cukup");
+// }
+// }
+
+// public double getSaldo() {
+// return saldo;
+// }
+// }
 // class Produk {
 // String nama;
 // private double harga;
