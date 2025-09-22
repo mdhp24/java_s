@@ -1654,98 +1654,153 @@ public class Main {
         // list.add(new Dosen("Andi", 40, "67890", "Algoritma"));
 
         // for (Person p : list){
-        //     p.displayInfo();
+        // p.displayInfo();
         // }
 
-                Buku b1 = new Buku("Java OOP", "Banget");
-        Buku b2 = new Buku("Algoritma", "Sus");
+        // Buku b1 = new Buku("Java OOP", "Banget");
+        // Buku b2 = new Buku("Algoritma", "Sus");
 
-        Anggota a1 = new Anggota("Dicky");
-        a1.pinjamBuku(b1);
-        a1.pinjamBuku(b2);
+        // Anggota a1 = new Anggota("Dicky");
+        // a1.pinjamBuku(b1);
+        // a1.pinjamBuku(b2);
 
-        a1.tampilkanPinjaman();
+        // a1.tampilkanPinjaman();
+
+        Produk p1 = new Produk("Laptop", 8000000);
+        Produk p2 = new Produk("Mouse", 150000);
+
+        Keranjang k = new Keranjang();
+        k.tambahProduk(p1);
+        k.tambahProduk(p2);
+
+        k.tampilkanProduk();
+        System.out.println("Total Belanja: Rp. " + k.hitungTotal());
     }
 }
 
-class Buku {
-    private String judul;
-    private String penulis;
-
-    public Buku(String judul, String penulis) {
-        this.judul = judul;
-        this.penulis = penulis;
-    }
-
-    public String getInfo() {
-        return judul + " - " + penulis;
-    }
+interface Transaksi {
+    double hitungTotal();
 }
 
-class Anggota {
+class Produk {
     private String nama;
-    private ArrayList<Buku> daftarPinjaman = new ArrayList<>();
+    private double harga;
 
-    public Anggota(String nama) {
+    public Produk(String nama, double harga) {
         this.nama = nama;
+        this.harga = harga;
     }
 
-    public void pinjamBuku(Buku b) {
-        daftarPinjaman.add(b);
+    public double getHarga() {
+        return harga;
     }
 
-    public void tampilkanPinjaman() {
-        System.out.println("Daftar buku pinjaman " + nama + ":");
-        for (Buku b : daftarPinjaman) {
-            System.out.println("- " + b.getInfo());
+    public String getNama() {
+        return nama;
+    }
+}
+
+class Keranjang implements Transaksi {
+    private ArrayList<Produk> produkList = new ArrayList<>();
+
+    public void tambahProduk(Produk p) {
+        produkList.add(p);
+    }
+
+    @Override
+    public double hitungTotal() {
+        double total = 0;
+        for (Produk p : produkList) {
+            total += p.getHarga();
+        }
+        return total;
+    }
+
+    public void tampilkanProduk() {
+        System.out.println("Isi Keranjang:");
+        for (Produk p : produkList) {
+            System.out.println("- " + p.getNama() + " Rp. " + p.getHarga());
         }
     }
 }
 
+// class Buku {
+// private String judul;
+// private String penulis;
 
+// public Buku(String judul, String penulis) {
+// this.judul = judul;
+// this.penulis = penulis;
+// }
+
+// public String getInfo() {
+// return judul + " - " + penulis;
+// }
+// }
+
+// class Anggota {
+// private String nama;
+// private ArrayList<Buku> daftarPinjaman = new ArrayList<>();
+
+// public Anggota(String nama) {
+// this.nama = nama;
+// }
+
+// public void pinjamBuku(Buku b) {
+// daftarPinjaman.add(b);
+// }
+
+// public void tampilkanPinjaman() {
+// System.out.println("Daftar buku pinjaman " + nama + ":");
+// for (Buku b : daftarPinjaman) {
+// System.out.println("- " + b.getInfo());
+// }
+// }
+// }
 
 // abstract class Person {
-//     protected String nama;
-//     protected int umur;
+// protected String nama;
+// protected int umur;
 
-//     public Person(String nama, int umur) {
-//         this.nama = nama;
-//         this.umur = umur;
-//     }
+// public Person(String nama, int umur) {
+// this.nama = nama;
+// this.umur = umur;
+// }
 
-//     public abstract void displayInfo();
+// public abstract void displayInfo();
 // }
 
 // class Mahasiswa extends Person {
-//     private String nim, jurusan;
+// private String nim, jurusan;
 
-//     public Mahasiswa(String nama, int umur, String nim, String jurusan) {
-//         super(nama, umur);
-//         this.nim = nim;
-//         this.jurusan = jurusan;
-//     }
+// public Mahasiswa(String nama, int umur, String nim, String jurusan) {
+// super(nama, umur);
+// this.nim = nim;
+// this.jurusan = jurusan;
+// }
 
-//     @Override
-//     public void displayInfo() {
-//         System.out.println("Mahasiswa: " + nama + ", Umur: " + umur + ", NIM: " + nim + ", Jurusan: " + jurusan);
-//     }
+// @Override
+// public void displayInfo() {
+// System.out.println("Mahasiswa: " + nama + ", Umur: " + umur + ", NIM: " + nim
+// + ", Jurusan: " + jurusan);
+// }
 // }
 
 // class Dosen extends Person {
-//     private String nip, mataKuliah;
+// private String nip, mataKuliah;
 
-//     public Dosen(String nama, int umur, String nip, String mataKuliah) {
-//         super(nama, umur);
-//         this.nip = nip;
-//         this.mataKuliah = mataKuliah;
-//     }
-
-//     @Override
-//     public void displayInfo() {
-//         System.out.println("Dosen: " + nama + ", Umur: " + umur + ", NIP: " + nip + ", Mata Kuliah: " + mataKuliah);
-//     }
+// public Dosen(String nama, int umur, String nip, String mataKuliah) {
+// super(nama, umur);
+// this.nip = nip;
+// this.mataKuliah = mataKuliah;
 // }
 
+// @Override
+// public void displayInfo() {
+// System.out.println("Dosen: " + nama + ", Umur: " + umur + ", NIP: " + nip +
+// ", Mata Kuliah: " + mataKuliah);
+// }
+// }
 
 // class BankAccount {
 // String nama;
