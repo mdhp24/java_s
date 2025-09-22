@@ -1666,63 +1666,101 @@ public class Main {
 
         // a1.tampilkanPinjaman();
 
-        Produk p1 = new Produk("Laptop", 8000000);
-        Produk p2 = new Produk("Mouse", 150000);
+        // Produk p1 = new Produk("Laptop", 8000000);
+        // Produk p2 = new Produk("Mouse", 150000);
 
-        Keranjang k = new Keranjang();
-        k.tambahProduk(p1);
-        k.tambahProduk(p2);
+        // Keranjang k = new Keranjang();
+        // k.tambahProduk(p1);
+        // k.tambahProduk(p2);
 
-        k.tampilkanProduk();
-        System.out.println("Total Belanja: Rp. " + k.hitungTotal());
+        // k.tampilkanProduk();
+        // System.out.println("Total Belanja: Rp. " + k.hitungTotal());
+
+        Transportasi t1 = new Bus();
+        Transportasi t2 = new Kereta();
+
+        t1.jalan();
+        t1.berhenti();
+        t2.jalan();
+        t2.berhenti();
     }
 }
 
-interface Transaksi {
-    double hitungTotal();
+interface Transportasi {
+    void jalan();
+
+    void berhenti();
 }
 
-class Produk {
-    private String nama;
-    private double harga;
-
-    public Produk(String nama, double harga) {
-        this.nama = nama;
-        this.harga = harga;
-    }
-
-    public double getHarga() {
-        return harga;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-}
-
-class Keranjang implements Transaksi {
-    private ArrayList<Produk> produkList = new ArrayList<>();
-
-    public void tambahProduk(Produk p) {
-        produkList.add(p);
+class Bus implements Transportasi {
+    @Override
+    public void jalan() {
+        System.out.println("Bus mulai jalan di jalan raya...");
     }
 
     @Override
-    public double hitungTotal() {
-        double total = 0;
-        for (Produk p : produkList) {
-            total += p.getHarga();
-        }
-        return total;
-    }
-
-    public void tampilkanProduk() {
-        System.out.println("Isi Keranjang:");
-        for (Produk p : produkList) {
-            System.out.println("- " + p.getNama() + " Rp. " + p.getHarga());
-        }
+    public void berhenti() {
+        System.out.println("Bus berhenti di terminal.");
     }
 }
+
+class Kereta implements Transportasi {
+    @Override
+    public void jalan() {
+        System.out.println("Kereta berjalan di rel...");
+    }
+
+    @Override
+    public void berhenti() {
+        System.out.println("Kereta berhenti di stasiun.");
+    }
+}
+
+// interface Transaksi {
+// double hitungTotal();
+// }
+
+// class Produk {
+// private String nama;
+// private double harga;
+
+// public Produk(String nama, double harga) {
+// this.nama = nama;
+// this.harga = harga;
+// }
+
+// public double getHarga() {
+// return harga;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
+
+// class Keranjang implements Transaksi {
+// private ArrayList<Produk> produkList = new ArrayList<>();
+
+// public void tambahProduk(Produk p) {
+// produkList.add(p);
+// }
+
+// @Override
+// public double hitungTotal() {
+// double total = 0;
+// for (Produk p : produkList) {
+// total += p.getHarga();
+// }
+// return total;
+// }
+
+// public void tampilkanProduk() {
+// System.out.println("Isi Keranjang:");
+// for (Produk p : produkList) {
+// System.out.println("- " + p.getNama() + " Rp. " + p.getHarga());
+// }
+// }
+// }
 
 // class Buku {
 // private String judul;
