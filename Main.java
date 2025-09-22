@@ -1676,45 +1676,95 @@ public class Main {
         // k.tampilkanProduk();
         // System.out.println("Total Belanja: Rp. " + k.hitungTotal());
 
-        Transportasi t1 = new Bus();
-        Transportasi t2 = new Kereta();
+        // Transportasi t1 = new Bus();
+        // Transportasi t2 = new Kereta();
 
-        t1.jalan();
-        t1.berhenti();
-        t2.jalan();
-        t2.berhenti();
+        // t1.jalan();
+        // t1.berhenti();
+        // t2.jalan();
+        // t2.berhenti();
+
+        Dokter d1 = new Dokter("Andi", "Spesialis Jantung");
+        Pasien p1 = new Pasien("Dicky", 21);
+
+        RekamMedis r1 = new RekamMedis(p1, d1);
+        r1.tampilkanRekamMedis();
     }
 }
 
-interface Transportasi {
-    void jalan();
+class Dokter {
+    private String nama;
+    private String spesialis;
 
-    void berhenti();
-}
-
-class Bus implements Transportasi {
-    @Override
-    public void jalan() {
-        System.out.println("Bus mulai jalan di jalan raya...");
+    public Dokter(String nama, String spesialis) {
+        this.nama = nama;
+        this.spesialis = spesialis;
     }
 
-    @Override
-    public void berhenti() {
-        System.out.println("Bus berhenti di terminal.");
+    public String getInfo() {
+        return "Dr. " + nama + " - " + spesialis;
     }
 }
 
-class Kereta implements Transportasi {
-    @Override
-    public void jalan() {
-        System.out.println("Kereta berjalan di rel...");
+class Pasien {
+    private String nama;
+    private int umur;
+
+    public Pasien(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
     }
 
-    @Override
-    public void berhenti() {
-        System.out.println("Kereta berhenti di stasiun.");
+    public String getInfo() {
+        return nama + ", Umur " + umur + " tahun";
     }
 }
+
+class RekamMedis {
+    private Pasien pasien;
+    private Dokter dokter;
+
+    public RekamMedis(Pasien pasien, Dokter dokter) {
+        this.pasien = pasien;
+        this.dokter = dokter;
+    }
+
+    public void tampilkanRekamMedis() {
+        System.out.println("=== Rekam Medis ===");
+        System.out.println("Pasien : " + pasien.getInfo());
+        System.out.println("Dokter : " + dokter.getInfo());
+    }
+}
+
+// interface Transportasi {
+// void jalan();
+
+// void berhenti();
+// }
+
+// class Bus implements Transportasi {
+// @Override
+// public void jalan() {
+// System.out.println("Bus mulai jalan di jalan raya...");
+// }
+
+// @Override
+// public void berhenti() {
+// System.out.println("Bus berhenti di terminal.");
+// }
+// }
+
+// class Kereta implements Transportasi {
+// @Override
+// public void jalan() {
+// System.out.println("Kereta berjalan di rel...");
+// }
+
+// @Override
+// public void berhenti() {
+// System.out.println("Kereta berhenti di stasiun.");
+// }
+// }
 
 // interface Transaksi {
 // double hitungTotal();
