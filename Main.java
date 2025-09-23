@@ -1684,57 +1684,140 @@ public class Main {
         // t2.jalan();
         // t2.berhenti();
 
-        Dokter d1 = new Dokter("Andi", "Spesialis Jantung");
-        Pasien p1 = new Pasien("Dicky", 21);
+        // Dokter d1 = new Dokter("Andi", "Spesialis Jantung");
+        // Pasien p1 = new Pasien("Dicky", 21);
 
-        RekamMedis r1 = new RekamMedis(p1, d1);
-        r1.tampilkanRekamMedis();
+        // RekamMedis r1 = new RekamMedis(p1, d1);
+        // r1.tampilkanRekamMedis();
+
+        Payment[] payments = {
+                new CreditCardPayment(500000, "1234-5678-9876"),
+                new EWalletPayment(250000, "GoPay"),
+                new CashPayment(100000)
+        };
+
+        for (Payment p : payments) {
+            p.processPayment();
+            if (p instanceof Refundable) {
+                ((Refundable) p).refund(50000);
+            } else {
+                System.out.println("This payment method does not support refunds.");
+            }
+            System.out.println("-------------------------");
+        }
     }
 }
 
-class Dokter {
-    private String nama;
-    private String spesialis;
+abstract class Payment {
+    protected double amount;
 
-    public Dokter(String nama, String spesialis) {
-        this.nama = nama;
-        this.spesialis = spesialis;
+    public Payment(double amount) {
+        this.amount = amount;
     }
 
-    public String getInfo() {
-        return "Dr. " + nama + " - " + spesialis;
-    }
-}
+    public abstract void processPayment();
 
-class Pasien {
-    private String nama;
-    private int umur;
-
-    public Pasien(String nama, int umur) {
-        this.nama = nama;
-        this.umur = umur;
-    }
-
-    public String getInfo() {
-        return nama + ", Umur " + umur + " tahun";
+    public double getAmount() {
+        return amount;
     }
 }
 
-class RekamMedis {
-    private Pasien pasien;
-    private Dokter dokter;
+interface Refundable {
+    void refund(double amount);
+}
 
-    public RekamMedis(Pasien pasien, Dokter dokter) {
-        this.pasien = pasien;
-        this.dokter = dokter;
+class CreditCardPayment extends Payment implements Refundable {
+    private String cardNumber;
+
+    public CreditCardPayment(double amount, String cardNumber) {
+        super(amount);
+        this.cardNumber = cardNumber;
     }
 
-    public void tampilkanRekamMedis() {
-        System.out.println("=== Rekam Medis ===");
-        System.out.println("Pasien : " + pasien.getInfo());
-        System.out.println("Dokter : " + dokter.getInfo());
+    @Override
+    public void processPayment() {
+        System.out.println("Processing credit card payment of Rp" + amount + " with card " + cardNumber);
+    }
+
+    @Override
+    public void refund(double amount) {
+        System.out.println("Refunding Rp" + amount + " to credit card " + cardNumber);
     }
 }
+
+class EWalletPayment extends Payment implements Refundable {
+    private String walletName;
+
+    public EWalletPayment(double amount, String walletName) {
+        super(amount);
+        this.walletName = walletName;
+    }
+
+    @Override
+    public void processPayment() {
+        System.out.println("Processing e-wallet payment of Rp" + amount + " with " + walletName);
+    }
+
+    @Override
+    public void refund(double amount) {
+        System.out.println("Refunding Rp" + amount + " to e-wallet " + walletName);
+    }
+}
+
+class CashPayment extends Payment {
+    public CashPayment(double amount) {
+        super(amount);
+    }
+
+    @Override
+    public void processPayment() {
+        System.out.println("Processing cash payment of Rp" + amount);
+    }
+}
+
+// class Dokter {
+// private String nama;
+// private String spesialis;
+
+// public Dokter(String nama, String spesialis) {
+// this.nama = nama;
+// this.spesialis = spesialis;
+// }
+
+// public String getInfo() {
+// return "Dr. " + nama + " - " + spesialis;
+// }
+// }
+
+// class Pasien {
+// private String nama;
+// private int umur;
+
+// public Pasien(String nama, int umur) {
+// this.nama = nama;
+// this.umur = umur;
+// }
+
+// public String getInfo() {
+// return nama + ", Umur " + umur + " tahun";
+// }
+// }
+
+// class RekamMedis {
+// private Pasien pasien;
+// private Dokter dokter;
+
+// public RekamMedis(Pasien pasien, Dokter dokter) {
+// this.pasien = pasien;
+// this.dokter = dokter;
+// }
+
+// public void tampilkanRekamMedis() {
+// System.out.println("=== Rekam Medis ===");
+// System.out.println("Pasien : " + pasien.getInfo());
+// System.out.println("Dokter : " + dokter.getInfo());
+// }
+// }
 
 // interface Transportasi {
 // void jalan();
