@@ -1714,65 +1714,117 @@ public class Main {
         // o.info();
         // }
 
-        ArrayList<Produk> list = new ArrayList<>();
-        list.add(new ProdukElektronik("Laptop", 10000000));
-        list.add(new ProdukFashion("Jaket", 500000));
+        // ArrayList<Produk> list = new ArrayList<>();
+        // list.add(new ProdukElektronik("Laptop", 10000000));
+        // list.add(new ProdukFashion("Jaket", 500000));
 
-        for (Produk p : list) {
-            double hargaAkhir = p.getHarga();
-            if (p instanceof Diskon) {
-                hargaAkhir = ((Diskon) p).hitungDiskon(p.getHarga());
-            }
-            System.out.println("Produk: " + p.getNama() +
-                    " | Harga Awal: Rp" + p.getHarga() +
-                    " | Harga Setelah Diskon: Rp" + hargaAkhir);
+        // for (Produk p : list) {
+        // double hargaAkhir = p.getHarga();
+        // if (p instanceof Diskon) {
+        // hargaAkhir = ((Diskon) p).hitungDiskon(p.getHarga());
+        // }
+        // System.out.println("Produk: " + p.getNama() +
+        // " | Harga Awal: Rp" + p.getHarga() +
+        // " | Harga Setelah Diskon: Rp" + hargaAkhir);
+        // }
+
+        ArrayList<Transportasi> list = new ArrayList<>();
+        list.add(new Mobil("Avanza"));
+        list.add(new Motor("Ninja"));
+        list.add(new Pesawat("Garuda"));
+
+        for (Transportasi t : list) {
+            t.jalan();
         }
     }
 }
 
-interface Diskon {
-    double hitungDiskon(double harga);
-}
-
-class Produk {
+abstract class Transportasi {
     protected String nama;
-    protected double harga;
 
-    public Produk(String nama, double harga) {
+    public Transportasi(String nama) {
         this.nama = nama;
-        this.harga = harga;
     }
 
-    public String getNama() {
-        return nama;
-    }
-
-    public double getHarga() {
-        return harga;
-    }
+    public abstract void jalan();
 }
 
-class ProdukElektronik extends Produk implements Diskon {
-    public ProdukElektronik(String nama, double harga) {
-        super(nama, harga);
+class Mobil extends Transportasi {
+    public Mobil(String nama) {
+        super(nama);
     }
 
     @Override
-    public double hitungDiskon(double harga) {
-        return harga * 0.9; // diskon 10%
+    public void jalan() {
+        System.out.println(nama + " sedang berjalan di jalan raya.");
     }
 }
 
-class ProdukFashion extends Produk implements Diskon {
-    public ProdukFashion(String nama, double harga) {
-        super(nama, harga);
+class Motor extends Transportasi {
+    public Motor(String nama) {
+        super(nama);
     }
 
     @Override
-    public double hitungDiskon(double harga) {
-        return harga * 0.8; // diskon 20%
+    public void jalan() {
+        System.out.println(nama + " sedang melaju di jalur cepat.");
     }
 }
+
+class Pesawat extends Transportasi {
+    public Pesawat(String nama) {
+        super(nama);
+    }
+
+    @Override
+    public void jalan() {
+        System.out.println(nama + " sedang terbang di udara.");
+    }
+}
+
+// interface Diskon {
+// double hitungDiskon(double harga);
+// }
+
+// class Produk {
+// protected String nama;
+// protected double harga;
+
+// public Produk(String nama, double harga) {
+// this.nama = nama;
+// this.harga = harga;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+
+// public double getHarga() {
+// return harga;
+// }
+// }
+
+// class ProdukElektronik extends Produk implements Diskon {
+// public ProdukElektronik(String nama, double harga) {
+// super(nama, harga);
+// }
+
+// @Override
+// public double hitungDiskon(double harga) {
+// return harga * 0.9; // diskon 10%
+// }
+// }
+
+// class ProdukFashion extends Produk implements Diskon {
+// public ProdukFashion(String nama, double harga) {
+// super(nama, harga);
+// }
+
+// @Override
+// public double hitungDiskon(double harga) {
+// return harga * 0.8; // diskon 20%
+// }
+// }
 
 // abstract class Orang {
 // protected String nama;
