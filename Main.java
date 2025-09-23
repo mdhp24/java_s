@@ -1690,90 +1690,141 @@ public class Main {
         // RekamMedis r1 = new RekamMedis(p1, d1);
         // r1.tampilkanRekamMedis();
 
-        Payment[] payments = {
-                new CreditCardPayment(500000, "1234-5678-9876"),
-                new EWalletPayment(250000, "GoPay"),
-                new CashPayment(100000)
-        };
+        // Payment[] payments = {
+        // new CreditCardPayment(500000, "1234-5678-9876"),
+        // new EWalletPayment(250000, "GoPay"),
+        // new CashPayment(100000)
+        // };
 
-        for (Payment p : payments) {
-            p.processPayment();
-            if (p instanceof Refundable) {
-                ((Refundable) p).refund(50000);
-            } else {
-                System.out.println("This payment method does not support refunds.");
-            }
-            System.out.println("-------------------------");
+        // for (Payment p : payments) {
+        // p.processPayment();
+        // if (p instanceof Refundable) {
+        // ((Refundable) p).refund(50000);
+        // } else {
+        // System.out.println("This payment method does not support refunds.");
+        // }
+        // System.out.println("-------------------------");
+        // }
+
+        ArrayList<Orang> orangList = new ArrayList<>();
+        orangList.add(new Guru("Dia", 40, "Matematika"));
+        orangList.add(new Siswa("Aaku", 16, "SIB 1A"));
+
+        for (Orang o : orangList) {
+            o.info();
         }
     }
 }
 
-abstract class Payment {
-    protected double amount;
+abstract class Orang {
+    protected String nama;
+    protected int umur;
 
-    public Payment(double amount) {
-        this.amount = amount;
+    public Orang(String nama, int umur) {
+        this.nama = nama;
+        this.umur = umur;
     }
 
-    public abstract void processPayment();
-
-    public double getAmount() {
-        return amount;
-    }
+    public abstract void info();
 }
 
-interface Refundable {
-    void refund(double amount);
-}
+class Guru extends Orang {
+    private String mataPelajaran;
 
-class CreditCardPayment extends Payment implements Refundable {
-    private String cardNumber;
-
-    public CreditCardPayment(double amount, String cardNumber) {
-        super(amount);
-        this.cardNumber = cardNumber;
+    public Guru(String nama, int umur, String mataPelajaran) {
+        super(nama, umur);
+        this.mataPelajaran = mataPelajaran;
     }
 
     @Override
-    public void processPayment() {
-        System.out.println("Processing credit card payment of Rp" + amount + " with card " + cardNumber);
-    }
-
-    @Override
-    public void refund(double amount) {
-        System.out.println("Refunding Rp" + amount + " to credit card " + cardNumber);
+    public void info() {
+        System.out.println("Guru: " + nama + ", Umur: " + umur + ", Mata Pelajaran: " + mataPelajaran);
     }
 }
 
-class EWalletPayment extends Payment implements Refundable {
-    private String walletName;
+class Siswa extends Orang {
+    private String kelas;
 
-    public EWalletPayment(double amount, String walletName) {
-        super(amount);
-        this.walletName = walletName;
+    public Siswa(String nama, int umur, String kelas) {
+        super(nama, umur);
+        this.kelas = kelas;
     }
 
     @Override
-    public void processPayment() {
-        System.out.println("Processing e-wallet payment of Rp" + amount + " with " + walletName);
-    }
-
-    @Override
-    public void refund(double amount) {
-        System.out.println("Refunding Rp" + amount + " to e-wallet " + walletName);
+    public void info() {
+        System.out.println("Siswa: " + nama + ", Umur: " + umur + ", Kelas: " + kelas);
     }
 }
 
-class CashPayment extends Payment {
-    public CashPayment(double amount) {
-        super(amount);
-    }
+// abstract class Payment {
+// protected double amount;
 
-    @Override
-    public void processPayment() {
-        System.out.println("Processing cash payment of Rp" + amount);
-    }
-}
+// public Payment(double amount) {
+// this.amount = amount;
+// }
+
+// public abstract void processPayment();
+
+// public double getAmount() {
+// return amount;
+// }
+// }
+
+// interface Refundable {
+// void refund(double amount);
+// }
+
+// class CreditCardPayment extends Payment implements Refundable {
+// private String cardNumber;
+
+// public CreditCardPayment(double amount, String cardNumber) {
+// super(amount);
+// this.cardNumber = cardNumber;
+// }
+
+// @Override
+// public void processPayment() {
+// System.out.println("Processing credit card payment of Rp" + amount + " with
+// card " + cardNumber);
+// }
+
+// @Override
+// public void refund(double amount) {
+// System.out.println("Refunding Rp" + amount + " to credit card " +
+// cardNumber);
+// }
+// }
+
+// class EWalletPayment extends Payment implements Refundable {
+// private String walletName;
+
+// public EWalletPayment(double amount, String walletName) {
+// super(amount);
+// this.walletName = walletName;
+// }
+
+// @Override
+// public void processPayment() {
+// System.out.println("Processing e-wallet payment of Rp" + amount + " with " +
+// walletName);
+// }
+
+// @Override
+// public void refund(double amount) {
+// System.out.println("Refunding Rp" + amount + " to e-wallet " + walletName);
+// }
+// }
+
+// class CashPayment extends Payment {
+// public CashPayment(double amount) {
+// super(amount);
+// }
+
+// @Override
+// public void processPayment() {
+// System.out.println("Processing cash payment of Rp" + amount);
+// }
+// }
 
 // class Dokter {
 // private String nama;
