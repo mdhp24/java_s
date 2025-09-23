@@ -1706,55 +1706,115 @@ public class Main {
         // System.out.println("-------------------------");
         // }
 
-        ArrayList<Orang> orangList = new ArrayList<>();
-        orangList.add(new Guru("Dia", 40, "Matematika"));
-        orangList.add(new Siswa("Aaku", 16, "SIB 1A"));
+        // ArrayList<Orang> orangList = new ArrayList<>();
+        // orangList.add(new Guru("Dia", 40, "Matematika"));
+        // orangList.add(new Siswa("Aaku", 16, "SIB 1A"));
 
-        for (Orang o : orangList) {
-            o.info();
+        // for (Orang o : orangList) {
+        // o.info();
+        // }
+
+        ArrayList<Produk> list = new ArrayList<>();
+        list.add(new ProdukElektronik("Laptop", 10000000));
+        list.add(new ProdukFashion("Jaket", 500000));
+
+        for (Produk p : list) {
+            double hargaAkhir = p.getHarga();
+            if (p instanceof Diskon) {
+                hargaAkhir = ((Diskon) p).hitungDiskon(p.getHarga());
+            }
+            System.out.println("Produk: " + p.getNama() +
+                    " | Harga Awal: Rp" + p.getHarga() +
+                    " | Harga Setelah Diskon: Rp" + hargaAkhir);
         }
     }
 }
 
-abstract class Orang {
+interface Diskon {
+    double hitungDiskon(double harga);
+}
+
+class Produk {
     protected String nama;
-    protected int umur;
+    protected double harga;
 
-    public Orang(String nama, int umur) {
+    public Produk(String nama, double harga) {
         this.nama = nama;
-        this.umur = umur;
+        this.harga = harga;
     }
 
-    public abstract void info();
+    public String getNama() {
+        return nama;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
 }
 
-class Guru extends Orang {
-    private String mataPelajaran;
-
-    public Guru(String nama, int umur, String mataPelajaran) {
-        super(nama, umur);
-        this.mataPelajaran = mataPelajaran;
+class ProdukElektronik extends Produk implements Diskon {
+    public ProdukElektronik(String nama, double harga) {
+        super(nama, harga);
     }
 
     @Override
-    public void info() {
-        System.out.println("Guru: " + nama + ", Umur: " + umur + ", Mata Pelajaran: " + mataPelajaran);
+    public double hitungDiskon(double harga) {
+        return harga * 0.9; // diskon 10%
     }
 }
 
-class Siswa extends Orang {
-    private String kelas;
-
-    public Siswa(String nama, int umur, String kelas) {
-        super(nama, umur);
-        this.kelas = kelas;
+class ProdukFashion extends Produk implements Diskon {
+    public ProdukFashion(String nama, double harga) {
+        super(nama, harga);
     }
 
     @Override
-    public void info() {
-        System.out.println("Siswa: " + nama + ", Umur: " + umur + ", Kelas: " + kelas);
+    public double hitungDiskon(double harga) {
+        return harga * 0.8; // diskon 20%
     }
 }
+
+// abstract class Orang {
+// protected String nama;
+// protected int umur;
+
+// public Orang(String nama, int umur) {
+// this.nama = nama;
+// this.umur = umur;
+// }
+
+// public abstract void info();
+// }
+
+// class Guru extends Orang {
+// private String mataPelajaran;
+
+// public Guru(String nama, int umur, String mataPelajaran) {
+// super(nama, umur);
+// this.mataPelajaran = mataPelajaran;
+// }
+
+// @Override
+// public void info() {
+// System.out.println("Guru: " + nama + ", Umur: " + umur + ", Mata Pelajaran: "
+// + mataPelajaran);
+// }
+// }
+
+// class Siswa extends Orang {
+// private String kelas;
+
+// public Siswa(String nama, int umur, String kelas) {
+// super(nama, umur);
+// this.kelas = kelas;
+// }
+
+// @Override
+// public void info() {
+// System.out.println("Siswa: " + nama + ", Umur: " + umur + ", Kelas: " +
+// kelas);
+// }
+// }
 
 // abstract class Payment {
 // protected double amount;
