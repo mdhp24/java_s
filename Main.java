@@ -1728,59 +1728,62 @@ public class Main {
         // " | Harga Setelah Diskon: Rp" + hargaAkhir);
         // }
 
-        ArrayList<Transportasi> list = new ArrayList<>();
-        list.add(new Mobil("Avanza"));
-        list.add(new Motor("Ninja"));
-        list.add(new Pesawat("Garuda"));
+    //     ArrayList<Transportasi> list = new ArrayList<>();
+    //     list.add(new Mobil("Avanza"));
+    //     list.add(new Motor("Ninja"));
+    //     list.add(new Pesawat("Garuda"));
 
-        for (Transportasi t : list) {
-            t.jalan();
-        }
-    }
+    //     for (Transportasi t : list) {
+    //         t.jalan();
+    //     }
+    // }
+
+    
+}
 }
 
-abstract class Transportasi {
-    protected String nama;
+// abstract class Transportasi {
+//     protected String nama;
 
-    public Transportasi(String nama) {
-        this.nama = nama;
-    }
+//     public Transportasi(String nama) {
+//         this.nama = nama;
+//     }
 
-    public abstract void jalan();
-}
+//     public abstract void jalan();
+// }
 
-class Mobil extends Transportasi {
-    public Mobil(String nama) {
-        super(nama);
-    }
+// class Mobil extends Transportasi {
+//     public Mobil(String nama) {
+//         super(nama);
+//     }
 
-    @Override
-    public void jalan() {
-        System.out.println(nama + " sedang berjalan di jalan raya.");
-    }
-}
+//     @Override
+//     public void jalan() {
+//         System.out.println(nama + " sedang berjalan di jalan raya.");
+//     }
+// }
 
-class Motor extends Transportasi {
-    public Motor(String nama) {
-        super(nama);
-    }
+// class Motor extends Transportasi {
+//     public Motor(String nama) {
+//         super(nama);
+//     }
 
-    @Override
-    public void jalan() {
-        System.out.println(nama + " sedang melaju di jalur cepat.");
-    }
-}
+//     @Override
+//     public void jalan() {
+//         System.out.println(nama + " sedang melaju di jalur cepat.");
+//     }
+// }
 
-class Pesawat extends Transportasi {
-    public Pesawat(String nama) {
-        super(nama);
-    }
+// class Pesawat extends Transportasi {
+//     public Pesawat(String nama) {
+//         super(nama);
+//     }
 
-    @Override
-    public void jalan() {
-        System.out.println(nama + " sedang terbang di udara.");
-    }
-}
+//     @Override
+//     public void jalan() {
+//         System.out.println(nama + " sedang terbang di udara.");
+//     }
+// }
 
 // interface Diskon {
 // double hitungDiskon(double harga);
