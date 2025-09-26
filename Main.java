@@ -1755,40 +1755,100 @@ public class Main {
         // pay1.processPayment();
         // pay2.processPayment();
 
-        Room room101 = new Room(101);
-        room101.bookRoom();
-        room101.bookRoom();
-        room101.cancelBooking();
+        // Room room101 = new Room(101);
+        // room101.bookRoom();
+        // room101.bookRoom();
+        // room101.cancelBooking();
+
+        Account savings = new SavingsAccount("001", 2000000);
+        Account current = new CurrentAccount("002", 100000);
+
+        savings.deposit(500000);
+        savings.withdraw(1000000);
+
+        current.withdraw(300000);
+        current.withdraw(700000);
     }
 }
 
-class Room {
-    private int number;
-    private boolean isBooked;
+abstract class Account {
+    protected String accountNumber;
+    protected double balance;
 
-    public Room(int number) {
-        this.number = number;
-        this.isBooked = false;
+    public Account(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
     }
 
-    public void bookRoom() {
-        if (!isBooked) {
-            isBooked = true;
-            System.out.println("Kamar " + number + " berhasil dipesan.");
-        } else {
-            System.out.println("Kamar " + number + " sudah terpesan!");
-        }
+    public abstract void withdraw(double amount);
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Setor Rp" + amount + " | Saldo: Rp" + balance);
+    }
+}
+
+class SavingsAccount extends Account {
+    public SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
     }
 
-    public void cancelBooking() {
-        if (isBooked) {
-            isBooked = false;
-            System.out.println("Kamar " + number + " berhasil dibatalkan.");
+    @Override
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Tarik Rp" + amount + " dari Tabungan | Saldo: Rp" + balance);
         } else {
-            System.out.println("Kamar " + number + " belum dipesan.");
+            System.out.println("Saldo tabungan tidak cukup!");
         }
     }
 }
+
+class CurrentAccount extends Account {
+    private double overdraftLimit = 500000;
+
+    public CurrentAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance + overdraftLimit >= amount) {
+            balance -= amount;
+            System.out.println("Tarik Rp" + amount + " dari Giro | Saldo: Rp" + balance);
+        } else {
+            System.out.println("Limit overdraft terlampaui!");
+        }
+    }
+}
+
+// class Room {
+// private int number;
+// private boolean isBooked;
+
+// public Room(int number) {
+// this.number = number;
+// this.isBooked = false;
+// }
+
+// public void bookRoom() {
+// if (!isBooked) {
+// isBooked = true;
+// System.out.println("Kamar " + number + " berhasil dipesan.");
+// } else {
+// System.out.println("Kamar " + number + " sudah terpesan!");
+// }
+// }
+
+// public void cancelBooking() {
+// if (isBooked) {
+// isBooked = false;
+// System.out.println("Kamar " + number + " berhasil dibatalkan.");
+// } else {
+// System.out.println("Kamar " + number + " belum dipesan.");
+// }
+// }
+// }
 
 // abstract class Payment {
 // protected double amount;
