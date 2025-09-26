@@ -1738,47 +1738,92 @@ public class Main {
         // }
         // }
 
-        Animal lion = new Lion("Simba", 5);
-        Animal bird = new Bird("Rio", 2);
-        lion.makeSound();
-        bird.makeSound();
+        // Animal lion = new Lion("Simba", 5);
+        // Animal bird = new Bird("Rio", 2);
+        // lion.makeSound();
+        // bird.makeSound();
+
+        Vehicle car = new Car("Toyota");
+        Vehicle bike = new Motorcycle("Honda");
+        car.start();
+        bike.start();
+        car.stop();
+        bike.stop();
 
     }
 }
 
-abstract class Animal {
-    protected String name;
-    protected int age;
+interface Vehicle {
+    void start();
 
-    public Animal(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public abstract void makeSound();
+    void stop();
 }
 
-class Lion extends Animal {
-    public Lion(String name, int age) {
-        super(name, age);
+class Car implements Vehicle {
+    private String brand;
+
+    public Car(String brand) {
+        this.brand = brand;
     }
 
-    @Override
-    public void makeSound() {
-        System.out.println(name + " mengaum: Roarrr!");
+    public void start() {
+        System.out.println(brand + " mobil dinyalakan.");
+    }
+
+    public void stop() {
+        System.out.println(brand + " mobil dimatikan.");
     }
 }
 
-class Bird extends Animal {
-    public Bird(String name, int age) {
-        super(name, age);
+class Motorcycle implements Vehicle {
+    private String brand;
+
+    public Motorcycle(String brand) {
+        this.brand = brand;
     }
 
-    @Override
-    public void makeSound() {
-        System.out.println(name + " berkicau: Tweet tweet!");
+    public void start() {
+        System.out.println(brand + " motor dinyalakan.");
+    }
+
+    public void stop() {
+        System.out.println(brand + " motor dimatikan.");
     }
 }
+
+// abstract class Animal {
+// protected String name;
+// protected int age;
+
+// public Animal(String name, int age) {
+// this.name = name;
+// this.age = age;
+// }
+
+// public abstract void makeSound();
+// }
+
+// class Lion extends Animal {
+// public Lion(String name, int age) {
+// super(name, age);
+// }
+
+// @Override
+// public void makeSound() {
+// System.out.println(name + " mengaum: Roarrr!");
+// }
+// }
+
+// class Bird extends Animal {
+// public Bird(String name, int age) {
+// super(name, age);
+// }
+
+// @Override
+// public void makeSound() {
+// System.out.println(name + " berkicau: Tweet tweet!");
+// }
+// }
 
 // abstract class Transportasi {
 // protected String nama;
