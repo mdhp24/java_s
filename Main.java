@@ -1750,50 +1750,85 @@ public class Main {
         // car.stop();
         // bike.stop();
 
-        Payment pay1 = new CreditCardPayment(500000, "1234-5678-9876");
-        Payment pay2 = new EWalletPayment(150000, "OVO123");
-        pay1.processPayment();
-        pay2.processPayment();
+        // Payment pay1 = new CreditCardPayment(500000, "1234-5678-9876");
+        // Payment pay2 = new EWalletPayment(150000, "OVO123");
+        // pay1.processPayment();
+        // pay2.processPayment();
+
+        Room room101 = new Room(101);
+        room101.bookRoom();
+        room101.bookRoom();
+        room101.cancelBooking();
     }
 }
 
-abstract class Payment {
-    protected double amount;
+class Room {
+    private int number;
+    private boolean isBooked;
 
-    public Payment(double amount) {
-        this.amount = amount;
+    public Room(int number) {
+        this.number = number;
+        this.isBooked = false;
     }
 
-    public abstract void processPayment();
-}
-
-class CreditCardPayment extends Payment {
-    private String cardNumber;
-
-    public CreditCardPayment(double amount, String cardNumber) {
-        super(amount);
-        this.cardNumber = cardNumber;
+    public void bookRoom() {
+        if (!isBooked) {
+            isBooked = true;
+            System.out.println("Kamar " + number + " berhasil dipesan.");
+        } else {
+            System.out.println("Kamar " + number + " sudah terpesan!");
+        }
     }
 
-    @Override
-    public void processPayment() {
-        System.out.println("Pembayaran Rp" + amount + " menggunakan Kartu Kredit " + cardNumber);
-    }
-}
-
-class EWalletPayment extends Payment {
-    private String walletId;
-
-    public EWalletPayment(double amount, String walletId) {
-        super(amount);
-        this.walletId = walletId;
-    }
-
-    @Override
-    public void processPayment() {
-        System.out.println("Pembayaran Rp" + amount + " menggunakan E-Wallet " + walletId);
+    public void cancelBooking() {
+        if (isBooked) {
+            isBooked = false;
+            System.out.println("Kamar " + number + " berhasil dibatalkan.");
+        } else {
+            System.out.println("Kamar " + number + " belum dipesan.");
+        }
     }
 }
+
+// abstract class Payment {
+// protected double amount;
+
+// public Payment(double amount) {
+// this.amount = amount;
+// }
+
+// public abstract void processPayment();
+// }
+
+// class CreditCardPayment extends Payment {
+// private String cardNumber;
+
+// public CreditCardPayment(double amount, String cardNumber) {
+// super(amount);
+// this.cardNumber = cardNumber;
+// }
+
+// @Override
+// public void processPayment() {
+// System.out.println("Pembayaran Rp" + amount + " menggunakan Kartu Kredit " +
+// cardNumber);
+// }
+// }
+
+// class EWalletPayment extends Payment {
+// private String walletId;
+
+// public EWalletPayment(double amount, String walletId) {
+// super(amount);
+// this.walletId = walletId;
+// }
+
+// @Override
+// public void processPayment() {
+// System.out.println("Pembayaran Rp" + amount + " menggunakan E-Wallet " +
+// walletId);
+// }
+// }
 
 // interface Vehicle {
 // void start();
