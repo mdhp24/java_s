@@ -1743,53 +1743,95 @@ public class Main {
         // lion.makeSound();
         // bird.makeSound();
 
-        Vehicle car = new Car("Toyota");
-        Vehicle bike = new Motorcycle("Honda");
-        car.start();
-        bike.start();
-        car.stop();
-        bike.stop();
+        // Vehicle car = new Car("Toyota");
+        // Vehicle bike = new Motorcycle("Honda");
+        // car.start();
+        // bike.start();
+        // car.stop();
+        // bike.stop();
 
+        Payment pay1 = new CreditCardPayment(500000, "1234-5678-9876");
+        Payment pay2 = new EWalletPayment(150000, "OVO123");
+        pay1.processPayment();
+        pay2.processPayment();
     }
 }
 
-interface Vehicle {
-    void start();
+abstract class Payment {
+    protected double amount;
 
-    void stop();
+    public Payment(double amount) {
+        this.amount = amount;
+    }
+
+    public abstract void processPayment();
 }
 
-class Car implements Vehicle {
-    private String brand;
+class CreditCardPayment extends Payment {
+    private String cardNumber;
 
-    public Car(String brand) {
-        this.brand = brand;
+    public CreditCardPayment(double amount, String cardNumber) {
+        super(amount);
+        this.cardNumber = cardNumber;
     }
 
-    public void start() {
-        System.out.println(brand + " mobil dinyalakan.");
-    }
-
-    public void stop() {
-        System.out.println(brand + " mobil dimatikan.");
+    @Override
+    public void processPayment() {
+        System.out.println("Pembayaran Rp" + amount + " menggunakan Kartu Kredit " + cardNumber);
     }
 }
 
-class Motorcycle implements Vehicle {
-    private String brand;
+class EWalletPayment extends Payment {
+    private String walletId;
 
-    public Motorcycle(String brand) {
-        this.brand = brand;
+    public EWalletPayment(double amount, String walletId) {
+        super(amount);
+        this.walletId = walletId;
     }
 
-    public void start() {
-        System.out.println(brand + " motor dinyalakan.");
-    }
-
-    public void stop() {
-        System.out.println(brand + " motor dimatikan.");
+    @Override
+    public void processPayment() {
+        System.out.println("Pembayaran Rp" + amount + " menggunakan E-Wallet " + walletId);
     }
 }
+
+// interface Vehicle {
+// void start();
+
+// void stop();
+// }
+
+// class Car implements Vehicle {
+// private String brand;
+
+// public Car(String brand) {
+// this.brand = brand;
+// }
+
+// public void start() {
+// System.out.println(brand + " mobil dinyalakan.");
+// }
+
+// public void stop() {
+// System.out.println(brand + " mobil dimatikan.");
+// }
+// }
+
+// class Motorcycle implements Vehicle {
+// private String brand;
+
+// public Motorcycle(String brand) {
+// this.brand = brand;
+// }
+
+// public void start() {
+// System.out.println(brand + " motor dinyalakan.");
+// }
+
+// public void stop() {
+// System.out.println(brand + " motor dimatikan.");
+// }
+// }
 
 // abstract class Animal {
 // protected String name;
