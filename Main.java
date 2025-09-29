@@ -1785,43 +1785,88 @@ public class Main {
         // s2.printInfo();
         // s3.printInfo();
 
-        Vehicle car = new Car("N 1234 AB");
-        Vehicle motor = new Motorcycle("N 5678 XY");
+        // Vehicle car = new Car("N 1234 AB");
+        // Vehicle motor = new Motorcycle("N 5678 XY");
 
-        System.out.println("Biaya parkir mobil: Rp" + car.getParkingFee(3));
-        System.out.println("Biaya parkir motor: Rp" + motor.getParkingFee(3));
+        // System.out.println("Biaya parkir mobil: Rp" + car.getParkingFee(3));
+        // System.out.println("Biaya parkir motor: Rp" + motor.getParkingFee(3));
+
+        Menu m1 = new Menu("Nasi Goreng", 20000);
+        Menu m2 = new Menu("Es Teh", 5000);
+
+        Order o1 = new Order(m1, 2);
+        Order o2 = new Order(m2, 3);
+
+        o1.printOrder();
+        o2.printOrder();
     }
 }
 
-abstract class Vehicle {
-    protected String plate;
+class Menu {
+    private String name;
+    private double price;
 
-    public Vehicle(String plate) {
-        this.plate = plate;
+    public Menu(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public abstract int getParkingFee(int hours);
-}
-
-class Car extends Vehicle {
-    public Car(String plate) {
-        super(plate);
+    public double getPrice() {
+        return price;
     }
 
-    public int getParkingFee(int hours) {
-        return hours * 5000;
+    public String getName() {
+        return name;
     }
 }
 
-class Motorcycle extends Vehicle {
-    public Motorcycle(String plate) {
-        super(plate);
+class Order {
+    private Menu menu;
+    private int quantity;
+
+    public Order(Menu menu, int quantity) {
+        this.menu = menu;
+        this.quantity = quantity;
     }
 
-    public int getParkingFee(int hours) {
-        return hours * 2000;
+    public double getTotal() {
+        return menu.getPrice() * quantity;
+    }
+
+    public void printOrder() {
+        System.out.println(quantity + "x " + menu.getName() + " | Total: Rp" + getTotal());
     }
 }
+
+// abstract class Vehicle {
+// protected String plate;
+
+// public Vehicle(String plate) {
+// this.plate = plate;
+// }
+
+// public abstract int getParkingFee(int hours);
+// }
+
+// class Car extends Vehicle {
+// public Car(String plate) {
+// super(plate);
+// }
+
+// public int getParkingFee(int hours) {
+// return hours * 5000;
+// }
+// }
+
+// class Motorcycle extends Vehicle {
+// public Motorcycle(String plate) {
+// super(plate);
+// }
+
+// public int getParkingFee(int hours) {
+// return hours * 2000;
+// }
+// }
 
 // class Product {
 // private String name;
