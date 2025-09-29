@@ -1760,67 +1760,103 @@ public class Main {
         // room101.bookRoom();
         // room101.cancelBooking();
 
-        Account savings = new SavingsAccount("001", 2000000);
-        Account current = new CurrentAccount("002", 100000);
+        // Account savings = new SavingsAccount("001", 2000000);
+        // Account current = new CurrentAccount("002", 100000);
 
-        savings.deposit(500000);
-        savings.withdraw(1000000);
+        // savings.deposit(500000);
+        // savings.withdraw(1000000);
 
-        current.withdraw(300000);
-        current.withdraw(700000);
+        // current.withdraw(300000);
+        // current.withdraw(700000);
+
+        Voter v1 = new Voter("Dicky");
+        Voter v2 = new Voter("Pras");
+
+        v1.vote();
+        v1.vote();
+        v2.vote();
+        v2.vote();
     }
 }
 
-abstract class Account {
-    protected String accountNumber;
-    protected double balance;
+class Voter {
+    private String name;
+    private boolean hasVoted;
 
-    public Account(String accountNumber, double balance) {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
+    public Voter(String name) {
+        this.name = name;
+        this.hasVoted = false;
     }
 
-    public abstract void withdraw(double amount);
-
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Setor Rp" + amount + " | Saldo: Rp" + balance);
-    }
-}
-
-class SavingsAccount extends Account {
-    public SavingsAccount(String accountNumber, double balance) {
-        super(accountNumber, balance);
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public void withdraw(double amount) {
-        if (balance >= amount) {
-            balance -= amount;
-            System.out.println("Tarik Rp" + amount + " dari Tabungan | Saldo: Rp" + balance);
+    public boolean hasVoted() {
+        return hasVoted;
+    }
+
+    public void vote() {
+        if (!hasVoted) {
+            hasVoted = true;
+            System.out.println(name + " telah memberikan suara.");
         } else {
-            System.out.println("Saldo tabungan tidak cukup!");
+            System.out.println(name + " sudah pernah memilih!");
         }
     }
 }
 
-class CurrentAccount extends Account {
-    private double overdraftLimit = 500000;
+// abstract class Account {
+// protected String accountNumber;
+// protected double balance;
 
-    public CurrentAccount(String accountNumber, double balance) {
-        super(accountNumber, balance);
-    }
+// public Account(String accountNumber, double balance) {
+// this.accountNumber = accountNumber;
+// this.balance = balance;
+// }
 
-    @Override
-    public void withdraw(double amount) {
-        if (balance + overdraftLimit >= amount) {
-            balance -= amount;
-            System.out.println("Tarik Rp" + amount + " dari Giro | Saldo: Rp" + balance);
-        } else {
-            System.out.println("Limit overdraft terlampaui!");
-        }
-    }
-}
+// public abstract void withdraw(double amount);
+
+// public void deposit(double amount) {
+// balance += amount;
+// System.out.println("Setor Rp" + amount + " | Saldo: Rp" + balance);
+// }
+// }
+
+// class SavingsAccount extends Account {
+// public SavingsAccount(String accountNumber, double balance) {
+// super(accountNumber, balance);
+// }
+
+// @Override
+// public void withdraw(double amount) {
+// if (balance >= amount) {
+// balance -= amount;
+// System.out.println("Tarik Rp" + amount + " dari Tabungan | Saldo: Rp" +
+// balance);
+// } else {
+// System.out.println("Saldo tabungan tidak cukup!");
+// }
+// }
+// }
+
+// class CurrentAccount extends Account {
+// private double overdraftLimit = 500000;
+
+// public CurrentAccount(String accountNumber, double balance) {
+// super(accountNumber, balance);
+// }
+
+// @Override
+// public void withdraw(double amount) {
+// if (balance + overdraftLimit >= amount) {
+// balance -= amount;
+// System.out.println("Tarik Rp" + amount + " dari Giro | Saldo: Rp" + balance);
+// } else {
+// System.out.println("Limit overdraft terlampaui!");
+// }
+// }
+// }
 
 // class Room {
 // private int number;
