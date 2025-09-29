@@ -1785,33 +1785,64 @@ public class Main {
         // s2.printInfo();
         // s3.printInfo();
 
-        Product p1 = new Product("Laptop", 10000000, 10);
-        Product p2 = new Product("Headphone", 500000, 5);
+        Vehicle car = new Car("N 1234 AB");
+        Vehicle motor = new Motorcycle("N 5678 XY");
 
-        p1.printInfo();
-        p2.printInfo();
+        System.out.println("Biaya parkir mobil: Rp" + car.getParkingFee(3));
+        System.out.println("Biaya parkir motor: Rp" + motor.getParkingFee(3));
     }
 }
 
-class Product {
-    private String name;
-    private double price;
-    private double discount; // dalam persen
+abstract class Vehicle {
+    protected String plate;
 
-    public Product(String name, double price, double discount) {
-        this.name = name;
-        this.price = price;
-        this.discount = discount;
+    public Vehicle(String plate) {
+        this.plate = plate;
     }
 
-    public double getFinalPrice() {
-        return price - (price * discount / 100);
+    public abstract int getParkingFee(int hours);
+}
+
+class Car extends Vehicle {
+    public Car(String plate) {
+        super(plate);
     }
 
-    public void printInfo() {
-        System.out.println("Produk: " + name + " | Harga: Rp" + price + " | Setelah Diskon: Rp" + getFinalPrice());
+    public int getParkingFee(int hours) {
+        return hours * 5000;
     }
 }
+
+class Motorcycle extends Vehicle {
+    public Motorcycle(String plate) {
+        super(plate);
+    }
+
+    public int getParkingFee(int hours) {
+        return hours * 2000;
+    }
+}
+
+// class Product {
+// private String name;
+// private double price;
+// private double discount; // dalam persen
+
+// public Product(String name, double price, double discount) {
+// this.name = name;
+// this.price = price;
+// this.discount = discount;
+// }
+
+// public double getFinalPrice() {
+// return price - (price * discount / 100);
+// }
+
+// public void printInfo() {
+// System.out.println("Produk: " + name + " | Harga: Rp" + price + " | Setelah
+// Diskon: Rp" + getFinalPrice());
+// }
+// }
 
 // class Student {
 // private String name;
