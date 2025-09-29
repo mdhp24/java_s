@@ -1769,42 +1769,75 @@ public class Main {
         // current.withdraw(300000);
         // current.withdraw(700000);
 
-        Voter v1 = new Voter("Dicky");
-        Voter v2 = new Voter("Pras");
+        // Voter v1 = new Voter("Dicky");
+        // Voter v2 = new Voter("Pras");
 
-        v1.vote();
-        v1.vote();
-        v2.vote();
-        v2.vote();
+        // v1.vote();
+        // v1.vote();
+        // v2.vote();
+        // v2.vote();
+
+        Student s1 = new Student("A", 90);
+        Student s2 = new Student("B", 67);
+        Student s3 = new Student("C", 50);
+
+        s1.printInfo();
+        s2.printInfo();
+        s3.printInfo();
     }
 }
 
-class Voter {
+class Student {
     private String name;
-    private boolean hasVoted;
+    private int score;
 
-    public Voter(String name) {
+    public Student(String name, int score) {
         this.name = name;
-        this.hasVoted = false;
+        this.score = score;
     }
 
-    public String getName() {
-        return name;
+    public String getGrade() {
+        if (score >= 85)
+            return "A";
+        else if (score >= 70)
+            return "B";
+        else if (score >= 55)
+            return "C";
+        else
+            return "D";
     }
 
-    public boolean hasVoted() {
-        return hasVoted;
-    }
-
-    public void vote() {
-        if (!hasVoted) {
-            hasVoted = true;
-            System.out.println(name + " telah memberikan suara.");
-        } else {
-            System.out.println(name + " sudah pernah memilih!");
-        }
+    public void printInfo() {
+        System.out.println("Nama: " + name + " | Nilai: " + score + " | Grade: " + getGrade());
     }
 }
+
+// class Voter {
+// private String name;
+// private boolean hasVoted;
+
+// public Voter(String name) {
+// this.name = name;
+// this.hasVoted = false;
+// }
+
+// public String getName() {
+// return name;
+// }
+
+// public boolean hasVoted() {
+// return hasVoted;
+// }
+
+// public void vote() {
+// if (!hasVoted) {
+// hasVoted = true;
+// System.out.println(name + " telah memberikan suara.");
+// } else {
+// System.out.println(name + " sudah pernah memilih!");
+// }
+// }
+// }
 
 // abstract class Account {
 // protected String accountNumber;
