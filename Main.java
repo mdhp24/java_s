@@ -1777,40 +1777,67 @@ public class Main {
         // v2.vote();
         // v2.vote();
 
-        Student s1 = new Student("A", 90);
-        Student s2 = new Student("B", 67);
-        Student s3 = new Student("C", 50);
+        // Student s1 = new Student("A", 90);
+        // Student s2 = new Student("B", 67);
+        // Student s3 = new Student("C", 50);
 
-        s1.printInfo();
-        s2.printInfo();
-        s3.printInfo();
+        // s1.printInfo();
+        // s2.printInfo();
+        // s3.printInfo();
+
+        Product p1 = new Product("Laptop", 10000000, 10);
+        Product p2 = new Product("Headphone", 500000, 5);
+
+        p1.printInfo();
+        p2.printInfo();
     }
 }
 
-class Student {
+class Product {
     private String name;
-    private int score;
+    private double price;
+    private double discount; // dalam persen
 
-    public Student(String name, int score) {
+    public Product(String name, double price, double discount) {
         this.name = name;
-        this.score = score;
+        this.price = price;
+        this.discount = discount;
     }
 
-    public String getGrade() {
-        if (score >= 85)
-            return "A";
-        else if (score >= 70)
-            return "B";
-        else if (score >= 55)
-            return "C";
-        else
-            return "D";
+    public double getFinalPrice() {
+        return price - (price * discount / 100);
     }
 
     public void printInfo() {
-        System.out.println("Nama: " + name + " | Nilai: " + score + " | Grade: " + getGrade());
+        System.out.println("Produk: " + name + " | Harga: Rp" + price + " | Setelah Diskon: Rp" + getFinalPrice());
     }
 }
+
+// class Student {
+// private String name;
+// private int score;
+
+// public Student(String name, int score) {
+// this.name = name;
+// this.score = score;
+// }
+
+// public String getGrade() {
+// if (score >= 85)
+// return "A";
+// else if (score >= 70)
+// return "B";
+// else if (score >= 55)
+// return "C";
+// else
+// return "D";
+// }
+
+// public void printInfo() {
+// System.out.println("Nama: " + name + " | Nilai: " + score + " | Grade: " +
+// getGrade());
+// }
+// }
 
 // class Voter {
 // private String name;
