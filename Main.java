@@ -1791,52 +1791,66 @@ public class Main {
         // System.out.println("Biaya parkir mobil: Rp" + car.getParkingFee(3));
         // System.out.println("Biaya parkir motor: Rp" + motor.getParkingFee(3));
 
-        Menu m1 = new Menu("Nasi Goreng", 20000);
-        Menu m2 = new Menu("Es Teh", 5000);
+        // Menu m1 = new Menu("Nasi Goreng", 20000);
+        // Menu m2 = new Menu("Es Teh", 5000);
 
-        Order o1 = new Order(m1, 2);
-        Order o2 = new Order(m2, 3);
+        // Order o1 = new Order(m1, 2);
+        // Order o2 = new Order(m2, 3);
 
-        o1.printOrder();
-        o2.printOrder();
+        // o1.printOrder();
+        // o2.printOrder();
+
+        // sistem inputan pembelian barang
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("Masukkan nama barang: ");
+        String namaBarang = userInput.nextLine();
+        System.out.print("Masukkan harga barang: ");
+        double hargaBarang = userInput.nextDouble();
+        System.out.print("Masukkan jumlah barang: ");
+        int jumlahBarang = userInput.nextInt();
+        double totalHarga = hargaBarang * jumlahBarang;
+        System.out.println("Total harga untuk " + jumlahBarang + " " + namaBarang +
+                " adalah Rp" + totalHarga);
+
     }
 }
 
-class Menu {
-    private String name;
-    private double price;
+// class Menu {
+// private String name;
+// private double price;
 
-    public Menu(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
+// public Menu(String name, double price) {
+// this.name = name;
+// this.price = price;
+// }
 
-    public double getPrice() {
-        return price;
-    }
+// public double getPrice() {
+// return price;
+// }
 
-    public String getName() {
-        return name;
-    }
-}
+// public String getName() {
+// return name;
+// }
+// }
 
-class Order {
-    private Menu menu;
-    private int quantity;
+// class Order {
+// private Menu menu;
+// private int quantity;
 
-    public Order(Menu menu, int quantity) {
-        this.menu = menu;
-        this.quantity = quantity;
-    }
+// public Order(Menu menu, int quantity) {
+// this.menu = menu;
+// this.quantity = quantity;
+// }
 
-    public double getTotal() {
-        return menu.getPrice() * quantity;
-    }
+// public double getTotal() {
+// return menu.getPrice() * quantity;
+// }
 
-    public void printOrder() {
-        System.out.println(quantity + "x " + menu.getName() + " | Total: Rp" + getTotal());
-    }
-}
+// public void printOrder() {
+// System.out.println(quantity + "x " + menu.getName() + " | Total: Rp" +
+// getTotal());
+// }
+// }
 
 // abstract class Vehicle {
 // protected String plate;
