@@ -1801,17 +1801,63 @@ public class Main {
         // o2.printOrder();
 
         // sistem inputan pembelian barang
-        Scanner userInput = new Scanner(System.in);
-        System.out.print("Masukkan nama barang: ");
-        String namaBarang = userInput.nextLine();
-        System.out.print("Masukkan harga barang: ");
-        double hargaBarang = userInput.nextDouble();
-        System.out.print("Masukkan jumlah barang: ");
-        int jumlahBarang = userInput.nextInt();
-        double totalHarga = hargaBarang * jumlahBarang;
-        System.out.println("Total harga untuk " + jumlahBarang + " " + namaBarang +
-                " adalah Rp" + totalHarga);
+        // Scanner userInput = new Scanner(System.in);
+        // System.out.print("Masukkan nama barang: ");
+        // String namaBarang = userInput.nextLine();
+        // System.out.print("Masukkan harga barang: ");
+        // double hargaBarang = userInput.nextDouble();
+        // System.out.print("Masukkan jumlah barang: ");
+        // int jumlahBarang = userInput.nextInt();
+        // double totalHarga = hargaBarang * jumlahBarang;
+        // System.out.println("Total harga untuk " + jumlahBarang + " " + namaBarang +
+        // " adalah Rp" + totalHarga);
 
+        // OOP sistem sewa payung
+        Payung payung1 = new Payung("Merah");
+        Payung payung2 = new Payung("Biru");
+        payung1.sewa();
+        payung1.kembalikan();
+        payung1.kembalikan();
+        payung2.kembalikan();
+        payung2.sewa();
+        payung2.sewa();
+        payung2.kembalikan();
+        System.out.println("Total payung disewa: " + Payung.getTotalDisewa());
+    }
+}
+
+class Payung {
+    private String warna;
+    private boolean isDisewa;
+    private static int totalDisewa = 0;
+
+    public Payung(String warna) {
+        this.warna = warna;
+        this.isDisewa = false;
+    }
+
+    public void sewa() {
+        if (!isDisewa) {
+            isDisewa = true;
+            totalDisewa++;
+            System.out.println("Payung " + warna + " berhasil disewa.");
+        } else {
+            System.out.println("Payung " + warna + " sudah disewa!");
+        }
+    }
+
+    public void kembalikan() {
+        if (isDisewa) {
+            isDisewa = false;
+            totalDisewa--;
+            System.out.println("Payung " + warna + " berhasil dikembalikan.");
+        } else {
+            System.out.println("Payung " + warna + " belum disewa.");
+        }
+    }
+
+    public static int getTotalDisewa() {
+        return totalDisewa;
     }
 }
 
