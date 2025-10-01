@@ -1813,53 +1813,73 @@ public class Main {
         // " adalah Rp" + totalHarga);
 
         // OOP sistem sewa payung
-        Payung payung1 = new Payung("Merah");
-        Payung payung2 = new Payung("Biru");
-        payung1.sewa();
-        payung1.kembalikan();
-        payung1.kembalikan();
-        payung2.kembalikan();
-        payung2.sewa();
-        payung2.sewa();
-        payung2.kembalikan();
-        System.out.println("Total payung disewa: " + Payung.getTotalDisewa());
+        // Payung payung1 = new Payung("Merah");
+        // Payung payung2 = new Payung("Biru");
+        // payung1.sewa();
+        // payung1.kembalikan();
+        // payung1.kembalikan();
+        // payung2.kembalikan();
+        // payung2.sewa();
+        // payung2.sewa();
+        // payung2.kembalikan();
+        // System.out.println("Total payung disewa: " + Payung.getTotalDisewa());
+
+        Ticket t1 = new Ticket("Avengers", 50000);
+        Ticket t2 = new Ticket("Frozen 2", 40000);
+
+        t1.printTicket(3);
+        t2.printTicket(2);
     }
 }
 
-class Payung {
-    private String warna;
-    private boolean isDisewa;
-    private static int totalDisewa = 0;
+class Ticket {
+    private String movieName;
+    private int price;
 
-    public Payung(String warna) {
-        this.warna = warna;
-        this.isDisewa = false;
+    public Ticket(String movieName, int price) {
+        this.movieName = movieName;
+        this.price = price;
     }
 
-    public void sewa() {
-        if (!isDisewa) {
-            isDisewa = true;
-            totalDisewa++;
-            System.out.println("Payung " + warna + " berhasil disewa.");
-        } else {
-            System.out.println("Payung " + warna + " sudah disewa!");
-        }
-    }
-
-    public void kembalikan() {
-        if (isDisewa) {
-            isDisewa = false;
-            totalDisewa--;
-            System.out.println("Payung " + warna + " berhasil dikembalikan.");
-        } else {
-            System.out.println("Payung " + warna + " belum disewa.");
-        }
-    }
-
-    public static int getTotalDisewa() {
-        return totalDisewa;
+    public void printTicket(int qty) {
+        System.out.println(qty + " Tiket " + movieName + " | Total: Rp. " + (qty * price));
     }
 }
+
+// class Payung {
+// private String warna;
+// private boolean isDisewa;
+// private static int totalDisewa = 0;
+
+// public Payung(String warna) {
+// this.warna = warna;
+// this.isDisewa = false;
+// }
+
+// public void sewa() {
+// if (!isDisewa) {
+// isDisewa = true;
+// totalDisewa++;
+// System.out.println("Payung " + warna + " berhasil disewa.");
+// } else {
+// System.out.println("Payung " + warna + " sudah disewa!");
+// }
+// }
+
+// public void kembalikan() {
+// if (isDisewa) {
+// isDisewa = false;
+// totalDisewa--;
+// System.out.println("Payung " + warna + " berhasil dikembalikan.");
+// } else {
+// System.out.println("Payung " + warna + " belum disewa.");
+// }
+// }
+
+// public static int getTotalDisewa() {
+// return totalDisewa;
+// }
+// }
 
 // class Menu {
 // private String name;
