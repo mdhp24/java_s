@@ -1847,43 +1847,77 @@ public class Main {
         // kredit.deposit(500000);
         // System.out.println("Sisa limit kredit: Rp" + kredit.getBalance());
 
-        Item i1 = new Item("Mouse", 10);
-        Item i2 = new Item("Keyboard", 5);
+        // Item i1 = new Item("Mouse", 10);
+        // Item i2 = new Item("Keyboard", 5);
 
-        i1.addStock(5);
-        i1.reduceStock(3);
-        i1.printInfo();
+        // i1.addStock(5);
+        // i1.reduceStock(3);
+        // i1.printInfo();
 
-        i2.reduceStock(10);
-        i2.printInfo();
+        // i2.reduceStock(10);
+        // i2.printInfo();
+
+        Employee e1 = new Employee("MDHP", 5000000);
+        Employee e2 = new Manager("Buds", 8000000, 2000000);
+
+        System.out.println("Gaji MDHP: Rp" + e1.getSalary());
+        System.out.println("Gaji Buds (Manager): Rp" + e2.getSalary());
     }
 }
 
-class Item {
-    private String name;
-    private int stock;
+class Employee {
+    protected String name;
+    protected double salary;
 
-    public Item(String name, int stock) {
+    public Employee(String name, double salary) {
         this.name = name;
-        this.stock = stock;
+        this.salary = salary;
     }
 
-    public void addStock(int qty) {
-        stock += qty;
-    }
-
-    public void reduceStock(int qty) {
-        if (qty <= stock) {
-            stock -= qty;
-        } else {
-            System.out.println("Stok tidak cukup!");
-        }
-    }
-
-    public void printInfo() {
-        System.out.println("Barang: " + name + " | Stok: " + stock);
+    public double getSalary() {
+        return salary;
     }
 }
+
+class Manager extends Employee {
+    private double bonus;
+
+    public Manager(String name, double salary, double bonus) {
+        super(name, salary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    public double getSalary() {
+        return salary + bonus;
+    }
+}
+
+// class Item {
+// private String name;
+// private int stock;
+
+// public Item(String name, int stock) {
+// this.name = name;
+// this.stock = stock;
+// }
+
+// public void addStock(int qty) {
+// stock += qty;
+// }
+
+// public void reduceStock(int qty) {
+// if (qty <= stock) {
+// stock -= qty;
+// } else {
+// System.out.println("Stok tidak cukup!");
+// }
+// }
+
+// public void printInfo() {
+// System.out.println("Barang: " + name + " | Stok: " + stock);
+// }
+// }
 
 // interface BankAccount {
 // void deposit(double amount);
