@@ -1863,33 +1863,49 @@ public class Main {
         // System.out.println("Gaji MDHP: Rp" + e1.getSalary());
         // System.out.println("Gaji Buds (Manager): Rp" + e2.getSalary());
 
-        CurrencyConverter cc = new CurrencyConverter(15000, 17000);
+        // CurrencyConverter cc = new CurrencyConverter(15000, 17000);
 
-        double usd = cc.toUSD(300000);
-        double eur = cc.toEUR(300000);
+        // double usd = cc.toUSD(300000);
+        // double eur = cc.toEUR(300000);
 
-        System.out.println("300.000 Rupiah = " + usd + " USD");
-        System.out.println("300.000 Rupiah = " + eur + " EUR");
+        // System.out.println("300.000 Rupiah = " + usd + " USD");
+        // System.out.println("300.000 Rupiah = " + eur + " EUR");
+
+        Book b1 = new Book("Harry Potter");
+        Book b2 = new Book("Lord of The Rings");
+
+        b1.borrow();
+        b1.borrow();
+        b1.returnBook();
+        b2.borrow();
     }
 }
 
-class CurrencyConverter {
-    private double rateUSD;
-    private double rateEUR;
+class Book {
+    private String title;
+    private boolean borrowed;
 
-    public CurrencyConverter(double rateUSD, double rateEUR) {
-        this.rateUSD = rateUSD;
-        this.rateEUR = rateEUR;
+    public Book(String title) {
+        this.title = title;
+        this.borrowed = false;
     }
 
-    public double toUSD(double rupiah) {
-        return rupiah / rateUSD;
+    public void borrow() {
+        if (!borrowed) {
+            borrowed = true;
+            System.out.println("Buku " + title + " berhasil dipinjam.");
+        } else {
+            System.out.println("Buku " + title + " sedang dipinjam.");
+        }
     }
 
-    public double toEUR(double rupiah) {
-        return rupiah / rateEUR;
+    public void returnBook() {
+        borrowed = false;
+        System.out.println("Buku " + title + " dikembalikan.");
     }
 }
+
+// /
 
 // class Employee {
 // protected String name;
