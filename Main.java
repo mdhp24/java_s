@@ -1836,71 +1836,107 @@ public class Main {
         // System.out.println("Biaya Regular: Rp" + d1.calculateCost());
         // System.out.println("Biaya Express: Rp" + d2.calculateCost());
 
-        BankAccount tabungan = new Savings();
-        tabungan.deposit(1000000);
-        tabungan.withdraw(200000);
-        System.out.println("Saldo Tabungan: Rp" + tabungan.getBalance());
+        // BankAccount tabungan = new Savings();
+        // tabungan.deposit(1000000);
+        // tabungan.withdraw(200000);
+        // System.out.println("Saldo Tabungan: Rp" + tabungan.getBalance());
 
-        BankAccount kredit = new Credit();
-        kredit.withdraw(1000000);
-        kredit.withdraw(6000000);
-        kredit.deposit(500000);
-        System.out.println("Sisa limit kredit: Rp" + kredit.getBalance());
+        // BankAccount kredit = new Credit();
+        // kredit.withdraw(1000000);
+        // kredit.withdraw(6000000);
+        // kredit.deposit(500000);
+        // System.out.println("Sisa limit kredit: Rp" + kredit.getBalance());
+
+        Item i1 = new Item("Mouse", 10);
+        Item i2 = new Item("Keyboard", 5);
+
+        i1.addStock(5);
+        i1.reduceStock(3);
+        i1.printInfo();
+
+        i2.reduceStock(10);
+        i2.printInfo();
     }
 }
 
-interface BankAccount {
-    void deposit(double amount);
+class Item {
+    private String name;
+    private int stock;
 
-    void withdraw(double amount);
-
-    double getBalance();
-}
-
-class Savings implements BankAccount {
-    private double balance;
-
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Setor: Rp" + amount);
+    public Item(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
     }
 
-    public void withdraw(double amount) {
-        if (balance >= amount) {
-            balance -= amount;
-            System.out.println("Tarik: Rp" + amount);
+    public void addStock(int qty) {
+        stock += qty;
+    }
+
+    public void reduceStock(int qty) {
+        if (qty <= stock) {
+            stock -= qty;
         } else {
-            System.out.println("Saldo tidak cukup!");
+            System.out.println("Stok tidak cukup!");
         }
     }
 
-    public double getBalance() {
-        return balance;
+    public void printInfo() {
+        System.out.println("Barang: " + name + " | Stok: " + stock);
     }
 }
 
-class Credit implements BankAccount {
-    private double limit = 5000000;
-    private double debt;
+// interface BankAccount {
+// void deposit(double amount);
 
-    public void deposit(double amount) {
-        debt -= amount;
-        System.out.println("Bayar utang: Rp" + amount);
-    }
+// void withdraw(double amount);
 
-    public void withdraw(double amount) {
-        if (debt + amount <= limit) {
-            debt += amount;
-            System.out.println("Pinjam: Rp" + amount);
-        } else {
-            System.out.println("Limit kredit terlampaui!");
-        }
-    }
+// double getBalance();
+// }
 
-    public double getBalance() {
-        return limit - debt;
-    }
-}
+// class Savings implements BankAccount {
+// private double balance;
+
+// public void deposit(double amount) {
+// balance += amount;
+// System.out.println("Setor: Rp" + amount);
+// }
+
+// public void withdraw(double amount) {
+// if (balance >= amount) {
+// balance -= amount;
+// System.out.println("Tarik: Rp" + amount);
+// } else {
+// System.out.println("Saldo tidak cukup!");
+// }
+// }
+
+// public double getBalance() {
+// return balance;
+// }
+// }
+
+// class Credit implements BankAccount {
+// private double limit = 5000000;
+// private double debt;
+
+// public void deposit(double amount) {
+// debt -= amount;
+// System.out.println("Bayar utang: Rp" + amount);
+// }
+
+// public void withdraw(double amount) {
+// if (debt + amount <= limit) {
+// debt += amount;
+// System.out.println("Pinjam: Rp" + amount);
+// } else {
+// System.out.println("Limit kredit terlampaui!");
+// }
+// }
+
+// public double getBalance() {
+// return limit - debt;
+// }
+// }
 
 // abstract class Delivery {
 // protected String itemName;
