@@ -1824,27 +1824,66 @@ public class Main {
         // payung2.kembalikan();
         // System.out.println("Total payung disewa: " + Payung.getTotalDisewa());
 
-        Ticket t1 = new Ticket("Avengers", 50000);
-        Ticket t2 = new Ticket("Frozen 2", 40000);
+        // Ticket t1 = new Ticket("Avengers", 50000);
+        // Ticket t2 = new Ticket("Frozen 2", 40000);
 
-        t1.printTicket(3);
-        t2.printTicket(2);
+        // t1.printTicket(3);
+        // t2.printTicket(2);
+
+        Delivery d1 = new RegularDelivery("Laptop", 2.5);
+        Delivery d2 = new ExpressDelivery("Dokumen", 1);
+
+        System.out.println("Biaya Regular: Rp" + d1.calculateCost());
+        System.out.println("Biaya Express: Rp" + d2.calculateCost());
     }
 }
 
-class Ticket {
-    private String movieName;
-    private int price;
+abstract class Delivery {
+    protected String itemName;
+    protected double weight;
 
-    public Ticket(String movieName, int price) {
-        this.movieName = movieName;
-        this.price = price;
+    public Delivery(String itemName, double weight) {
+        this.itemName = itemName;
+        this.weight = weight;
     }
 
-    public void printTicket(int qty) {
-        System.out.println(qty + " Tiket " + movieName + " | Total: Rp. " + (qty * price));
+    public abstract double calculateCost();
+}
+
+class RegularDelivery extends Delivery {
+    public RegularDelivery(String itemName, double weight) {
+        super(itemName, weight);
+    }
+
+    public double calculateCost() {
+        return weight * 10000;
     }
 }
+
+class ExpressDelivery extends Delivery {
+    public ExpressDelivery(String itemName, double weight) {
+        super(itemName, weight);
+    }
+
+    public double calculateCost() {
+        return weight * 20000;
+    }
+}
+
+// class Ticket {
+// private String movieName;
+// private int price;
+
+// public Ticket(String movieName, int price) {
+// this.movieName = movieName;
+// this.price = price;
+// }
+
+// public void printTicket(int qty) {
+// System.out.println(qty + " Tiket " + movieName + " | Total: Rp. " + (qty *
+// price));
+// }
+// }
 
 // class Payung {
 // private String warna;
