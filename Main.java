@@ -1857,41 +1857,67 @@ public class Main {
         // i2.reduceStock(10);
         // i2.printInfo();
 
-        Employee e1 = new Employee("MDHP", 5000000);
-        Employee e2 = new Manager("Buds", 8000000, 2000000);
+        // Employee e1 = new Employee("MDHP", 5000000);
+        // Employee e2 = new Manager("Buds", 8000000, 2000000);
 
-        System.out.println("Gaji MDHP: Rp" + e1.getSalary());
-        System.out.println("Gaji Buds (Manager): Rp" + e2.getSalary());
+        // System.out.println("Gaji MDHP: Rp" + e1.getSalary());
+        // System.out.println("Gaji Buds (Manager): Rp" + e2.getSalary());
+
+        CurrencyConverter cc = new CurrencyConverter(15000, 17000);
+
+        double usd = cc.toUSD(300000);
+        double eur = cc.toEUR(300000);
+
+        System.out.println("300.000 Rupiah = " + usd + " USD");
+        System.out.println("300.000 Rupiah = " + eur + " EUR");
     }
 }
 
-class Employee {
-    protected String name;
-    protected double salary;
+class CurrencyConverter {
+    private double rateUSD;
+    private double rateEUR;
 
-    public Employee(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
+    public CurrencyConverter(double rateUSD, double rateEUR) {
+        this.rateUSD = rateUSD;
+        this.rateEUR = rateEUR;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-}
-
-class Manager extends Employee {
-    private double bonus;
-
-    public Manager(String name, double salary, double bonus) {
-        super(name, salary);
-        this.bonus = bonus;
+    public double toUSD(double rupiah) {
+        return rupiah / rateUSD;
     }
 
-    @Override
-    public double getSalary() {
-        return salary + bonus;
+    public double toEUR(double rupiah) {
+        return rupiah / rateEUR;
     }
 }
+
+// class Employee {
+// protected String name;
+// protected double salary;
+
+// public Employee(String name, double salary) {
+// this.name = name;
+// this.salary = salary;
+// }
+
+// public double getSalary() {
+// return salary;
+// }
+// }
+
+// class Manager extends Employee {
+// private double bonus;
+
+// public Manager(String name, double salary, double bonus) {
+// super(name, salary);
+// this.bonus = bonus;
+// }
+
+// @Override
+// public double getSalary() {
+// return salary + bonus;
+// }
+// }
 
 // class Item {
 // private String name;
