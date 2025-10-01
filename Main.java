@@ -1830,45 +1830,109 @@ public class Main {
         // t1.printTicket(3);
         // t2.printTicket(2);
 
-        Delivery d1 = new RegularDelivery("Laptop", 2.5);
-        Delivery d2 = new ExpressDelivery("Dokumen", 1);
+        // Delivery d1 = new RegularDelivery("Laptop", 2.5);
+        // Delivery d2 = new ExpressDelivery("Dokumen", 1);
 
-        System.out.println("Biaya Regular: Rp" + d1.calculateCost());
-        System.out.println("Biaya Express: Rp" + d2.calculateCost());
+        // System.out.println("Biaya Regular: Rp" + d1.calculateCost());
+        // System.out.println("Biaya Express: Rp" + d2.calculateCost());
+
+        BankAccount tabungan = new Savings();
+        tabungan.deposit(1000000);
+        tabungan.withdraw(200000);
+        System.out.println("Saldo Tabungan: Rp" + tabungan.getBalance());
+
+        BankAccount kredit = new Credit();
+        kredit.withdraw(1000000);
+        kredit.withdraw(6000000);
+        kredit.deposit(500000);
+        System.out.println("Sisa limit kredit: Rp" + kredit.getBalance());
     }
 }
 
-abstract class Delivery {
-    protected String itemName;
-    protected double weight;
+interface BankAccount {
+    void deposit(double amount);
 
-    public Delivery(String itemName, double weight) {
-        this.itemName = itemName;
-        this.weight = weight;
-    }
+    void withdraw(double amount);
 
-    public abstract double calculateCost();
+    double getBalance();
 }
 
-class RegularDelivery extends Delivery {
-    public RegularDelivery(String itemName, double weight) {
-        super(itemName, weight);
+class Savings implements BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Setor: Rp" + amount);
     }
 
-    public double calculateCost() {
-        return weight * 10000;
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Tarik: Rp" + amount);
+        } else {
+            System.out.println("Saldo tidak cukup!");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
 
-class ExpressDelivery extends Delivery {
-    public ExpressDelivery(String itemName, double weight) {
-        super(itemName, weight);
+class Credit implements BankAccount {
+    private double limit = 5000000;
+    private double debt;
+
+    public void deposit(double amount) {
+        debt -= amount;
+        System.out.println("Bayar utang: Rp" + amount);
     }
 
-    public double calculateCost() {
-        return weight * 20000;
+    public void withdraw(double amount) {
+        if (debt + amount <= limit) {
+            debt += amount;
+            System.out.println("Pinjam: Rp" + amount);
+        } else {
+            System.out.println("Limit kredit terlampaui!");
+        }
+    }
+
+    public double getBalance() {
+        return limit - debt;
     }
 }
+
+// abstract class Delivery {
+// protected String itemName;
+// protected double weight;
+
+// public Delivery(String itemName, double weight) {
+// this.itemName = itemName;
+// this.weight = weight;
+// }
+
+// public abstract double calculateCost();
+// }
+
+// class RegularDelivery extends Delivery {
+// public RegularDelivery(String itemName, double weight) {
+// super(itemName, weight);
+// }
+
+// public double calculateCost() {
+// return weight * 10000;
+// }
+// }
+
+// class ExpressDelivery extends Delivery {
+// public ExpressDelivery(String itemName, double weight) {
+// super(itemName, weight);
+// }
+
+// public double calculateCost() {
+// return weight * 20000;
+// }
+// }
 
 // class Ticket {
 // private String movieName;
