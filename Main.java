@@ -1879,52 +1879,73 @@ public class Main {
         // b1.returnBook();
         // b2.borrow();
 
-        Orang[] list = {
-                new Guru("Budi", "Matematika"),
-                new Siswa("Ani", "4A")
-        };
-        for (Orang o : list)
-            o.info();
+        // Orang[] list = {
+        // new Guru("Budi", "Matematika"),
+        // new Siswa("Ani", "4A")
+        // };
+        // for (Orang o : list)
+        // o.info();
+
+        Produk p = new Produk("Laptop", 15000000);
+        System.out.println("Produk: " + p.getNama() + ", Harga: Rp" + p.getHarga());
     }
 }
 
-class Orang {
-    protected String nama;
+class Produk {
+    private String nama;
+    private double harga;
 
-    public Orang(String nama) {
+    public Produk(String nama, double harga) {
         this.nama = nama;
+        this.harga = harga;
     }
 
-    public void info() {
-        System.out.println("Nama: " + nama);
-    }
-}
-
-class Guru extends Orang {
-    private String mataPelajaran;
-
-    public Guru(String nama, String mapel) {
-        super(nama);
-        this.mataPelajaran = mapel;
+    public String getNama() {
+        return nama;
     }
 
-    public void info() {
-        System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran);
+    public double getHarga() {
+        return harga;
     }
 }
 
-class Siswa extends Orang {
-    private String kelas;
+// class Orang {
+// protected String nama;
 
-    public Siswa(String nama, String kelas) {
-        super(nama);
-        this.kelas = kelas;
-    }
+// public Orang(String nama) {
+// this.nama = nama;
+// }
 
-    public void info() {
-        System.out.println("Siswa: " + nama + ", Kelas: " + kelas);
-    }
-}
+// public void info() {
+// System.out.println("Nama: " + nama);
+// }
+// }
+
+// class Guru extends Orang {
+// private String mataPelajaran;
+
+// public Guru(String nama, String mapel) {
+// super(nama);
+// this.mataPelajaran = mapel;
+// }
+
+// public void info() {
+// System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran);
+// }
+// }
+
+// class Siswa extends Orang {
+// private String kelas;
+
+// public Siswa(String nama, String kelas) {
+// super(nama);
+// this.kelas = kelas;
+// }
+
+// public void info() {
+// System.out.println("Siswa: " + nama + ", Kelas: " + kelas);
+// }
+// }
 
 // class Book {
 // private String title;
