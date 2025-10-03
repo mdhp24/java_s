@@ -1895,54 +1895,90 @@ public class Main {
         // System.out.println("Sewa " + k.nama + " 5 hari: Rp" + k.hitungBiaya(5));
         // }
 
-        Gaji p1 = new PegawaiTetap("Dicky", 6000000);
-        Gaji p2 = new PegawaiHarian("Andi", 30000, 120);
-        System.out.println("Gaji " + ((PegawaiTetap) p1).getNama() + ": Rp" + p1.hitungGaji());
-        System.out.println("Gaji " + ((PegawaiHarian) p2).getNama() + ": Rp" + p2.hitungGaji());
+        // Gaji p1 = new PegawaiTetap("Dicky", 6000000);
+        // Gaji p2 = new PegawaiHarian("Andi", 30000, 120);
+        // System.out.println("Gaji " + ((PegawaiTetap) p1).getNama() + ": Rp" +
+        // p1.hitungGaji());
+        // System.out.println("Gaji " + ((PegawaiHarian) p2).getNama() + ": Rp" +
+        // p2.hitungGaji());
+
+        Hewan[] peliharaan = { new Anjing("Bobby"), new Kucing("Mimi") };
+        for (Hewan h : peliharaan)
+            h.suara();
     }
 }
 
-interface Gaji {
-    double hitungGaji();
-}
+abstract class Hewan {
+    protected String nama;
 
-class PegawaiTetap implements Gaji {
-    private String nama;
-    private double gajiPokok;
-
-    public PegawaiTetap(String nama, double gajiPokok) {
+    public Hewan(String nama) {
         this.nama = nama;
-        this.gajiPokok = gajiPokok;
     }
 
-    public double hitungGaji() {
-        return gajiPokok;
+    public abstract void suara();
+}
+
+class Anjing extends Hewan {
+    public Anjing(String nama) {
+        super(nama);
     }
 
-    public String getNama() {
-        return nama;
+    public void suara() {
+        System.out.println(nama + " menggonggong: Guk Guk!");
     }
 }
 
-class PegawaiHarian implements Gaji {
-    private String nama;
-    private double upahPerJam;
-    private int jamKerja;
-
-    public PegawaiHarian(String nama, double upahPerJam, int jamKerja) {
-        this.nama = nama;
-        this.upahPerJam = upahPerJam;
-        this.jamKerja = jamKerja;
+class Kucing extends Hewan {
+    public Kucing(String nama) {
+        super(nama);
     }
 
-    public double hitungGaji() {
-        return upahPerJam * jamKerja;
-    }
-
-    public String getNama() {
-        return nama;
+    public void suara() {
+        System.out.println(nama + " mengeong: Meong!");
     }
 }
+
+// interface Gaji {
+// double hitungGaji();
+// }
+
+// class PegawaiTetap implements Gaji {
+// private String nama;
+// private double gajiPokok;
+
+// public PegawaiTetap(String nama, double gajiPokok) {
+// this.nama = nama;
+// this.gajiPokok = gajiPokok;
+// }
+
+// public double hitungGaji() {
+// return gajiPokok;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
+
+// class PegawaiHarian implements Gaji {
+// private String nama;
+// private double upahPerJam;
+// private int jamKerja;
+
+// public PegawaiHarian(String nama, double upahPerJam, int jamKerja) {
+// this.nama = nama;
+// this.upahPerJam = upahPerJam;
+// this.jamKerja = jamKerja;
+// }
+
+// public double hitungGaji() {
+// return upahPerJam * jamKerja;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+// }
 
 // abstract class Kendaraan {
 // protected String nama;
