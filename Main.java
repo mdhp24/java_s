@@ -1890,42 +1890,89 @@ public class Main {
         // System.out.println("Produk: " + p.getNama() + ", Harga: Rp" + p.getHarga());
         // System.out.println("Produk berhasil dibuat");
 
-        Kendaraan[] list = { new Motor("Vario"), new Mobil("Avanza") };
-        for (Kendaraan k : list) {
-            System.out.println("Sewa " + k.nama + " 5 hari: Rp" + k.hitungBiaya(5));
-        }
+        // Kendaraan[] list = { new Motor("Vario"), new Mobil("Avanza") };
+        // for (Kendaraan k : list) {
+        // System.out.println("Sewa " + k.nama + " 5 hari: Rp" + k.hitungBiaya(5));
+        // }
+
+        Gaji p1 = new PegawaiTetap("Dicky", 6000000);
+        Gaji p2 = new PegawaiHarian("Andi", 30000, 120);
+        System.out.println("Gaji " + ((PegawaiTetap) p1).getNama() + ": Rp" + p1.hitungGaji());
+        System.out.println("Gaji " + ((PegawaiHarian) p2).getNama() + ": Rp" + p2.hitungGaji());
     }
 }
 
-abstract class Kendaraan {
-    protected String nama;
+interface Gaji {
+    double hitungGaji();
+}
 
-    public Kendaraan(String nama) {
+class PegawaiTetap implements Gaji {
+    private String nama;
+    private double gajiPokok;
+
+    public PegawaiTetap(String nama, double gajiPokok) {
         this.nama = nama;
+        this.gajiPokok = gajiPokok;
     }
 
-    public abstract double hitungBiaya(int hari);
-}
-
-class Motor extends Kendaraan {
-    public Motor(String nama) {
-        super(nama);
+    public double hitungGaji() {
+        return gajiPokok;
     }
 
-    public double hitungBiaya(int hari) {
-        return hari * 50000;
+    public String getNama() {
+        return nama;
     }
 }
 
-class Mobil extends Kendaraan {
-    public Mobil(String nama) {
-        super(nama);
+class PegawaiHarian implements Gaji {
+    private String nama;
+    private double upahPerJam;
+    private int jamKerja;
+
+    public PegawaiHarian(String nama, double upahPerJam, int jamKerja) {
+        this.nama = nama;
+        this.upahPerJam = upahPerJam;
+        this.jamKerja = jamKerja;
     }
 
-    public double hitungBiaya(int hari) {
-        return hari * 300000;
+    public double hitungGaji() {
+        return upahPerJam * jamKerja;
+    }
+
+    public String getNama() {
+        return nama;
     }
 }
+
+// abstract class Kendaraan {
+// protected String nama;
+
+// public Kendaraan(String nama) {
+// this.nama = nama;
+// }
+
+// public abstract double hitungBiaya(int hari);
+// }
+
+// class Motor extends Kendaraan {
+// public Motor(String nama) {
+// super(nama);
+// }
+
+// public double hitungBiaya(int hari) {
+// return hari * 50000;
+// }
+// }
+
+// class Mobil extends Kendaraan {
+// public Mobil(String nama) {
+// super(nama);
+// }
+
+// public double hitungBiaya(int hari) {
+// return hari * 300000;
+// }
+// }
 
 // class Produk {
 // private String nama;
