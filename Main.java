@@ -1886,28 +1886,64 @@ public class Main {
         // for (Orang o : list)
         // o.info();
 
-        Produk p = new Produk("Laptop", 15000000);
-        System.out.println("Produk: " + p.getNama() + ", Harga: Rp" + p.getHarga());
+        // Produk p = new Produk("Laptop", 15000000);
+        // System.out.println("Produk: " + p.getNama() + ", Harga: Rp" + p.getHarga());
+        // System.out.println("Produk berhasil dibuat");
+
+        Kendaraan[] list = { new Motor("Vario"), new Mobil("Avanza") };
+        for (Kendaraan k : list) {
+            System.out.println("Sewa " + k.nama + " 5 hari: Rp" + k.hitungBiaya(5));
+        }
     }
 }
 
-class Produk {
-    private String nama;
-    private double harga;
+abstract class Kendaraan {
+    protected String nama;
 
-    public Produk(String nama, double harga) {
+    public Kendaraan(String nama) {
         this.nama = nama;
-        this.harga = harga;
     }
 
-    public String getNama() {
-        return nama;
+    public abstract double hitungBiaya(int hari);
+}
+
+class Motor extends Kendaraan {
+    public Motor(String nama) {
+        super(nama);
     }
 
-    public double getHarga() {
-        return harga;
+    public double hitungBiaya(int hari) {
+        return hari * 50000;
     }
 }
+
+class Mobil extends Kendaraan {
+    public Mobil(String nama) {
+        super(nama);
+    }
+
+    public double hitungBiaya(int hari) {
+        return hari * 300000;
+    }
+}
+
+// class Produk {
+// private String nama;
+// private double harga;
+
+// public Produk(String nama, double harga) {
+// this.nama = nama;
+// this.harga = harga;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+
+// public double getHarga() {
+// return harga;
+// }
+// }
 
 // class Orang {
 // protected String nama;
