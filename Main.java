@@ -1871,39 +1871,84 @@ public class Main {
         // System.out.println("300.000 Rupiah = " + usd + " USD");
         // System.out.println("300.000 Rupiah = " + eur + " EUR");
 
-        Book b1 = new Book("Harry Potter");
-        Book b2 = new Book("Lord of The Rings");
+        // Book b1 = new Book("Harry Potter");
+        // Book b2 = new Book("Lord of The Rings");
 
-        b1.borrow();
-        b1.borrow();
-        b1.returnBook();
-        b2.borrow();
+        // b1.borrow();
+        // b1.borrow();
+        // b1.returnBook();
+        // b2.borrow();
+
+        Orang[] list = {
+                new Guru("Budi", "Matematika"),
+                new Siswa("Ani", "4A")
+        };
+        for (Orang o : list)
+            o.info();
     }
 }
 
-class Book {
-    private String title;
-    private boolean borrowed;
+class Orang {
+    protected String nama;
 
-    public Book(String title) {
-        this.title = title;
-        this.borrowed = false;
+    public Orang(String nama) {
+        this.nama = nama;
     }
 
-    public void borrow() {
-        if (!borrowed) {
-            borrowed = true;
-            System.out.println("Buku " + title + " berhasil dipinjam.");
-        } else {
-            System.out.println("Buku " + title + " sedang dipinjam.");
-        }
-    }
-
-    public void returnBook() {
-        borrowed = false;
-        System.out.println("Buku " + title + " dikembalikan.");
+    public void info() {
+        System.out.println("Nama: " + nama);
     }
 }
+
+class Guru extends Orang {
+    private String mataPelajaran;
+
+    public Guru(String nama, String mapel) {
+        super(nama);
+        this.mataPelajaran = mapel;
+    }
+
+    public void info() {
+        System.out.println("Guru: " + nama + ", Mapel: " + mataPelajaran);
+    }
+}
+
+class Siswa extends Orang {
+    private String kelas;
+
+    public Siswa(String nama, String kelas) {
+        super(nama);
+        this.kelas = kelas;
+    }
+
+    public void info() {
+        System.out.println("Siswa: " + nama + ", Kelas: " + kelas);
+    }
+}
+
+// class Book {
+// private String title;
+// private boolean borrowed;
+
+// public Book(String title) {
+// this.title = title;
+// this.borrowed = false;
+// }
+
+// public void borrow() {
+// if (!borrowed) {
+// borrowed = true;
+// System.out.println("Buku " + title + " berhasil dipinjam.");
+// } else {
+// System.out.println("Buku " + title + " sedang dipinjam.");
+// }
+// }
+
+// public void returnBook() {
+// borrowed = false;
+// System.out.println("Buku " + title + " dikembalikan.");
+// }
+// }
 
 // /
 
