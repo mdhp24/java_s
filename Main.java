@@ -1921,49 +1921,85 @@ public class Main {
         // for (Transportasi t : list)
         // t.jalan();
 
-        Keranjang k = new Keranjang();
-        k.tambahBarang(new Barang("Susu", 20000));
-        k.tambahBarang(new Barang("Roti", 15000));
-        k.tampilkanBarang();
-        System.out.println("Total Belanja: Rp" + k.hitungTotal());
+        // Keranjang k = new Keranjang();
+        // k.tambahBarang(new Barang("Susu", 20000));
+        // k.tambahBarang(new Barang("Roti", 15000));
+        // k.tampilkanBarang();
+        // System.out.println("Total Belanja: Rp" + k.hitungTotal());
+
+        Asuransi a1 = new AsuransiMobil(200000000);
+        Asuransi a2 = new AsuransiKesehatan(25);
+        System.out.println("Premi Asuransi Mobil: Rp" + a1.hitungPremi());
+        System.out.println("Premi Asuransi Kesehatan: Rp" + a2.hitungPremi());
     }
 }
 
-class Barang {
-    String nama;
-    double harga;
+interface Asuransi {
+    double hitungPremi();
+}
 
-    public Barang(String nama, double harga) {
-        this.nama = nama;
-        this.harga = harga;
+class AsuransiMobil implements Asuransi {
+    private double nilaiMobil;
+
+    public AsuransiMobil(double nilaiMobil) {
+        this.nilaiMobil = nilaiMobil;
+    }
+
+    public double hitungPremi() {
+        return nilaiMobil * 0.05;
     }
 }
 
-class Keranjang {
-    private ArrayList<Barang> daftarBarang = new ArrayList<>();
+class AsuransiKesehatan implements Asuransi {
+    private int usia;
 
-    public void tambahBarang(Barang b) {
-        daftarBarang.add(b);
+    public AsuransiKesehatan(int usia) {
+        this.usia = usia;
     }
 
-    public void tampilkanBarang() {
-        double total = 0;
-        System.out.println("Daftar Barang di Keranjang:");
-        for (Barang b : daftarBarang) {
-            System.out.println("- " + b.nama + " : Rp" + b.harga);
-            total += b.harga;
-        }
-        System.out.println("Total Belanja: Rp" + total);
+    public double hitungPremi() {
+        if (usia < 30)
+            return 300000;
+        else
+            return 500000;
     }
-
-    public double hitungTotal() {
-    double total = 0;
-    for (Barang b : daftarBarang) {
-        total += b.harga;
-    }
-    return total;
 }
-}
+
+// class Barang {
+// String nama;
+// double harga;
+
+// public Barang(String nama, double harga) {
+// this.nama = nama;
+// this.harga = harga;
+// }
+// }
+
+// class Keranjang {
+// private ArrayList<Barang> daftarBarang = new ArrayList<>();
+
+// public void tambahBarang(Barang b) {
+// daftarBarang.add(b);
+// }
+
+// public void tampilkanBarang() {
+// double total = 0;
+// System.out.println("Daftar Barang di Keranjang:");
+// for (Barang b : daftarBarang) {
+// System.out.println("- " + b.nama + " : Rp" + b.harga);
+// total += b.harga;
+// }
+// System.out.println("Total Belanja: Rp" + total);
+// }
+
+// public double hitungTotal() {
+// double total = 0;
+// for (Barang b : daftarBarang) {
+// total += b.harga;
+// }
+// return total;
+// }
+// }
 
 // class Transportasi {
 // protected String nama;
