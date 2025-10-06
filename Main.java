@@ -1917,43 +1917,85 @@ public class Main {
         // r1.tampilkanSaldo();
         // System.out.println("Saldo akhir: Rp" + r1.getSaldo());
 
-        Transportasi[] list = { new Mobil("Avanza"), new Pesawat("Boeing 737") };
-        for (Transportasi t : list)
-            t.jalan();
+        // Transportasi[] list = { new Mobil("Avanza"), new Pesawat("Boeing 737") };
+        // for (Transportasi t : list)
+        // t.jalan();
+
+        Keranjang k = new Keranjang();
+        k.tambahBarang(new Barang("Susu", 20000));
+        k.tambahBarang(new Barang("Roti", 15000));
+        k.tampilkanBarang();
+        System.out.println("Total Belanja: Rp" + k.hitungTotal());
     }
 }
 
-class Transportasi {
-    protected String nama;
+class Barang {
+    String nama;
+    double harga;
 
-    public Transportasi(String nama) {
+    public Barang(String nama, double harga) {
         this.nama = nama;
-    }
-
-    public void jalan() {
-        System.out.println(nama + " bergerak...");
+        this.harga = harga;
     }
 }
 
-class Mobil extends Transportasi {
-    public Mobil(String nama) {
-        super(nama);
+class Keranjang {
+    private ArrayList<Barang> daftarBarang = new ArrayList<>();
+
+    public void tambahBarang(Barang b) {
+        daftarBarang.add(b);
     }
 
-    public void jalan() {
-        System.out.println(nama + " melaju di jalan raya.");
+    public void tampilkanBarang() {
+        double total = 0;
+        System.out.println("Daftar Barang di Keranjang:");
+        for (Barang b : daftarBarang) {
+            System.out.println("- " + b.nama + " : Rp" + b.harga);
+            total += b.harga;
+        }
+        System.out.println("Total Belanja: Rp" + total);
     }
+
+    public double hitungTotal() {
+    double total = 0;
+    for (Barang b : daftarBarang) {
+        total += b.harga;
+    }
+    return total;
+}
 }
 
-class Pesawat extends Transportasi {
-    public Pesawat(String nama) {
-        super(nama);
-    }
+// class Transportasi {
+// protected String nama;
 
-    public void jalan() {
-        System.out.println(nama + " terbang di udara.");
-    }
-}
+// public Transportasi(String nama) {
+// this.nama = nama;
+// }
+
+// public void jalan() {
+// System.out.println(nama + " bergerak...");
+// }
+// }
+
+// class Mobil extends Transportasi {
+// public Mobil(String nama) {
+// super(nama);
+// }
+
+// public void jalan() {
+// System.out.println(nama + " melaju di jalan raya.");
+// }
+// }
+
+// class Pesawat extends Transportasi {
+// public Pesawat(String nama) {
+// super(nama);
+// }
+
+// public void jalan() {
+// System.out.println(nama + " terbang di udara.");
+// }
+// }
 
 // class Rekening {
 // private String nama;
