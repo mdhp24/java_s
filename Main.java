@@ -1906,28 +1906,69 @@ public class Main {
         // for (Hewan h : peliharaan)
         // h.suara();
 
-        Tiket t1 = new Tiket("Avengers", 50000, "A5");
-        Tiket t2 = new Tiket("Joker", 45000, "B2");
-        t1.tampilkanInfo();
-        t2.tampilkanInfo();
+        // Tiket t1 = new Tiket("Avengers", 50000, "A5");
+        // Tiket t2 = new Tiket("Joker", 45000, "B2");
+        // t1.tampilkanInfo();
+        // t2.tampilkanInfo();
+
+        Rekening r1 = new Rekening("Dicky", 1000000);
+        r1.setor(500000);
+        r1.tarik(200000);
+        r1.tampilkanSaldo();
+        System.out.println("Saldo akhir: Rp" + r1.getSaldo());
     }
 }
 
-class Tiket {
-    private String film;
-    private int harga;
-    private String kursi;
+class Rekening {
+    private String nama;
+    private double saldo;
 
-    public Tiket(String film, int harga, String kursi) {
-        this.film = film;
-        this.harga = harga;
-        this.kursi = kursi;
+    public Rekening(String nama, double saldoAwal) {
+        this.nama = nama;
+        this.saldo = saldoAwal;
     }
 
-    public void tampilkanInfo() {
-        System.out.println("Film: " + film + " | Kursi: " + kursi + " | Harga: Rp" + harga);
+    public void setor(double jumlah) {
+        saldo += jumlah;
+        System.out.println("Setor Rp" + jumlah + " | Saldo sekarang: Rp" + saldo);
+    }
+
+    public void tarik(double jumlah) {
+        if (jumlah <= saldo) {
+            saldo -= jumlah;
+            System.out.println("Tarik Rp" + jumlah + " | Sisa saldo: Rp" + saldo);
+        } else {
+            System.out.println("Saldo tidak cukup!");
+        }
+    }
+
+    public void tampilkanSaldo() {
+        System.out.println("Pemilik: " + nama + " | Saldo: Rp" + saldo);
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 }
+
+
+
+// class Tiket {
+// private String film;
+// private int harga;
+// private String kursi;
+
+// public Tiket(String film, int harga, String kursi) {
+// this.film = film;
+// this.harga = harga;
+// this.kursi = kursi;
+// }
+
+// public void tampilkanInfo() {
+// System.out.println("Film: " + film + " | Kursi: " + kursi + " | Harga: Rp" +
+// harga);
+// }
+// }
 
 // abstract class Hewan {
 // protected String nama;
