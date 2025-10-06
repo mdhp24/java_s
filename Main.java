@@ -1902,41 +1902,62 @@ public class Main {
         // System.out.println("Gaji " + ((PegawaiHarian) p2).getNama() + ": Rp" +
         // p2.hitungGaji());
 
-        Hewan[] peliharaan = { new Anjing("Bobby"), new Kucing("Mimi") };
-        for (Hewan h : peliharaan)
-            h.suara();
+        // Hewan[] peliharaan = { new Anjing("Bobby"), new Kucing("Mimi") };
+        // for (Hewan h : peliharaan)
+        // h.suara();
+
+        Tiket t1 = new Tiket("Avengers", 50000, "A5");
+        Tiket t2 = new Tiket("Joker", 45000, "B2");
+        t1.tampilkanInfo();
+        t2.tampilkanInfo();
     }
 }
 
-abstract class Hewan {
-    protected String nama;
+class Tiket {
+    private String film;
+    private int harga;
+    private String kursi;
 
-    public Hewan(String nama) {
-        this.nama = nama;
+    public Tiket(String film, int harga, String kursi) {
+        this.film = film;
+        this.harga = harga;
+        this.kursi = kursi;
     }
 
-    public abstract void suara();
-}
-
-class Anjing extends Hewan {
-    public Anjing(String nama) {
-        super(nama);
-    }
-
-    public void suara() {
-        System.out.println(nama + " menggonggong: Guk Guk!");
+    public void tampilkanInfo() {
+        System.out.println("Film: " + film + " | Kursi: " + kursi + " | Harga: Rp" + harga);
     }
 }
 
-class Kucing extends Hewan {
-    public Kucing(String nama) {
-        super(nama);
-    }
+// abstract class Hewan {
+// protected String nama;
 
-    public void suara() {
-        System.out.println(nama + " mengeong: Meong!");
-    }
-}
+// public Hewan(String nama) {
+// this.nama = nama;
+// }
+
+// public abstract void suara();
+// }
+
+// class Anjing extends Hewan {
+// public Anjing(String nama) {
+// super(nama);
+// }
+
+// public void suara() {
+// System.out.println(nama + " menggonggong: Guk Guk!");
+// }
+// }
+
+// class Kucing extends Hewan {
+// public Kucing(String nama) {
+// super(nama);
+// }
+
+// public void suara() {
+// System.out.println(nama + " mengeong: Meong!");
+// }
+// }
 
 // interface Gaji {
 // double hitungGaji();
