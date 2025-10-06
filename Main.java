@@ -1911,47 +1911,81 @@ public class Main {
         // t1.tampilkanInfo();
         // t2.tampilkanInfo();
 
-        Rekening r1 = new Rekening("Dicky", 1000000);
-        r1.setor(500000);
-        r1.tarik(200000);
-        r1.tampilkanSaldo();
-        System.out.println("Saldo akhir: Rp" + r1.getSaldo());
+        // Rekening r1 = new Rekening("Dicky", 1000000);
+        // r1.setor(500000);
+        // r1.tarik(200000);
+        // r1.tampilkanSaldo();
+        // System.out.println("Saldo akhir: Rp" + r1.getSaldo());
+
+        Transportasi[] list = { new Mobil("Avanza"), new Pesawat("Boeing 737") };
+        for (Transportasi t : list)
+            t.jalan();
     }
 }
 
-class Rekening {
-    private String nama;
-    private double saldo;
+class Transportasi {
+    protected String nama;
 
-    public Rekening(String nama, double saldoAwal) {
+    public Transportasi(String nama) {
         this.nama = nama;
-        this.saldo = saldoAwal;
     }
 
-    public void setor(double jumlah) {
-        saldo += jumlah;
-        System.out.println("Setor Rp" + jumlah + " | Saldo sekarang: Rp" + saldo);
-    }
-
-    public void tarik(double jumlah) {
-        if (jumlah <= saldo) {
-            saldo -= jumlah;
-            System.out.println("Tarik Rp" + jumlah + " | Sisa saldo: Rp" + saldo);
-        } else {
-            System.out.println("Saldo tidak cukup!");
-        }
-    }
-
-    public void tampilkanSaldo() {
-        System.out.println("Pemilik: " + nama + " | Saldo: Rp" + saldo);
-    }
-
-    public double getSaldo() {
-        return saldo;
+    public void jalan() {
+        System.out.println(nama + " bergerak...");
     }
 }
 
+class Mobil extends Transportasi {
+    public Mobil(String nama) {
+        super(nama);
+    }
 
+    public void jalan() {
+        System.out.println(nama + " melaju di jalan raya.");
+    }
+}
+
+class Pesawat extends Transportasi {
+    public Pesawat(String nama) {
+        super(nama);
+    }
+
+    public void jalan() {
+        System.out.println(nama + " terbang di udara.");
+    }
+}
+
+// class Rekening {
+// private String nama;
+// private double saldo;
+
+// public Rekening(String nama, double saldoAwal) {
+// this.nama = nama;
+// this.saldo = saldoAwal;
+// }
+
+// public void setor(double jumlah) {
+// saldo += jumlah;
+// System.out.println("Setor Rp" + jumlah + " | Saldo sekarang: Rp" + saldo);
+// }
+
+// public void tarik(double jumlah) {
+// if (jumlah <= saldo) {
+// saldo -= jumlah;
+// System.out.println("Tarik Rp" + jumlah + " | Sisa saldo: Rp" + saldo);
+// } else {
+// System.out.println("Saldo tidak cukup!");
+// }
+// }
+
+// public void tampilkanSaldo() {
+// System.out.println("Pemilik: " + nama + " | Saldo: Rp" + saldo);
+// }
+
+// public double getSaldo() {
+// return saldo;
+// }
+// }
 
 // class Tiket {
 // private String film;
