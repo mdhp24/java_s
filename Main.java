@@ -1949,32 +1949,55 @@ public class Main {
         // timeMachine.travelToYear(1985);
         // System.out.println("Perjalanan waktu selesai.");
 
-        DigitalSoul data = new FileSpirit("File_007");
-        data.reincarnate();
-        System.out.println("Program selesai.");
+        // DigitalSoul data = new FileSpirit("File_007");
+        // data.reincarnate();
+        // System.out.println("Program selesai.");
+
+        Mind m1 = new Mind("Kita adalah satu kesadaran...");
+        Mind m2 = new Mind("...");
+        m1.sendThought(m2);
+        m2.showThought();
     }
 }
 
-abstract class DigitalSoul {
-    String id;
+class Mind {
+    String thoughts;
 
-    DigitalSoul(String id) {
-        this.id = id;
+    Mind(String thoughts) {
+        this.thoughts = thoughts;
     }
 
-    abstract void reincarnate();
-}
-
-class FileSpirit extends DigitalSoul {
-    FileSpirit(String id) {
-        super(id);
+    void sendThought(Mind receiver) {
+        receiver.thoughts = this.thoughts;
+        System.out.println("🧠 Pikiran terkirim: \"" + thoughts + "\"");
     }
 
-    @Override
-    void reincarnate() {
-        System.out.println("FileSpirit " + id + " bereinkarnasi menjadi hologram pengetahuan!");
+    void showThought() {
+        System.out.println("Pikiran saat ini: " + thoughts);
     }
 }
+
+// abstract class DigitalSoul {
+// String id;
+
+// DigitalSoul(String id) {
+// this.id = id;
+// }
+
+// abstract void reincarnate();
+// }
+
+// class FileSpirit extends DigitalSoul {
+// FileSpirit(String id) {
+// super(id);
+// }
+
+// @Override
+// void reincarnate() {
+// System.out.println("FileSpirit " + id + " bereinkarnasi menjadi hologram
+// pengetahuan!");
+// }
+// }
 
 // interface TimeTravel {
 // void travelToYear(int year);
