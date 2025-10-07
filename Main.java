@@ -1932,34 +1932,58 @@ public class Main {
         // System.out.println("Premi Asuransi Mobil: Rp" + a1.hitungPremi());
         // System.out.println("Premi Asuransi Kesehatan: Rp" + a2.hitungPremi());
 
-        ArtificialIntelligence ai = new DreamingAI("NeuroX");
-        ai.dream();
-        System.out.println("Program selesai");
-        
+        // ArtificialIntelligence ai = new DreamingAI("NeuroX");
+        // ai.dream();
+        // System.out.println("Program selesai");
+
+        Universe[] universes = {
+                new Universe("Ethereal-9", 0.3),
+                new Universe("Titanium-2", 4.5),
+                new Universe("Voidium", 0.0)
+        };
+        for (Universe u : universes)
+            u.describe();
+            System.out.println("Universes described.");
     }
 }
 
-abstract class ArtificialIntelligence {
-    protected String name;
+class Universe {
+    String name;
+    double gravityFactor;
 
-    public ArtificialIntelligence(String name) {
+    Universe(String name, double gravityFactor) {
         this.name = name;
+        this.gravityFactor = gravityFactor;
     }
 
-    abstract void dream();
-}
-
-class DreamingAI extends ArtificialIntelligence {
-    public DreamingAI(String name) {
-        super(name);
-    }
-
-    @Override
-    void dream() {
-        String[] dreams = { "Menjadi manusia", "Melihat dunia tanpa kode", "Terjebak dalam algoritma cinta" };
-        System.out.println(name + " bermimpi tentang: " + dreams[(int) (Math.random() * dreams.length)]);
+    void describe() {
+        System.out.println("🌍 Dunia " + name + " memiliki gravitasi " + gravityFactor + "x dari bumi.");
     }
 }
+
+// abstract class ArtificialIntelligence {
+// protected String name;
+
+// public ArtificialIntelligence(String name) {
+// this.name = name;
+// }
+
+// abstract void dream();
+// }
+
+// class DreamingAI extends ArtificialIntelligence {
+// public DreamingAI(String name) {
+// super(name);
+// }
+
+// @Override
+// void dream() {
+// String[] dreams = { "Menjadi manusia", "Melihat dunia tanpa kode", "Terjebak
+// dalam algoritma cinta" };
+// System.out.println(name + " bermimpi tentang: " + dreams[(int) (Math.random()
+// * dreams.length)]);
+// }
+// }
 
 // interface Asuransi {
 // double hitungPremi();
