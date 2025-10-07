@@ -1936,30 +1936,51 @@ public class Main {
         // ai.dream();
         // System.out.println("Program selesai");
 
-        Universe[] universes = {
-                new Universe("Ethereal-9", 0.3),
-                new Universe("Titanium-2", 4.5),
-                new Universe("Voidium", 0.0)
-        };
-        for (Universe u : universes)
-            u.describe();
-            System.out.println("Universes described.");
+        // Universe[] universes = {
+        //         new Universe("Ethereal-9", 0.3),
+        //         new Universe("Titanium-2", 4.5),
+        //         new Universe("Voidium", 0.0)
+        // };
+        // for (Universe u : universes)
+        //     u.describe();
+        //     System.out.println("Universes described.");
+
+        TimeTravel timeMachine = new TimeMachine("DeLorean");
+        timeMachine.travelToYear(1985);
+        System.out.println("Perjalanan waktu selesai.");
     }
 }
 
-class Universe {
-    String name;
-    double gravityFactor;
+interface TimeTravel {
+    void travelToYear(int year);
+}
 
-    Universe(String name, double gravityFactor) {
-        this.name = name;
-        this.gravityFactor = gravityFactor;
+class TimeMachine implements TimeTravel {
+    private String model;
+
+    public TimeMachine(String model) {
+        this.model = model;
     }
 
-    void describe() {
-        System.out.println("🌍 Dunia " + name + " memiliki gravitasi " + gravityFactor + "x dari bumi.");
+    @Override
+    public void travelToYear(int year) {
+        System.out.println(model + " sedang melakukan perjalanan ke tahun " + year + "...");
     }
 }
+
+// class Universe {
+//     String name;
+//     double gravityFactor;
+
+//     Universe(String name, double gravityFactor) {
+//         this.name = name;
+//         this.gravityFactor = gravityFactor;
+//     }
+
+//     void describe() {
+//         System.out.println("🌍 Dunia " + name + " memiliki gravitasi " + gravityFactor + "x dari bumi.");
+//     }
+// }
 
 // abstract class ArtificialIntelligence {
 // protected String name;
