@@ -1937,49 +1937,76 @@ public class Main {
         // System.out.println("Program selesai");
 
         // Universe[] universes = {
-        //         new Universe("Ethereal-9", 0.3),
-        //         new Universe("Titanium-2", 4.5),
-        //         new Universe("Voidium", 0.0)
+        // new Universe("Ethereal-9", 0.3),
+        // new Universe("Titanium-2", 4.5),
+        // new Universe("Voidium", 0.0)
         // };
         // for (Universe u : universes)
-        //     u.describe();
-        //     System.out.println("Universes described.");
+        // u.describe();
+        // System.out.println("Universes described.");
 
-        TimeTravel timeMachine = new TimeMachine("DeLorean");
-        timeMachine.travelToYear(1985);
-        System.out.println("Perjalanan waktu selesai.");
+        // TimeTravel timeMachine = new TimeMachine("DeLorean");
+        // timeMachine.travelToYear(1985);
+        // System.out.println("Perjalanan waktu selesai.");
+
+        DigitalSoul data = new FileSpirit("File_007");
+        data.reincarnate();
+        System.out.println("Program selesai.");
     }
 }
 
-interface TimeTravel {
-    void travelToYear(int year);
+abstract class DigitalSoul {
+    String id;
+
+    DigitalSoul(String id) {
+        this.id = id;
+    }
+
+    abstract void reincarnate();
 }
 
-class TimeMachine implements TimeTravel {
-    private String model;
-
-    public TimeMachine(String model) {
-        this.model = model;
+class FileSpirit extends DigitalSoul {
+    FileSpirit(String id) {
+        super(id);
     }
 
     @Override
-    public void travelToYear(int year) {
-        System.out.println(model + " sedang melakukan perjalanan ke tahun " + year + "...");
+    void reincarnate() {
+        System.out.println("FileSpirit " + id + " bereinkarnasi menjadi hologram pengetahuan!");
     }
 }
 
+// interface TimeTravel {
+// void travelToYear(int year);
+// }
+
+// class TimeMachine implements TimeTravel {
+// private String model;
+
+// public TimeMachine(String model) {
+// this.model = model;
+// }
+
+// @Override
+// public void travelToYear(int year) {
+// System.out.println(model + " sedang melakukan perjalanan ke tahun " + year +
+// "...");
+// }
+// }
+
 // class Universe {
-//     String name;
-//     double gravityFactor;
+// String name;
+// double gravityFactor;
 
-//     Universe(String name, double gravityFactor) {
-//         this.name = name;
-//         this.gravityFactor = gravityFactor;
-//     }
+// Universe(String name, double gravityFactor) {
+// this.name = name;
+// this.gravityFactor = gravityFactor;
+// }
 
-//     void describe() {
-//         System.out.println("🌍 Dunia " + name + " memiliki gravitasi " + gravityFactor + "x dari bumi.");
-//     }
+// void describe() {
+// System.out.println("🌍 Dunia " + name + " memiliki gravitasi " +
+// gravityFactor + "x dari bumi.");
+// }
 // }
 
 // abstract class ArtificialIntelligence {
