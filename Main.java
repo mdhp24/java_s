@@ -1927,43 +1927,70 @@ public class Main {
         // k.tampilkanBarang();
         // System.out.println("Total Belanja: Rp" + k.hitungTotal());
 
-        Asuransi a1 = new AsuransiMobil(200000000);
-        Asuransi a2 = new AsuransiKesehatan(25);
-        System.out.println("Premi Asuransi Mobil: Rp" + a1.hitungPremi());
-        System.out.println("Premi Asuransi Kesehatan: Rp" + a2.hitungPremi());
+        // Asuransi a1 = new AsuransiMobil(200000000);
+        // Asuransi a2 = new AsuransiKesehatan(25);
+        // System.out.println("Premi Asuransi Mobil: Rp" + a1.hitungPremi());
+        // System.out.println("Premi Asuransi Kesehatan: Rp" + a2.hitungPremi());
+
+        ArtificialIntelligence ai = new DreamingAI("NeuroX");
+        ai.dream();
+        System.out.println("Program selesai");
+        
     }
 }
 
-interface Asuransi {
-    double hitungPremi();
+abstract class ArtificialIntelligence {
+    protected String name;
+
+    public ArtificialIntelligence(String name) {
+        this.name = name;
+    }
+
+    abstract void dream();
 }
 
-class AsuransiMobil implements Asuransi {
-    private double nilaiMobil;
-
-    public AsuransiMobil(double nilaiMobil) {
-        this.nilaiMobil = nilaiMobil;
+class DreamingAI extends ArtificialIntelligence {
+    public DreamingAI(String name) {
+        super(name);
     }
 
-    public double hitungPremi() {
-        return nilaiMobil * 0.05;
-    }
-}
-
-class AsuransiKesehatan implements Asuransi {
-    private int usia;
-
-    public AsuransiKesehatan(int usia) {
-        this.usia = usia;
-    }
-
-    public double hitungPremi() {
-        if (usia < 30)
-            return 300000;
-        else
-            return 500000;
+    @Override
+    void dream() {
+        String[] dreams = { "Menjadi manusia", "Melihat dunia tanpa kode", "Terjebak dalam algoritma cinta" };
+        System.out.println(name + " bermimpi tentang: " + dreams[(int) (Math.random() * dreams.length)]);
     }
 }
+
+// interface Asuransi {
+// double hitungPremi();
+// }
+
+// class AsuransiMobil implements Asuransi {
+// private double nilaiMobil;
+
+// public AsuransiMobil(double nilaiMobil) {
+// this.nilaiMobil = nilaiMobil;
+// }
+
+// public double hitungPremi() {
+// return nilaiMobil * 0.05;
+// }
+// }
+
+// class AsuransiKesehatan implements Asuransi {
+// private int usia;
+
+// public AsuransiKesehatan(int usia) {
+// this.usia = usia;
+// }
+
+// public double hitungPremi() {
+// if (usia < 30)
+// return 300000;
+// else
+// return 500000;
+// }
+// }
 
 // class Barang {
 // String nama;
