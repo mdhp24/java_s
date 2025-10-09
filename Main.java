@@ -1953,29 +1953,62 @@ public class Main {
         // data.reincarnate();
         // System.out.println("Program selesai.");
 
-        Mind m1 = new Mind("Kita adalah satu kesadaran...");
-        Mind m2 = new Mind("...");
-        m1.sendThought(m2);
-        m2.showThought();
+        // Mind m1 = new Mind("Kita adalah satu kesadaran...");
+        // Mind m2 = new Mind("...");
+        // m1.sendThought(m2);
+        // m2.showThought();
+
+        CyberOrganism bot = new CyberOrganism("XEN-09", 100);
+        bot.showStatus();
+        bot.evolve();
     }
 }
 
-class Mind {
-    String thoughts;
+abstract class DigitalBeing {
+    protected String name;
+    protected int energy;
 
-    Mind(String thoughts) {
-        this.thoughts = thoughts;
+    public DigitalBeing(String name, int energy) {
+        this.name = name;
+        this.energy = energy;
     }
 
-    void sendThought(Mind receiver) {
-        receiver.thoughts = this.thoughts;
-        System.out.println("🧠 Pikiran terkirim: \"" + thoughts + "\"");
-    }
+    abstract void evolve();
 
-    void showThought() {
-        System.out.println("Pikiran saat ini: " + thoughts);
+    public void showStatus() {
+        System.out.println(name + " memiliki energi " + energy);
     }
 }
+
+class CyberOrganism extends DigitalBeing {
+
+    public CyberOrganism(String name, int energy) {
+        super(name, energy);
+    }
+
+    @Override
+    void evolve() {
+        energy += 50;
+        System.out.println(name + " berevolusi menjadi versi superior dengan energi: " + energy);
+    }
+}
+
+// class Mind {
+// String thoughts;
+
+// Mind(String thoughts) {
+// this.thoughts = thoughts;
+// }
+
+// void sendThought(Mind receiver) {
+// receiver.thoughts = this.thoughts;
+// System.out.println("🧠 Pikiran terkirim: \"" + thoughts + "\"");
+// }
+
+// void showThought() {
+// System.out.println("Pikiran saat ini: " + thoughts);
+// }
+// }
 
 // abstract class DigitalSoul {
 // String id;
