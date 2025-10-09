@@ -1958,40 +1958,70 @@ public class Main {
         // m1.sendThought(m2);
         // m2.showThought();
 
-        CyberOrganism bot = new CyberOrganism("XEN-09", 100);
-        bot.showStatus();
-        bot.evolve();
+        // CyberOrganism bot = new CyberOrganism("XEN-09", 100);
+        // bot.showStatus();
+        // bot.evolve();
+
+        Planet p1 = new Planet("Zerion", 45);
+        Planet p2 = new Planet("Elara", 23);
+        p1.analyzeClimate();
+        p2.analyzeClimate();
     }
 }
 
-abstract class DigitalBeing {
-    protected String name;
-    protected int energy;
+interface WeatherAnalyzer {
+    void analyzeClimate();
+}
 
-    public DigitalBeing(String name, int energy) {
+class Planet implements WeatherAnalyzer {
+    private String name;
+    private double temperature;
+
+    public Planet(String name, double temperature) {
         this.name = name;
-        this.energy = energy;
-    }
-
-    abstract void evolve();
-
-    public void showStatus() {
-        System.out.println(name + " memiliki energi " + energy);
-    }
-}
-
-class CyberOrganism extends DigitalBeing {
-
-    public CyberOrganism(String name, int energy) {
-        super(name, energy);
+        this.temperature = temperature;
     }
 
     @Override
-    void evolve() {
-        energy += 50;
-        System.out.println(name + " berevolusi menjadi versi superior dengan energi: " + energy);
+    public void analyzeClimate() {
+        if (temperature > 40)
+            System.out.println("Planet " + name + " terlalu panas untuk kehidupan.");
+        else if (temperature < -20)
+            System.out.println("Planet " + name + " beku dan tidak bisa dihuni.");
+        else
+            System.out.println("Planet " + name + " memiliki iklim stabil dan layak huni.");
     }
 }
+
+// abstract class DigitalBeing {
+// protected String name;
+// protected int energy;
+
+// public DigitalBeing(String name, int energy) {
+// this.name = name;
+// this.energy = energy;
+// }
+
+// abstract void evolve();
+
+// public void showStatus() {
+// System.out.println(name + " memiliki energi " + energy);
+// }
+// }
+
+// class CyberOrganism extends DigitalBeing {
+
+// public CyberOrganism(String name, int energy) {
+// super(name, energy);
+// }
+
+// @Override
+// void evolve() {
+// energy += 50;
+// System.out.println(name + " berevolusi menjadi versi superior dengan energi:
+// " + energy);
+// }
+// }
 
 // class Mind {
 // String thoughts;
