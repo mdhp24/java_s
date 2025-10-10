@@ -1985,47 +1985,73 @@ public class Main {
         // robot.learn("Rekonstruksi Objek 3D");
         // robot.performTask();
 
-        Dimension d1 = new DarkDimension("Void-12", 88.4);
-        Dimension d2 = new LightDimension("Ethereal-7", 120.7);
-        d1.shift();
-        d2.shift();
-        System.out.println("Program selesai.");
+        // Dimension d1 = new DarkDimension("Void-12", 88.4);
+        // Dimension d2 = new LightDimension("Ethereal-7", 120.7);
+        // d1.shift();
+        // d2.shift();
+        // System.out.println("Program selesai.");
+
+        AntiMatterReactor reactor = new AntiMatterReactor(0.9);
+        reactor.activate();
+        System.out.println("Sistem reaktor selesai.");
     }
 }
 
-abstract class Dimension {
-    protected String name;
-    protected double energyLevel;
-
-    public Dimension(String name, double energyLevel) {
-        this.name = name;
-        this.energyLevel = energyLevel;
-    }
-
-    abstract void shift();
+interface EnergySource {
+    void activate();
 }
 
-class DarkDimension extends Dimension {
-    public DarkDimension(String name, double energyLevel) {
-        super(name, energyLevel);
+class AntiMatterReactor implements EnergySource {
+    private double stabilityLevel;
+
+    public AntiMatterReactor(double stabilityLevel) {
+        this.stabilityLevel = stabilityLevel;
     }
 
     @Override
-    void shift() {
-        System.out.println("Dimensi " + name + " bergeser dengan energi gelap " + energyLevel + " THz");
+    public void activate() {
+        if (stabilityLevel < 0.5)
+            System.out.println("⚠️ Reaktor tidak stabil! Ledakan terdeteksi!");
+        else
+            System.out.println("🔋 Reaktor antimateri aktif dengan stabilitas " + stabilityLevel);
     }
 }
 
-class LightDimension extends Dimension {
-    public LightDimension(String name, double energyLevel) {
-        super(name, energyLevel);
-    }
+// abstract class Dimension {
+// protected String name;
+// protected double energyLevel;
 
-    @Override
-    void shift() {
-        System.out.println("Dimensi " + name + " stabil dengan energi cahaya " + energyLevel + " lux");
-    }
-}
+// public Dimension(String name, double energyLevel) {
+// this.name = name;
+// this.energyLevel = energyLevel;
+// }
+
+// abstract void shift();
+// }
+
+// class DarkDimension extends Dimension {
+// public DarkDimension(String name, double energyLevel) {
+// super(name, energyLevel);
+// }
+
+// @Override
+// void shift() {
+// System.out.println("Dimensi " + name + " bergeser dengan energi gelap " +
+// energyLevel + " THz");
+// }
+// }
+
+// class LightDimension extends Dimension {
+// public LightDimension(String name, double energyLevel) {
+// super(name, energyLevel);
+// }
+
+// @Override
+// void shift() {
+// System.out.println("Dimensi " + name + " stabil dengan energi cahaya " +
+// energyLevel + " lux");
+// }
+// }
 
 // class AdaptiveRobot {
 // private String id;
