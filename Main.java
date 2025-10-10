@@ -1967,23 +1967,60 @@ public class Main {
         // p1.analyzeClimate();
         // p2.analyzeClimate();
 
-        AlienTranslator translator = new AlienTranslator();
-        String original = "halo dunia paralel";
-        System.out.println("Pesan Asli: " + original);
-        System.out.println("Terjemahan Alien: " + translator.translate(original));
+        // AlienTranslator translator = new AlienTranslator();
+        // String original = "halo dunia paralel";
+        // System.out.println("Pesan Asli: " + original);
+        // System.out.println("Terjemahan Alien: " + translator.translate(original));
+
+        NeuralNode[] nodes = {
+                new NeuralNode("A1", 2.5),
+                new NeuralNode("B3", 4.7),
+                new NeuralNode("C9", 3.9)
+        };
+        NeuralNetwork net = new NeuralNetwork(nodes);
+        net.activateNetwork();
     }
 }
 
-interface Translator {
-    String translate(String message);
-}
+class NeuralNode {
+    private String id;
+    private double signalStrength;
 
-class AlienTranslator implements Translator {
-    @Override
-    public String translate(String message) {
-        return message.replaceAll("a", "ξ").replaceAll("e", "ψ").toUpperCase();
+    public NeuralNode(String id, double signalStrength) {
+        this.id = id;
+        this.signalStrength = signalStrength;
+    }
+
+    public void processSignal() {
+        System.out.println("Node " + id + " memproses sinyal dengan kekuatan " + signalStrength + " volt.");
     }
 }
+
+class NeuralNetwork {
+    private NeuralNode[] nodes;
+
+    public NeuralNetwork(NeuralNode[] nodes) {
+        this.nodes = nodes;
+    }
+
+    public void activateNetwork() {
+        System.out.println("🧠 Mengaktifkan jaringan neural...");
+        for (NeuralNode node : nodes) {
+            node.processSignal();
+        }
+    }
+}
+
+// interface Translator {
+// String translate(String message);
+// }
+
+// class AlienTranslator implements Translator {
+// @Override
+// public String translate(String message) {
+// return message.replaceAll("a", "ξ").replaceAll("e", "ψ").toUpperCase();
+// }
+// }
 
 // interface WeatherAnalyzer {
 // void analyzeClimate();
