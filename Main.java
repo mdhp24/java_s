@@ -1972,44 +1972,69 @@ public class Main {
         // System.out.println("Pesan Asli: " + original);
         // System.out.println("Terjemahan Alien: " + translator.translate(original));
 
-        NeuralNode[] nodes = {
-                new NeuralNode("A1", 2.5),
-                new NeuralNode("B3", 4.7),
-                new NeuralNode("C9", 3.9)
-        };
-        NeuralNetwork net = new NeuralNetwork(nodes);
-        net.activateNetwork();
+        // NeuralNode[] nodes = {
+        // new NeuralNode("A1", 2.5),
+        // new NeuralNode("B3", 4.7),
+        // new NeuralNode("C9", 3.9)
+        // };
+        // NeuralNetwork net = new NeuralNetwork(nodes);
+        // net.activateNetwork();
+
+        AdaptiveRobot robot = new AdaptiveRobot("XR-23");
+        robot.learn("Analisis Data");
+        robot.learn("Rekonstruksi Objek 3D");
+        robot.performTask();
     }
 }
 
-class NeuralNode {
+class AdaptiveRobot {
     private String id;
-    private double signalStrength;
+    private int experienceLevel;
 
-    public NeuralNode(String id, double signalStrength) {
+    public AdaptiveRobot(String id) {
         this.id = id;
-        this.signalStrength = signalStrength;
+        this.experienceLevel = 0;
     }
 
-    public void processSignal() {
-        System.out.println("Node " + id + " memproses sinyal dengan kekuatan " + signalStrength + " volt.");
-    }
-}
-
-class NeuralNetwork {
-    private NeuralNode[] nodes;
-
-    public NeuralNetwork(NeuralNode[] nodes) {
-        this.nodes = nodes;
+    public void learn(String task) {
+        experienceLevel++;
+        System.out.println(id + " mempelajari " + task + " (Level pengalaman: " + experienceLevel + ")");
     }
 
-    public void activateNetwork() {
-        System.out.println("🧠 Mengaktifkan jaringan neural...");
-        for (NeuralNode node : nodes) {
-            node.processSignal();
-        }
+    public void performTask() {
+        System.out.println(id + " menjalankan tugas dengan efisiensi " + (experienceLevel * 10) + "%");
     }
 }
+
+// class NeuralNode {
+// private String id;
+// private double signalStrength;
+
+// public NeuralNode(String id, double signalStrength) {
+// this.id = id;
+// this.signalStrength = signalStrength;
+// }
+
+// public void processSignal() {
+// System.out.println("Node " + id + " memproses sinyal dengan kekuatan " +
+// signalStrength + " volt.");
+// }
+// }
+
+// class NeuralNetwork {
+// private NeuralNode[] nodes;
+
+// public NeuralNetwork(NeuralNode[] nodes) {
+// this.nodes = nodes;
+// }
+
+// public void activateNetwork() {
+// System.out.println("🧠 Mengaktifkan jaringan neural...");
+// for (NeuralNode node : nodes) {
+// node.processSignal();
+// }
+// }
+// }
 
 // interface Translator {
 // String translate(String message);
