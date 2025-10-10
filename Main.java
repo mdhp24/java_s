@@ -1962,36 +1962,53 @@ public class Main {
         // bot.showStatus();
         // bot.evolve();
 
-        Planet p1 = new Planet("Zerion", 45);
-        Planet p2 = new Planet("Elara", 23);
-        p1.analyzeClimate();
-        p2.analyzeClimate();
+        // Planet p1 = new Planet("Zerion", 45);
+        // Planet p2 = new Planet("Elara", 23);
+        // p1.analyzeClimate();
+        // p2.analyzeClimate();
+
+        AlienTranslator translator = new AlienTranslator();
+        String original = "halo dunia paralel";
+        System.out.println("Pesan Asli: " + original);
+        System.out.println("Terjemahan Alien: " + translator.translate(original));
     }
 }
 
-interface WeatherAnalyzer {
-    void analyzeClimate();
+interface Translator {
+    String translate(String message);
 }
 
-class Planet implements WeatherAnalyzer {
-    private String name;
-    private double temperature;
-
-    public Planet(String name, double temperature) {
-        this.name = name;
-        this.temperature = temperature;
-    }
-
+class AlienTranslator implements Translator {
     @Override
-    public void analyzeClimate() {
-        if (temperature > 40)
-            System.out.println("Planet " + name + " terlalu panas untuk kehidupan.");
-        else if (temperature < -20)
-            System.out.println("Planet " + name + " beku dan tidak bisa dihuni.");
-        else
-            System.out.println("Planet " + name + " memiliki iklim stabil dan layak huni.");
+    public String translate(String message) {
+        return message.replaceAll("a", "ξ").replaceAll("e", "ψ").toUpperCase();
     }
 }
+
+// interface WeatherAnalyzer {
+// void analyzeClimate();
+// }
+
+// class Planet implements WeatherAnalyzer {
+// private String name;
+// private double temperature;
+
+// public Planet(String name, double temperature) {
+// this.name = name;
+// this.temperature = temperature;
+// }
+
+// @Override
+// public void analyzeClimate() {
+// if (temperature > 40)
+// System.out.println("Planet " + name + " terlalu panas untuk kehidupan.");
+// else if (temperature < -20)
+// System.out.println("Planet " + name + " beku dan tidak bisa dihuni.");
+// else
+// System.out.println("Planet " + name + " memiliki iklim stabil dan layak
+// huni.");
+// }
+// }
 
 // abstract class DigitalBeing {
 // protected String name;
