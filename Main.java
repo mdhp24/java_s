@@ -1980,31 +1980,73 @@ public class Main {
         // NeuralNetwork net = new NeuralNetwork(nodes);
         // net.activateNetwork();
 
-        AdaptiveRobot robot = new AdaptiveRobot("XR-23");
-        robot.learn("Analisis Data");
-        robot.learn("Rekonstruksi Objek 3D");
-        robot.performTask();
+        // AdaptiveRobot robot = new AdaptiveRobot("XR-23");
+        // robot.learn("Analisis Data");
+        // robot.learn("Rekonstruksi Objek 3D");
+        // robot.performTask();
+
+        Dimension d1 = new DarkDimension("Void-12", 88.4);
+        Dimension d2 = new LightDimension("Ethereal-7", 120.7);
+        d1.shift();
+        d2.shift();
+        System.out.println("Program selesai.");
     }
 }
 
-class AdaptiveRobot {
-    private String id;
-    private int experienceLevel;
+abstract class Dimension {
+    protected String name;
+    protected double energyLevel;
 
-    public AdaptiveRobot(String id) {
-        this.id = id;
-        this.experienceLevel = 0;
+    public Dimension(String name, double energyLevel) {
+        this.name = name;
+        this.energyLevel = energyLevel;
     }
 
-    public void learn(String task) {
-        experienceLevel++;
-        System.out.println(id + " mempelajari " + task + " (Level pengalaman: " + experienceLevel + ")");
+    abstract void shift();
+}
+
+class DarkDimension extends Dimension {
+    public DarkDimension(String name, double energyLevel) {
+        super(name, energyLevel);
     }
 
-    public void performTask() {
-        System.out.println(id + " menjalankan tugas dengan efisiensi " + (experienceLevel * 10) + "%");
+    @Override
+    void shift() {
+        System.out.println("Dimensi " + name + " bergeser dengan energi gelap " + energyLevel + " THz");
     }
 }
+
+class LightDimension extends Dimension {
+    public LightDimension(String name, double energyLevel) {
+        super(name, energyLevel);
+    }
+
+    @Override
+    void shift() {
+        System.out.println("Dimensi " + name + " stabil dengan energi cahaya " + energyLevel + " lux");
+    }
+}
+
+// class AdaptiveRobot {
+// private String id;
+// private int experienceLevel;
+
+// public AdaptiveRobot(String id) {
+// this.id = id;
+// this.experienceLevel = 0;
+// }
+
+// public void learn(String task) {
+// experienceLevel++;
+// System.out.println(id + " mempelajari " + task + " (Level pengalaman: " +
+// experienceLevel + ")");
+// }
+
+// public void performTask() {
+// System.out.println(id + " menjalankan tugas dengan efisiensi " +
+// (experienceLevel * 10) + "%");
+// }
+// }
 
 // class NeuralNode {
 // private String id;
