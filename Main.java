@@ -2029,37 +2029,58 @@ public class Main {
         // System.out.println("Error: " + e.getMessage());
         // }
 
-        Jurusan j = new Jurusan("Teknologi Informasi");
-        MahasiswaJurusan m = new MahasiswaJurusan("Dicky", j);
-        m.tampilkanInfo();
+        // Jurusan j = new Jurusan("Teknologi Informasi");
+        // MahasiswaJurusan m = new MahasiswaJurusan("Dicky", j);
+        // m.tampilkanInfo();
+
+        DatabaseConnection db1 = DatabaseConnection.getInstance();
+        DatabaseConnection db2 = DatabaseConnection.getInstance();
+
+        System.out.println("Apakah sama instance? " + (db1 == db2));
     }
 }
 
-class Jurusan {
-    private String namaJurusan;
+class DatabaseConnection {
+    private static DatabaseConnection instance;
 
-    public Jurusan(String namaJurusan) {
-        this.namaJurusan = namaJurusan;
+    private DatabaseConnection() {
+        System.out.println("Koneksi database berhasil dibuat!");
     }
 
-    public String getNamaJurusan() {
-        return namaJurusan;
-    }
-}
-
-class MahasiswaJurusan {
-    private String nama;
-    private Jurusan jurusan;
-
-    public MahasiswaJurusan(String nama, Jurusan jurusan) {
-        this.nama = nama;
-        this.jurusan = jurusan;
-    }
-
-    public void tampilkanInfo() {
-        System.out.println(nama + " berasal dari jurusan " + jurusan.getNamaJurusan());
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
     }
 }
+
+// class Jurusan {
+// private String namaJurusan;
+
+// public Jurusan(String namaJurusan) {
+// this.namaJurusan = namaJurusan;
+// }
+
+// public String getNamaJurusan() {
+// return namaJurusan;
+// }
+// }
+
+// class MahasiswaJurusan {
+// private String nama;
+// private Jurusan jurusan;
+
+// public MahasiswaJurusan(String nama, Jurusan jurusan) {
+// this.nama = nama;
+// this.jurusan = jurusan;
+// }
+
+// public void tampilkanInfo() {
+// System.out.println(nama + " berasal dari jurusan " +
+// jurusan.getNamaJurusan());
+// }
+// }
 
 // class Pembayaran {
 // public void bayarSPP(double jumlah) throws Exception {
