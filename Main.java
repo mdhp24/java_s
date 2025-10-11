@@ -2015,43 +2015,60 @@ public class Main {
         // d.tampilkanInfo();
         // System.out.println("Program selesai");
 
-        Pembelajaran p1 = new KelasOnline();
-        Pembelajaran p2 = new KelasOffline();
+        // Pembelajaran p1 = new KelasOnline();
+        // Pembelajaran p2 = new KelasOffline();
 
-        p1.mulaiKelas();
-        p2.mulaiKelas();
+        // p1.mulaiKelas();
+        // p2.mulaiKelas();
+
+        Pembayaran p = new Pembayaran();
+        try {
+            p.bayarSPP(500000);
+            p.bayarSPP(-200000);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
 
-interface Pembelajaran {
-    void mulaiKelas();
-
-    void selesaiKelas();
-}
-
-class KelasOnline implements Pembelajaran {
-    @Override
-    public void mulaiKelas() {
-        System.out.println("Kelas online dimulai melalui Zoom.");
-    }
-
-    @Override
-    public void selesaiKelas() {
-        System.out.println("Kelas online telah selesai.");
+class Pembayaran {
+    public void bayarSPP(double jumlah) throws Exception {
+        if (jumlah < 0) {
+            throw new Exception("Jumlah tidak valid!");
+        }
+        System.out.println("Pembayaran sebesar " + jumlah + " berhasil.");
     }
 }
 
-class KelasOffline implements Pembelajaran {
-    @Override
-    public void mulaiKelas() {
-        System.out.println("Kelas offline dimulai di ruang TI-301.");
-    }
+// interface Pembelajaran {
+// void mulaiKelas();
 
-    @Override
-    public void selesaiKelas() {
-        System.out.println("Kelas offline telah selesai.");
-    }
-}
+// void selesaiKelas();
+// }
+
+// class KelasOnline implements Pembelajaran {
+// @Override
+// public void mulaiKelas() {
+// System.out.println("Kelas online dimulai melalui Zoom.");
+// }
+
+// @Override
+// public void selesaiKelas() {
+// System.out.println("Kelas online telah selesai.");
+// }
+// }
+
+// class KelasOffline implements Pembelajaran {
+// @Override
+// public void mulaiKelas() {
+// System.out.println("Kelas offline dimulai di ruang TI-301.");
+// }
+
+// @Override
+// public void selesaiKelas() {
+// System.out.println("Kelas offline telah selesai.");
+// }
+// }
 
 // class Dosen {
 // private String nama;
