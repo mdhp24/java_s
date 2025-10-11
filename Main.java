@@ -1991,31 +1991,78 @@ public class Main {
         // d2.shift();
         // System.out.println("Program selesai.");
 
-        AntiMatterReactor reactor = new AntiMatterReactor(0.9);
-        reactor.activate();
-        System.out.println("Sistem reaktor selesai.");
+        // AntiMatterReactor reactor = new AntiMatterReactor(0.9);
+        // reactor.activate();
+        // System.out.println("Sistem reaktor selesai.");
+
+        Mahasiswa m1 = new MahasiswaAktif("Dicky", "23420001");
+        Mahasiswa m2 = new MahasiswaCuti("Rama", "23420002");
+
+        m1.info();
+        m1.tampilkanAktivitas();
+        m2.info();
+        m2.tampilkanAktivitas();
     }
 }
 
-interface EnergySource {
-    void activate();
+abstract class Mahasiswa {
+    protected String nama;
+    protected String nim;
+
+    public Mahasiswa(String nama, String nim) {
+        this.nama = nama;
+        this.nim = nim;
+    }
+
+    public abstract void tampilkanAktivitas();
+
+    public void info() {
+        System.out.println("Nama: " + nama + ", NIM: " + nim);
+    }
 }
 
-class AntiMatterReactor implements EnergySource {
-    private double stabilityLevel;
-
-    public AntiMatterReactor(double stabilityLevel) {
-        this.stabilityLevel = stabilityLevel;
+class MahasiswaAktif extends Mahasiswa {
+    public MahasiswaAktif(String nama, String nim) {
+        super(nama, nim);
     }
 
     @Override
-    public void activate() {
-        if (stabilityLevel < 0.5)
-            System.out.println("⚠️ Reaktor tidak stabil! Ledakan terdeteksi!");
-        else
-            System.out.println("🔋 Reaktor antimateri aktif dengan stabilitas " + stabilityLevel);
+    public void tampilkanAktivitas() {
+        System.out.println(nama + " sedang mengikuti perkuliahan.");
     }
 }
+
+class MahasiswaCuti extends Mahasiswa {
+    public MahasiswaCuti(String nama, String nim) {
+        super(nama, nim);
+    }
+
+    @Override
+    public void tampilkanAktivitas() {
+        System.out.println(nama + " sedang cuti akademik.");
+    }
+}
+
+// interface EnergySource {
+// void activate();
+// }
+
+// class AntiMatterReactor implements EnergySource {
+// private double stabilityLevel;
+
+// public AntiMatterReactor(double stabilityLevel) {
+// this.stabilityLevel = stabilityLevel;
+// }
+
+// @Override
+// public void activate() {
+// if (stabilityLevel < 0.5)
+// System.out.println("⚠️ Reaktor tidak stabil! Ledakan terdeteksi!");
+// else
+// System.out.println("🔋 Reaktor antimateri aktif dengan stabilitas " +
+// stabilityLevel);
+// }
+// }
 
 // abstract class Dimension {
 // protected String name;
