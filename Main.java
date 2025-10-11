@@ -2021,24 +2021,54 @@ public class Main {
         // p1.mulaiKelas();
         // p2.mulaiKelas();
 
-        Pembayaran p = new Pembayaran();
-        try {
-            p.bayarSPP(500000);
-            p.bayarSPP(-200000);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        // Pembayaran p = new Pembayaran();
+        // try {
+        // p.bayarSPP(500000);
+        // p.bayarSPP(-200000);
+        // } catch (Exception e) {
+        // System.out.println("Error: " + e.getMessage());
+        // }
+
+        Jurusan j = new Jurusan("Teknologi Informasi");
+        MahasiswaJurusan m = new MahasiswaJurusan("Dicky", j);
+        m.tampilkanInfo();
     }
 }
 
-class Pembayaran {
-    public void bayarSPP(double jumlah) throws Exception {
-        if (jumlah < 0) {
-            throw new Exception("Jumlah tidak valid!");
-        }
-        System.out.println("Pembayaran sebesar " + jumlah + " berhasil.");
+class Jurusan {
+    private String namaJurusan;
+
+    public Jurusan(String namaJurusan) {
+        this.namaJurusan = namaJurusan;
+    }
+
+    public String getNamaJurusan() {
+        return namaJurusan;
     }
 }
+
+class MahasiswaJurusan {
+    private String nama;
+    private Jurusan jurusan;
+
+    public MahasiswaJurusan(String nama, Jurusan jurusan) {
+        this.nama = nama;
+        this.jurusan = jurusan;
+    }
+
+    public void tampilkanInfo() {
+        System.out.println(nama + " berasal dari jurusan " + jurusan.getNamaJurusan());
+    }
+}
+
+// class Pembayaran {
+// public void bayarSPP(double jumlah) throws Exception {
+// if (jumlah < 0) {
+// throw new Exception("Jumlah tidak valid!");
+// }
+// System.out.println("Pembayaran sebesar " + jumlah + " berhasil.");
+// }
+// }
 
 // interface Pembelajaran {
 // void mulaiKelas();
