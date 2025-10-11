@@ -1995,53 +1995,79 @@ public class Main {
         // reactor.activate();
         // System.out.println("Sistem reaktor selesai.");
 
-        Mahasiswa m1 = new MahasiswaAktif("Dicky", "23420001");
-        Mahasiswa m2 = new MahasiswaCuti("Rama", "23420002");
+        // Mahasiswa m1 = new MahasiswaAktif("Dicky", "23420001");
+        // Mahasiswa m2 = new MahasiswaCuti("Rama", "23420002");
 
-        m1.info();
-        m1.tampilkanAktivitas();
-        m2.info();
-        m2.tampilkanAktivitas();
+        // m1.info();
+        // m1.tampilkanAktivitas();
+        // m2.info();
+        // m2.tampilkanAktivitas();
+
+        Penilaian p1 = new NilaiTeori();
+        Penilaian p2 = new NilaiPraktikum();
+
+        System.out.println("Nilai teori: " + p1.hitungNilai(80, 90, 70));
+        System.out.println("Nilai praktikum: " + p2.hitungNilai(80, 90, 70));
     }
 }
 
-abstract class Mahasiswa {
-    protected String nama;
-    protected String nim;
-
-    public Mahasiswa(String nama, String nim) {
-        this.nama = nama;
-        this.nim = nim;
-    }
-
-    public abstract void tampilkanAktivitas();
-
-    public void info() {
-        System.out.println("Nama: " + nama + ", NIM: " + nim);
+class Penilaian {
+    public double hitungNilai(double a, double b, double c) {
+        return (a + b + c) / 3;
     }
 }
 
-class MahasiswaAktif extends Mahasiswa {
-    public MahasiswaAktif(String nama, String nim) {
-        super(nama, nim);
-    }
-
+class NilaiTeori extends Penilaian {
     @Override
-    public void tampilkanAktivitas() {
-        System.out.println(nama + " sedang mengikuti perkuliahan.");
+    public double hitungNilai(double a, double b, double c) {
+        return (a * 0.5) + (b * 0.3) + (c * 0.2);
     }
 }
 
-class MahasiswaCuti extends Mahasiswa {
-    public MahasiswaCuti(String nama, String nim) {
-        super(nama, nim);
-    }
-
+class NilaiPraktikum extends Penilaian {
     @Override
-    public void tampilkanAktivitas() {
-        System.out.println(nama + " sedang cuti akademik.");
+    public double hitungNilai(double a, double b, double c) {
+        return (a * 0.2) + (b * 0.4) + (c * 0.4);
     }
 }
+
+// abstract class Mahasiswa {
+// protected String nama;
+// protected String nim;
+
+// public Mahasiswa(String nama, String nim) {
+// this.nama = nama;
+// this.nim = nim;
+// }
+
+// public abstract void tampilkanAktivitas();
+
+// public void info() {
+// System.out.println("Nama: " + nama + ", NIM: " + nim);
+// }
+// }
+
+// class MahasiswaAktif extends Mahasiswa {
+// public MahasiswaAktif(String nama, String nim) {
+// super(nama, nim);
+// }
+
+// @Override
+// public void tampilkanAktivitas() {
+// System.out.println(nama + " sedang mengikuti perkuliahan.");
+// }
+// }
+
+// class MahasiswaCuti extends Mahasiswa {
+// public MahasiswaCuti(String nama, String nim) {
+// super(nama, nim);
+// }
+
+// @Override
+// public void tampilkanAktivitas() {
+// System.out.println(nama + " sedang cuti akademik.");
+// }
+// }
 
 // interface EnergySource {
 // void activate();
