@@ -2009,39 +2009,76 @@ public class Main {
         // System.out.println("Nilai teori: " + p1.hitungNilai(80, 90, 70));
         // System.out.println("Nilai praktikum: " + p2.hitungNilai(80, 90, 70));
 
-        Dosen d = new Dosen("Pak Budi", "112233", 5000000);
-        d.tampilkanInfo();
-        d.setGaji(5500000);
-        d.tampilkanInfo();
-        System.out.println("Program selesai");
+        // Dosen d = new Dosen("Pak Budi", "112233", 5000000);
+        // d.tampilkanInfo();
+        // d.setGaji(5500000);
+        // d.tampilkanInfo();
+        // System.out.println("Program selesai");
+
+        Pembelajaran p1 = new KelasOnline();
+        Pembelajaran p2 = new KelasOffline();
+
+        p1.mulaiKelas();
+        p2.mulaiKelas();
     }
 }
 
-class Dosen {
-    private String nama;
-    private String nidn;
-    private double gaji;
+interface Pembelajaran {
+    void mulaiKelas();
 
-    public Dosen(String nama, String nidn, double gaji) {
-        this.nama = nama;
-        this.nidn = nidn;
-        this.gaji = gaji;
+    void selesaiKelas();
+}
+
+class KelasOnline implements Pembelajaran {
+    @Override
+    public void mulaiKelas() {
+        System.out.println("Kelas online dimulai melalui Zoom.");
     }
 
-    public String getNama() {
-        return nama;
-    }
-
-    public void setGaji(double gaji) {
-        if (gaji > 0) {
-            this.gaji = gaji;
-        }
-    }
-
-    public void tampilkanInfo() {
-        System.out.println("Dosen: " + nama + " (NIDN: " + nidn + "), Gaji: " + gaji);
+    @Override
+    public void selesaiKelas() {
+        System.out.println("Kelas online telah selesai.");
     }
 }
+
+class KelasOffline implements Pembelajaran {
+    @Override
+    public void mulaiKelas() {
+        System.out.println("Kelas offline dimulai di ruang TI-301.");
+    }
+
+    @Override
+    public void selesaiKelas() {
+        System.out.println("Kelas offline telah selesai.");
+    }
+}
+
+// class Dosen {
+// private String nama;
+// private String nidn;
+// private double gaji;
+
+// public Dosen(String nama, String nidn, double gaji) {
+// this.nama = nama;
+// this.nidn = nidn;
+// this.gaji = gaji;
+// }
+
+// public String getNama() {
+// return nama;
+// }
+
+// public void setGaji(double gaji) {
+// if (gaji > 0) {
+// this.gaji = gaji;
+// }
+// }
+
+// public void tampilkanInfo() {
+// System.out.println("Dosen: " + nama + " (NIDN: " + nidn + "), Gaji: " +
+// gaji);
+// }
+// }
 
 // class Penilaian {
 // public double hitungNilai(double a, double b, double c) {
