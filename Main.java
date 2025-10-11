@@ -2003,33 +2003,65 @@ public class Main {
         // m2.info();
         // m2.tampilkanAktivitas();
 
-        Penilaian p1 = new NilaiTeori();
-        Penilaian p2 = new NilaiPraktikum();
+        // Penilaian p1 = new NilaiTeori();
+        // Penilaian p2 = new NilaiPraktikum();
 
-        System.out.println("Nilai teori: " + p1.hitungNilai(80, 90, 70));
-        System.out.println("Nilai praktikum: " + p2.hitungNilai(80, 90, 70));
+        // System.out.println("Nilai teori: " + p1.hitungNilai(80, 90, 70));
+        // System.out.println("Nilai praktikum: " + p2.hitungNilai(80, 90, 70));
+
+        Dosen d = new Dosen("Pak Budi", "112233", 5000000);
+        d.tampilkanInfo();
+        d.setGaji(5500000);
+        d.tampilkanInfo();
+        System.out.println("Program selesai");
     }
 }
 
-class Penilaian {
-    public double hitungNilai(double a, double b, double c) {
-        return (a + b + c) / 3;
+class Dosen {
+    private String nama;
+    private String nidn;
+    private double gaji;
+
+    public Dosen(String nama, String nidn, double gaji) {
+        this.nama = nama;
+        this.nidn = nidn;
+        this.gaji = gaji;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setGaji(double gaji) {
+        if (gaji > 0) {
+            this.gaji = gaji;
+        }
+    }
+
+    public void tampilkanInfo() {
+        System.out.println("Dosen: " + nama + " (NIDN: " + nidn + "), Gaji: " + gaji);
     }
 }
 
-class NilaiTeori extends Penilaian {
-    @Override
-    public double hitungNilai(double a, double b, double c) {
-        return (a * 0.5) + (b * 0.3) + (c * 0.2);
-    }
-}
+// class Penilaian {
+// public double hitungNilai(double a, double b, double c) {
+// return (a + b + c) / 3;
+// }
+// }
 
-class NilaiPraktikum extends Penilaian {
-    @Override
-    public double hitungNilai(double a, double b, double c) {
-        return (a * 0.2) + (b * 0.4) + (c * 0.4);
-    }
-}
+// class NilaiTeori extends Penilaian {
+// @Override
+// public double hitungNilai(double a, double b, double c) {
+// return (a * 0.5) + (b * 0.3) + (c * 0.2);
+// }
+// }
+
+// class NilaiPraktikum extends Penilaian {
+// @Override
+// public double hitungNilai(double a, double b, double c) {
+// return (a * 0.2) + (b * 0.4) + (c * 0.4);
+// }
+// }
 
 // abstract class Mahasiswa {
 // protected String nama;
